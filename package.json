@@ -1,0 +1,29 @@
+{
+  "name": "element-plus-mo",
+  "displayName": "Element Plus Mo",
+  "description": "Code snippets for Element-Plus",
+  "version": "0.0.1",
+  "publisher": "momomomowei",
+  "icon": "img/icon.png",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.46.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/momomomowei/element-plus-mo.git"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "path": "./src/snippets/snippets.code-snippets"
+      },
+      {
+        "path": "./src/snippets/element-ui.code-snippets"
+      }
+    ]
+  }
+}

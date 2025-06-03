@@ -1,0 +1,34 @@
+{
+  "name": "element-plus-mo",
+  "displayName": "Element Plus Mo",
+  "description": "Code snippets for Element-Plus which is a Vue.js 3.0 UI Toolkit for Web",
+  "version": "0.0.1",
+  "publisher": "momomomowei",
+  "icon": "img/icon.png",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.46.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "activationEvents": [
+    "onLanguage:vue",
+    "onLanguage:html"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "snippets": [
+      {
+        "path": "./src/snippets/snippets.code-snippets"
+      },
+      {
+        "path": "./src/snippets/element-ui.code-snippets"
+      }
+    ]
+  }
+}

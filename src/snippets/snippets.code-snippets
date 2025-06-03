@@ -1,0 +1,26 @@
+{
+  "template": {
+    "scope": "vue,html,vue-html",
+    "prefix": "tem",
+    "body": ["<template>", "${1}", "</template>"],
+    "description": "template"
+  },
+  "vue3-ts-结构代码": {
+    "scope": "vue,html,vue-html",
+    "prefix": "vbase",
+    "body": [
+      "<template>",
+      "  <div>init</div>",
+      "</template>",
+      "\t",
+      "<script lang='ts' setup>",
+      "import { ref } from 'vue'",
+      "\t",
+      "</script>",
+      "\t",
+      "<style lang='scss' scoped></style>",
+      "\t"
+    ],
+    "description": "vue3-ts-结构代码"
+  }
+}
