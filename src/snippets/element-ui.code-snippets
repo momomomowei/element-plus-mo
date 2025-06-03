@@ -1,6 +1,5 @@
 {
-  "Basic: Layout el-row": {
-    "scope": "vue,html,vue-html",
+  "Layout el-row": {
     "prefix": "eprow",
     "body": [
       "<el-row :gutter=\"20\">",
@@ -12,11 +11,10 @@
       "\t</el-col>",
       "</el-row>"
     ],
-    "description": "element-plus <el-row> with <el-col>"
+    "description": "<el-row> with <el-col>"
   },
 
-  "Basic: Container el-container": {
-    "scope": "vue,html,vue-html",
+  "Container el-container": {
     "prefix": "epcon",
     "body": [
       "<el-container :direction=\"${1:vertical}\">",
@@ -39,68 +37,60 @@
       "</el-container>",
       "${12}"
     ],
-    "description": "element-plus <el-container>"
+    "description": "<el-container>"
   },
-  "Basic: Border Basic Shadow": {
-    "scope": "vue,html,vue-html",
+  "Border Basic Shadow": {
     "prefix": "epbs",
     "body": ["box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);"],
-    "description": "element-plus Border Basic Shadow"
+    "description": "Border Basic Shadow"
   },
-  "Basic: Border Light Shadow": {
-    "scope": "vue,html,vue-html",
+  "Border Light Shadow": {
     "prefix": "epbs",
     "body": ["box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);"],
-    "description": "element-plus Border Light Shadow"
+    "description": "Border Light Shadow"
   },
-  "Basic: Button": {
-    "scope": "vue,html,vue-html",
+  "Button": {
     "prefix": "epb",
     "body": [
-      "<el-button type=\"${1|primary,text,info,success,warning,danger|}\" size=\"${2|default,large,small|}\" @click=\"$3\">${4:Content}</el-button>",
+      "<el-button type=\"${1|primary,text,info,success,warning,danger|}\" size=\"${2|default,large,small|}\" @click=\"${3:handleClick}\">${4:确认}</el-button>",
       "${5}"
     ],
-    "description": "element-plus <el-button>"
+    "description": "<el-button>"
   },
 
-  "Basic: Button Group": {
-    "scope": "vue,html,vue-html",
+  "Button Group": {
     "prefix": "epbg",
     "body": [
       "<el-button-group>",
-      "\t<el-button type=\"${1|primary,text,info,success,warning,danger|}\" size=\"${2|default,large,small|}\" @click=\"$3\">${4:Content}</el-button>",
-      "\t<el-button type=\"${5|primary,text,info,success,warning,danger|}\" size=\"${2|default,large,small|}\" @click=\"$6\">${7:Content}</el-button>",
+      "\t<el-button type=\"${1|primary,text,info,success,warning,danger|}\" size=\"${2|default,large,small|}\" @click=\"${3:handleCancel}\">${4:取消}</el-button>",
+      "\t<el-button type=\"${5|primary,text,info,success,warning,danger|}\" size=\"${2|default,large,small|}\" @click=\"${6:handleConfirm}\">${7:确认}</el-button>",
       "</el-button-group>",
       "${8}"
     ],
-    "description": "element-plus <el-button-group>"
+    "description": "<el-button-group>"
   },
 
-  "Basic: Link": {
-    "scope": "vue,html,vue-html",
+  "Link": {
     "prefix": "epl",
     "body": [
       "<el-link type=\"${1|primary,success,warning,danger,info|}\" :underline=\"${2:false}\" href=\"${3}\" target=\"${4:_blank}\">${5:Content}</el-link>",
       "${6}"
     ],
-    "description": "element-plus <el-button>"
+    "description": "<el-button>"
   },
 
-  "Form 表单组件 Radio": {
-    "scope": "vue,html,vue-html",
+  "Radio": {
     "prefix": "epr",
     "body": ["<el-radio v-model=\"${1:}\" label=\"${2}\" value=\"${3}\" />"],
-    "description": "element-plus <el-radio>"
+    "description": "<el-radio>"
   },
 
-  "Form 表单组件 Radio Button": {
-    "scope": "vue,html,vue-html",
+  "Radio Button": {
     "prefix": "eprb",
     "body": ["<el-radio-button v-model=\"${1:}\" label=\"${2}\" value=\"${3}\" />"],
-    "description": "element-plus <el-radio-button>"
+    "description": "<el-radio-button>"
   },
-  "Form 表单组件 Radio Group": {
-    "scope": "vue,html,vue-html",
+  "Radio Group": {
     "prefix": "eprg",
     "body": [
       "<el-radio-group v-model=\"value\" @change=\"change\">",
@@ -125,23 +115,20 @@
       "}",
       "-->"
     ],
-    "description": "element-plus <el-radio-group> with <el-radio>"
+    "description": "<el-radio-group> with <el-radio>"
   },
 
-  "Form 表单组件 Checkbox": {
-    "scope": "vue,html,vue-html",
+  "Checkbox": {
     "prefix": "epc",
     "body": ["<el-checkbox v-model=\"${1}\" label=\"${2}\" value=\"${3}\" />"],
-    "description": "element-plus <el-checkbox>"
+    "description": "<el-checkbox>"
   },
-  "Form 表单组件 Checkbox Button": {
-    "scope": "vue,html,vue-html",
+  "Checkbox Button": {
     "prefix": "epcbt",
     "body": ["<el-checkbox-button v-model=\"${1}\" label=\"${2}\" value=\"${3}\" />"],
-    "description": "element-plus <el-checkbox-button>"
+    "description": "<el-checkbox-button>"
   },
-  "Form 表单组件 Checkbox Group": {
-    "scope": "vue,html,vue-html",
+  "Checkbox Group": {
     "prefix": "epcg",
     "body": [
       "<el-checkbox-group v-model=\"selectCheck\" @change=\"checkChange\">",
@@ -166,33 +153,29 @@
       "}",
       "-->"
     ],
-    "description": "element-plus <el-checkbox-group> with <el-checkbox>"
+    "description": "<el-checkbox-group> with <el-checkbox>"
   },
 
-  "Form 表单组件 Input": {
-    "scope": "vue,html,vue-html",
+  "Input": {
     "prefix": "epi",
     "body": ["<el-input v-model=\"$1\" placeholder=\"请输入\" clearable />"],
-    "description": "element-plus <el-input>"
+    "description": "<el-input>"
   },
-  "Form 表单组件 Textarea": {
-    "scope": "vue,html,vue-html",
+  "Textarea": {
     "prefix": "epit",
     "body": [
       "<el-input type=\"textarea\" v-model=\"$1\" placeholder=\"请输入\" ",
       "\t:maxlength=\"100\" show-word-limit :autosize=\"{ minRows: 2, maxRows: 4 }\" />"
     ],
-    "description": "element-plus <el-input type=\"text,textarea\">"
+    "description": "<el-input type=\"text,textarea\">"
   },
-  "Form 表单组件 Input Slot": {
-    "scope": "vue,html,vue-html",
+  "Input Slot": {
     "prefix": "epis",
     "body": ["<template #\"${1|prefix,suffix,prepend,append|}\">$2</template>", "${3}"],
-    "description": "element-plus <template slot=''>"
+    "description": "<template slot=''>"
   },
 
-  "Form 表单组件 Autocomplete": {
-    "scope": "vue,html,vue-html",
+  "Autocomplete": {
     "prefix": "epa",
     "body": [
       "<el-autocomplete",
@@ -224,11 +207,10 @@
       "}",
       "-->"
     ],
-    "description": "element-plus <el-autocomplete>"
+    "description": "<el-autocomplete>"
   },
 
-  "Form 表单组件 InputNumber": {
-    "scope": "vue,html,vue-html",
+  "InputNumber": {
     "prefix": "epin",
     "body": [
       "<el-input-number v-model=\"$1\" size=\"${2|default,large,small|}\"",
@@ -236,11 +218,10 @@
       "</el-input-number>",
       "${10}"
     ],
-    "description": "element-plus <el-input-number>"
+    "description": "<el-input-number>"
   },
 
-  "Form 表单组件 Select": {
-    "scope": "vue,html,vue-html",
+  "Select": {
     "prefix": "epsel",
     "body": [
       "<el-select",
@@ -272,18 +253,16 @@
       "}",
       "-->"
     ],
-    "description": "element-plus <el-select>"
+    "description": "<el-select>"
   },
 
-  "Form 表单组件 Select Option": {
-    "scope": "vue,html,vue-html",
+  "Select Option": {
     "prefix": "epop",
     "body": ["<el-option :key=\"$1\" :label=\"$2\" :value=\"$3\"></el-option>", "${3}"],
-    "description": "element-plus <el-option>"
+    "description": "<el-option>"
   },
 
-  "Form 表单组件 Select Option Group": {
-    "scope": "vue,html,vue-html",
+  "Select Option Group": {
     "prefix": "epopg",
     "body": [
       "<el-option-group v-for=\"${1:group} in ${2:options}\"",
@@ -297,11 +276,10 @@
       "<el-option-group>",
       "${10}"
     ],
-    "description": "element-plus <el-option-group>"
+    "description": "<el-option-group>"
   },
 
-  "Form 表单组件 Cascader": {
-    "scope": "vue,html,vue-html",
+  "Cascader": {
     "prefix": "epca",
     "body": [
       "<el-cascader",
@@ -338,11 +316,10 @@
       "}",
       "-->"
     ],
-    "description": "element-plus <el-cascader>"
+    "description": "<el-cascader>"
   },
 
-  "Form 表单组件 Switch": {
-    "scope": "vue,html,vue-html",
+  "Switch": {
     "prefix": "epsw",
     "body": [
       "<el-switch",
@@ -359,11 +336,10 @@
       "}",
       "-->"
     ],
-    "description": "element-plus <el-switch>"
+    "description": "<el-switch>"
   },
 
-  "Form 表单组件 Slider": {
-    "scope": "vue,html,vue-html",
+  "Slider": {
     "prefix": "epsl",
     "body": [
       "<el-slider",
@@ -381,11 +357,10 @@
       "}",
       "-->"
     ],
-    "description": "element-plus <el-slider>"
+    "description": "<el-slider>"
   },
 
-  "Form 表单组件 Time Select": {
-    "scope": "vue,html,vue-html",
+  "Time Select": {
     "prefix": "epts",
     "body": [
       "<el-time-select",
@@ -404,11 +379,10 @@
       "}",
       "-->"
     ],
-    "description": "element-plus <el-time-select>"
+    "description": "<el-time-select>"
   },
 
-  "Form 表单组件 Time Select Range": {
-    "scope": "vue,html,vue-html",
+  "Time Select Range": {
     "prefix": "eptsr",
     "body": [
       "<el-space>",
@@ -439,11 +413,10 @@
       "const endTime = ref('')",
       "-->"
     ],
-    "description": "element-plus <el-time-select> range"
+    "description": "<el-time-select> range"
   },
 
-  "Form 表单组件 TimePicker": {
-    "scope": "vue,html,vue-html",
+  "TimePicker": {
     "prefix": "eptp",
     "body": [
       "<el-time-picker",
@@ -452,21 +425,19 @@
       "\t placeholder=\"任意时间点\"",
       "\t></el-time-picker>"
     ],
-    "description": "element-plus <el-time-picker>"
+    "description": "<el-time-picker>"
   },
 
-  "Form 表单组件 TimePicker Range": {
-    "scope": "vue,html,vue-html",
+  "TimePicker Range": {
     "prefix": "eptpr",
     "body": [
       "<el-time-picker v-model=\"$1\" size=\"${2|default,large,small|}\"",
       "\tis-range range-separator=\"${3:-}\" start-placeholder=\"$4\" end-placeholder=\"$5\"  />"
     ],
-    "description": "element-plus <el-time-picker is-range>"
+    "description": "<el-time-picker is-range>"
   },
 
-  "Form 表单组件 DatePicker": {
-    "scope": "vue,html,vue-html",
+  "DatePicker": {
     "prefix": "epdp",
     "body": [
       "<el-date-picker",
@@ -476,11 +447,10 @@
       "\t placeholder=\"选择日期时间\"",
       "\t/>"
     ],
-    "description": "element-plus <el-date-picker>"
+    "description": "<el-date-picker>"
   },
 
-  "Form 表单组件 DatePicker Range": {
-    "scope": "vue,html,vue-html",
+  "DatePicker Range": {
     "prefix": "epdpr",
     "body": [
       "<el-date-picker",
@@ -491,11 +461,10 @@
       "\t end-placeholder=\"结束时间\"",
       "\t/>"
     ],
-    "description": "element-plus <el-date-picker>"
+    "description": "<el-date-picker>"
   },
 
-  "Form 表单组件 DateTimePicker": {
-    "scope": "vue,html,vue-html",
+  "DateTimePicker": {
     "prefix": "epdtp",
     "body": [
       "<el-date-picker",
@@ -505,11 +474,10 @@
       "\t placeholder=\"选择日期时间\"",
       "\t/>"
     ],
-    "description": "element-plus <el-date-picker>"
+    "description": "<el-date-picker>"
   },
 
-  "Form 表单组件 Upload": {
-    "scope": "vue,html,vue-html",
+  "Upload": {
     "prefix": "epu",
     "body": [
       "<el-upload",
@@ -551,11 +519,10 @@
       "}",
       "-->"
     ],
-    "description": "element-plus <el-upload>"
+    "description": "<el-upload>"
   },
 
-  "Form 表单组件 Rate": {
-    "scope": "vue,html,vue-html",
+  "Rate": {
     "prefix": "epra",
     "body": [
       "<el-rate",
@@ -565,26 +532,24 @@
       "\t :colors=\"['#99A9BF', '#F7BA2A', '#FF9900']\"",
       "\t/>"
     ],
-    "description": "element-plus <el-rate>"
+    "description": "<el-rate>"
   },
 
-  "Form 表单组件 ColorPicker": {
-    "scope": "vue,html,vue-html",
+  "ColorPicker": {
     "prefix": "epcp",
     "body": [
       "<el-color-picker v-model=\"$1\" size=\"${2|default,large,small|}\" :show-alpha=\"${3|true,false|}\" ></el-color-picker>",
       "${4}"
     ],
-    "description": "element-plus <el-color-picker>"
+    "description": "<el-color-picker>"
   },
 
-  "Form 表单组件 Form": {
-    "scope": "vue,html,vue-html",
+  "Form": {
     "prefix": "epf",
     "body": [
       "<el-form ref=\"formRef\" :model=\"form\" :rules=\"rules\" label-width=\"80px\">",
       "\t<el-form-item label=\"Username\" prop=\"username\">",
-      "\t\t<el-input v-model=\"form.username\"></el-input>",
+      "\t\t<el-input v-model=\"form.username\" placeholder=\"请输入活动名称\" />",
       "\t</el-form-item>",
       "\t<el-form-item>",
       "\t\t<div style=\"width: 100%; display: flex; justify-content: flex-end\">",
@@ -596,35 +561,40 @@
       "",
       "<!--",
       "const formRef = ref()",
-      "const form = ref({",
+      "const = ref({",
       "\tusername: ''",
       "})",
-      "const rules = markRaw({",
-      "\tname: [",
+      "const rules = {",
+      "\tusername: [",
       "\t\t{ required: true, message: '请输入活动名称', trigger: 'blur' },",
       "\t\t{ min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }",
       "\t]",
-      "})",
+      "}",
       "const handleCancel = () => {",
       "\tconsole.log('cancel')",
+      "\tformRef.value?.clearValidate()",
       "}",
       "const handleConform = () => {",
-      "\tconsole.log('confirm')",
+      "\tformRef.value?.validate((valid) => {",
+      "\t\tif (valid) {",
+      "\t\t\tconsole.log('success')",
+      "\t\t} else {",
+      "\t\t\tconsole.log('error')",
+      "\t\t}",
+      "\t})",
       "}",
       "-->"
     ],
-    "description": "element-plus <el-form>"
+    "description": "<el-form>"
   },
 
-  "Form 表单组件 Form Item": {
-    "scope": "vue,html,vue-html",
+  "FormItem": {
     "prefix": "epfi",
     "body": ["<el-form-item label=\"$1\" prop=\"$2\" >", "\t$3", "</el-form-item>"],
-    "description": "element-plus <el-form-item>"
+    "description": "<el-form-item>"
   },
 
-  "数据展示: Table": {
-    "scope": "vue,html,vue-html",
+  "Table": {
     "prefix": "ept",
     "body": [
       "<el-table :data=\"tableData\" border stripe>",
@@ -643,37 +613,33 @@
       "const columns = ref([{ id: 1, prop: 'username', label: 'Username', width: '100' }])",
       "-->"
     ],
-    "description": "element-plus <el-table>"
+    "description": "<el-table>"
   },
-  "数据展示: Table Column": {
-    "scope": "vue,html,vue-html",
+  "Table Column": {
     "prefix": "eptc",
     "body": ["<el-table-column label=\"${1}\" prop=\"${1}\"></el-table-column>"],
-    "description": "element-plus <el-table-column>"
+    "description": "<el-table-column>"
   },
 
-  "数据展示: Tag": {
-    "scope": "vue,html,vue-html",
+  "Tag": {
     "prefix": "epta",
     "body": [
       "<el-tag type=\"${1|danger,info,success,warning|}\" size=\"${2|default,large,small|}\"  effect=\"${3|dark,plain|}\" closable @close=\"${4}\">$5</el-tag>",
       "${6}"
     ],
-    "description": "element-plus <el-tag>"
+    "description": "<el-tag>"
   },
 
-  "数据展示: Progress": {
-    "scope": "vue,html,vue-html",
+  "Progress": {
     "prefix": "eppr",
     "body": [
       "<el-progress type=\"${1|line,circle,dashboard|}\" :percentage=\"$2\" status=\"${3|success,exception,warning|}\" :stroke-width=\"${4:6}\"></el-progress>",
       "${5}"
     ],
-    "description": "element-plus <el-progress>"
+    "description": "<el-progress>"
   },
 
-  "数据展示: Tree": {
-    "scope": "vue,html,vue-html",
+  "Tree": {
     "prefix": "eptree",
     "body": [
       "<el-tree",
@@ -692,11 +658,10 @@
       "const treeData = ref([])",
       "-->"
     ],
-    "description": "element-plus <el-tree>"
+    "description": "<el-tree>"
   },
 
-  "数据展示: Pagination": {
-    "scope": "vue,html,vue-html",
+  "Pagination": {
     "prefix": "epp",
     "body": [
       "<div style=\"margin-top: 20px; display: flex; justify-content: center\"> ",
@@ -728,11 +693,10 @@
       "} ",
       "-->"
     ],
-    "description": "element-plus <el-pagination>"
+    "description": "<el-pagination>"
   },
 
-  "数据展示: Badge": {
-    "scope": "vue,html,vue-html",
+  "Badge": {
     "prefix": "epba",
     "body": [
       "<el-badge :value=\"${1}\" :max=\"${2:99}\" :is-dot=\"${3|false,true|}\" :hidden=\"${4|false,true|}\" type=\"${5|primary,success,warning,danger,info|}\">",
@@ -740,31 +704,28 @@
       "</el-badge>",
       "${7}"
     ],
-    "description": "element-plus <el-badge>"
+    "description": "<el-badge>"
   },
 
-  "数据展示: Avatar": {
-    "scope": "vue,html,vue-html",
+  "Avatar": {
     "prefix": "epav",
     "body": [
       "<el-avatar icon=\"el-icon-user-solid\" size=\"${1|large,medium,small|}\" shape=\"${2|circle,square|}\" :src=\"${3}\" fit=\"${4|fill,contain,cover,none,scale-down|}\"></el-avatar>",
       "${5}"
     ],
-    "description": "element-plus <el-avatar>"
+    "description": "<el-avatar>"
   },
 
-  "Notice: Alert": {
-    "scope": "vue,html,vue-html",
+  "Alert": {
     "prefix": "epal",
     "body": [
       "<el-alert :title=\"$1\" type=\"${2|info,success,warning,error|}\" effect=\"${3|light,dark|}\" show-icon closable></el-alert>",
       "${4}"
     ],
-    "description": "element-plus <el-alert>"
+    "description": "<el-alert>"
   },
 
-  "Notice: Loading": {
-    "scope": "vue,html,vue-html",
+  "Loading": {
     "prefix": "eploads",
     "body": [
       "element-loading-text=\"${1:拼命加载中}\"",
@@ -772,10 +733,9 @@
       "element-loading-background=\"${3:rgba(0, 0, 0, 0.8)}\"",
       "${4}"
     ],
-    "description": "element-plus loading options"
+    "description": "loading options"
   },
-  "Navigation: NavMenu Menu": {
-    "scope": "vue,html,vue-html",
+  "NavMenu Menu": {
     "prefix": "epmen",
     "body": [
       "<el-menu mode=\"${1|horizontal,vertical|}\" default-active=\"$2\" @select=\"$3\">",
@@ -792,11 +752,10 @@
       "</el-menu>",
       "${14}"
     ],
-    "description": "element-plus <el-menu> with <el-submenu> and <el-menu-item>"
+    "description": "<el-menu> with <el-submenu> and <el-menu-item>"
   },
 
-  "Navigation: NavMenu subMenu": {
-    "scope": "vue,html,vue-html",
+  "NavMenu subMenu": {
     "prefix": "epsubmen",
     "body": [
       "<el-sub-menu :index=\"$1\">",
@@ -809,18 +768,16 @@
       "</el-submenu>",
       "${8}"
     ],
-    "description": "element-plus <el-submenu> with <el-menu-item>"
+    "description": "<el-submenu> with <el-menu-item>"
   },
 
-  "Navigation: NavMenu Menu Item": {
-    "scope": "vue,html,vue-html",
+  "NavMenu Menu Item": {
     "prefix": "epmeni",
     "body": ["<el-menu-item index=\"$1\" key=\"$2\">$3</el-menu-item>", "${4}"],
-    "description": "element-plus <el-menu-item>"
+    "description": "<el-menu-item>"
   },
 
-  "Navigation: Tabs": {
-    "scope": "vue,html,vue-html",
+  "Tabs": {
     "prefix": "eptabs",
     "body": [
       "<el-tabs v-model=\"$1\" type=\"${2|card,border-card,normal|}\" tab-position=\"${3|top,left,right,bottom|}\" @tab-click=\"$4\">",
@@ -833,11 +790,10 @@
       "</el-tabs>",
       "${10}"
     ],
-    "description": "element-plus <el-tabs> with <el-tab-pane>"
+    "description": "<el-tabs> with <el-tab-pane>"
   },
 
-  "Navigation: Breadcrumb": {
-    "scope": "vue,html,vue-html",
+  "Breadcrumb": {
     "prefix": "epbr",
     "body": [
       "<el-breadcrumb separator-class=\"${1:el-icon-arrow-right}\">",
@@ -846,17 +802,15 @@
       "</el-breadcrumb>",
       "${8}"
     ],
-    "description": "element-plus <el-breadcrumb>"
+    "description": "<el-breadcrumb>"
   },
-  "Navigation: PageHeader": {
-    "scope": "vue,html,vue-html",
+  "PageHeader": {
     "prefix": "eppa",
     "body": ["<el-page-header @back=\"$1\" content=\"$2\"></el-page-header>", "${3}"],
-    "description": "element-plus <el-page-header>"
+    "description": "<el-page-header>"
   },
 
-  "Navigation: Dropdown": {
-    "scope": "vue,html,vue-html",
+  "Dropdown": {
     "prefix": "epdr",
     "body": [
       "<el-dropdown ",
@@ -890,11 +844,10 @@
       "} ",
       "-->"
     ],
-    "description": "element-plus <el-dropdown> with <el-dropdown-item>"
+    "description": "<el-dropdown> with <el-dropdown-item>"
   },
 
-  "Navigation: Steps": {
-    "scope": "vue,html,vue-html",
+  "Steps": {
     "prefix": "epsts",
     "body": [
       "<el-steps :active=\"$1\" direction=\"${2|horizontal,vertical|}\" process-status=\"${3|wait,process,finish,error,success|}\" finish-status=\"${4|wait,process,finish,error,success|}\">",
@@ -907,13 +860,50 @@
       "</el-steps>",
       "${11}"
     ],
-    "description": "element-plus <el-steps> with <el-step>"
+    "description": "<el-steps> with <el-step>"
   },
 
-  "Others: Dialog": {
-    "scope": "vue,html,vue-html",
+  "Drawer": {
+    "prefix": "epdra",
+    "body": [
+      "<el-button @click=\"handleClick\">打开弹窗</el-button> ",
+      "",
+      "<el-drawer v-model=\"drawerShow\" direction=\"rtl\"> ",
+      "\t <template #header> ",
+      "\t\t <h4>标题区域自定义</h4> ",
+      "\t </template> ",
+      "\t <template #default> ",
+      "\t\t <el-button>取消</el-button> ",
+      "\t\t <el-button>确认</el-button> ",
+      "\t </template> ",
+      "\t <template #footer> ",
+      "\t\t <div style=\"flex: auto\"> ",
+      "\t\t\t <el-button @click=\"cancelClick\">取消</el-button> ",
+      "\t\t\t <el-button type=\"primary\" @click=\"confirmClick\">确认</el-button> ",
+      "\t\t </div> ",
+      "\t </template> ",
+      "</el-drawer> ",
+      "",
+      "<!-- ",
+      "const drawerShow = ref(false) ",
+      "const cancelClick = () => { ",
+      "\t drawerShow.value = false ",
+      "} ",
+      "const confirmClick = () => { ",
+      "\t drawerShow.value = false ",
+      "} ",
+      "const handleClick = () => { ",
+      "\t drawerShow.value = true ",
+      "} ",
+      "-->"
+    ],
+    "description": "<el-steps> with <el-step>"
+  },
+
+  "Dialog": {
     "prefix": "epdi",
     "body": [
+      "<el-button @click=\"handleOpen\">打开弹窗</el-button>",
       "<el-dialog ",
       "\t title=\"标题\" ",
       "\t v-model=\"dialogShow\" ",
@@ -940,60 +930,92 @@
       "const handleConfirm = () => { ",
       "\t dialogShow.value = false ",
       "} ",
+      "const handleOpen = () => { ",
+      "\t dialogShow.value = true ",
+      "} ",
       "-->"
     ],
-    "description": "element-plus <el-dialog>"
+    "description": "<el-dialog>"
   },
-  "Others: Tooltip": {
-    "scope": "vue,html,vue-html",
-    "prefix": "epto",
+  "ElMessage": {
+    "prefix": "epme",
+    "body": ["ElMessage.success('${1}')"],
+    "description": "ElMessage"
+  },
+  "ElMessageBox": {
+    "prefix": "epme",
     "body": [
-      "<el-tooltip content=\"$1\" placement=\"${2|top,top-start,top-end,bottom,bottom-start,bottom-end,left,left-start,left-end,right,right-start,right-end|}\" effect=\"${3|dark,light|}\">",
-      "\t${4:<!-- <el-button>trigger</el-button> -->}",
-      "</el-tooltip>",
-      "${5}"
+      "ElMessageBox.confirm('<p style=\"color:red;\">提示内容</p>', '操作提示', {",
+      "\tdangerouslyUseHTMLString: true,",
+      "\tconfirmButtonText: '确定',",
+      "\tcancelButtonText: '取消',",
+      "\ttype: 'warning',",
+      "\tcustomClass: 'confirm-class', // 写在没有scope的style生效",
+      "}).then(() => {",
+      "\t",
+      "}).catch(() => {",
+      "\t",
+      "})"
     ],
-    "description": "element-plus <el-tooltip>"
+    "description": "ElMessageBox"
   },
-  "Others: Popover": {
-    "scope": "vue,html,vue-html",
-    "prefix": "eppo",
+  "ElNotification": {
+    "prefix": "epno",
     "body": [
-      "<el-popover",
-      "\tplacement=\"${2|top,top-start,top-end,bottom,bottom-start,bottom-end,left,left-start,left-end,right,right-start,right-end|}\"",
-      "\ttitle=\"${3:Title}\"",
-      "\twidth=\"$4\"",
-      "\ttrigger=\"${5|click,focus,hover,manual|}\"",
-      "\tcontent=\"$6\">",
-      "\t${7: <!-- <template #reference><el-button>content</el-button></template> -->}",
-      "</el-popover>",
-      "${8}"
+      "ElNotification({",
+      "\t title: '操作提示',",
+      "\t message: '${1:提示内容}',",
+      "\t duration: ${2:3000}",
+      "})"
     ],
-    "description": "element-plus <el-popover>"
+    "description": "ElNotification"
   },
-
-  "Others: Popconfirm": {
-    "scope": "vue,html,vue-html",
+  "Popconfirm": {
     "prefix": "eppoco",
     "body": [
       "<el-popconfirm",
-      "\ttitle=\"${1:Title}\"",
+      "\ttitle=\"${1:标题}\"",
       "\tconfirmButtonText=\"${2:确认}\"",
       "\tcancelButtonText=\"${3:取消}\"",
       "\tconfirmButtonType=\"${4|primary,text,info,success,warning,danger|}\"",
       "\tcancelButtonType=\"${5|text,primary,info,success,warning,danger|}\"",
       "\ticon=\"${6:el-icon-question}\"",
       "\ticonColor=\"${7:#f90}\"",
-      "\thideIcon=\"${8|false,true|}\">",
-      "\t<template #reference><el-button>$9</el-button></template>",
+      "\t:hideIcon=\"${8|false,true|}\">",
+      "\t<template #reference>",
+      "\t\t<el-button>内容</el-button>",
+      "\t</template>",
       "</el-popconfirm>",
       "${10}"
     ],
-    "description": "element-plus <el-popconfirm>"
+    "description": "<el-popconfirm>"
   },
-
-  "Others: Card": {
-    "scope": "vue,html,vue-html",
+  "Popover": {
+    "prefix": "eppo",
+    "body": [
+      "<el-popover",
+      "\tplacement=\"${2|top,top-start,top-end,bottom,bottom-start,bottom-end,left,left-start,left-end,right,right-start,right-end|}\"",
+      "\ttitle=\"${3:标题}\"",
+      "\twidth=\"$4\"",
+      "\ttrigger=\"${5|click,focus,hover,manual|}\"",
+      "\tcontent=\"$6\">",
+      "\t${7:<template #reference><el-button>内容</el-button></template>}",
+      "</el-popover>",
+      "${8}"
+    ],
+    "description": "<el-popover>"
+  },
+  "Tooltip": {
+    "prefix": "epto",
+    "body": [
+      "<el-tooltip content=\"$1\" placement=\"${2|top,top-start,top-end,bottom,bottom-start,bottom-end,left,left-start,left-end,right,right-start,right-end|}\" effect=\"${3|dark,light|}\">",
+      "\t${4:<el-button>内容</el-button>}",
+      "</el-tooltip>",
+      "${5}"
+    ],
+    "description": "<el-tooltip>"
+  },
+  "Card": {
     "prefix": "epcard",
     "body": [
       "<el-card shadow=\"${1|always,hover,never|}\" :body-style=\"${2:{ padding: '20px' }}\">",
@@ -1006,11 +1028,10 @@
       "</el-card>",
       "${5}"
     ],
-    "description": "element-plus <el-card>"
+    "description": "<el-card>"
   },
 
-  "Others: Carousel": {
-    "scope": "vue,html,vue-html",
+  "Carousel": {
     "prefix": "epcaro",
     "body": [
       "<el-carousel height=\"${1:150px}\" type=\"${2|default,card|}\" direction=\"${3|horizontal,vertical|}\"",
@@ -1022,10 +1043,9 @@
       "</el-carousel>",
       "${16}"
     ],
-    "description": "element-plus <el-carousel> with <el-carousel-item>"
+    "description": "<el-carousel> with <el-carousel-item>"
   },
-  "Others: Collapse": {
-    "scope": "vue,html,vue-html",
+  "Collapse": {
     "prefix": "epcolla",
     "body": [
       "<el-collapse v-model=\"${1:activeNames}\" :accordion=\"${2:false}\" @change=\"$3\">",
@@ -1038,11 +1058,10 @@
       "</el-collapse>",
       "${9}"
     ],
-    "description": "element-plus <el-collapse> with <el-collapse-item>"
+    "description": "<el-collapse> with <el-collapse-item>"
   },
 
-  "Others: Collapse Timeline": {
-    "scope": "vue,html,vue-html",
+  "Collapse Timeline": {
     "prefix": "epti",
     "body": [
       "<el-timeline :reverse=\"$1\">",
@@ -1057,51 +1076,46 @@
       "</el-timeline>",
       "${10}"
     ],
-    "description": "element-plus <el-timeline> with <el-timeline-item>"
+    "description": "<el-timeline> with <el-timeline-item>"
   },
 
-  "Others: Divider": {
-    "scope": "vue,html,vue-html",
+  "Divider": {
     "prefix": "epd",
     "body": [
-      "<el-divider direction=\"${1|horizontal,vertical|}\" content-position=\"${2|left,right,center|}\">$3</el-divider>",
+      "<el-divider direction=\"${1|horizontal,vertical|}\" content-position=\"${2|center,left,right|}\">$3</el-divider>",
       "${4}"
     ],
-    "description": "element-plus <el-divider>"
+    "description": "<el-divider>"
   },
 
-  "Others: Calendar": {
-    "scope": "vue,html,vue-html",
+  "Calendar": {
     "prefix": "epcal",
     "body": [
       "<el-calendar v-model=\"${1}\" :first-day-of-week=\"${2:1}\"></el-calendar>",
       "${3}"
     ],
-    "description": "element-plus <el-calendar>"
+    "description": "<el-calendar>"
   },
 
-  "Others: Image": {
-    "scope": "vue,html,vue-html",
+  "Image": {
     "prefix": "epim",
     "body": [
       "<el-image :src=\"${1}\" fit=\"${2|fill,contain,cover,none,scale-down|}\" :lazy=\"${3|true,false|}\"></el-image>",
       "${4}"
     ],
-    "description": "element-plus <el-image>"
+    "description": "<el-image>"
   },
 
-  "Others: Backtop": {
-    "scope": "vue,html,vue-html",
+  "Backtop": {
     "prefix": "epback",
     "body": [
       "<el-backtop :target=\"${1}\" :right=\"${2:40}\" :bottom=\"${3:40}\">$4</el-backtop>",
       "${5}"
     ],
-    "description": "element-plus <el-backtop>"
+    "description": "<el-backtop>"
   },
 
-  "Others: InfiniteScroll": {
-    "scope": "vue,html,vue-html",
+  "InfiniteScroll": {
     "prefix": "epinfi",
     "body": [
       "v-infinite-scroll=\"${1}\"",
@@ -1110,6 +1124,6 @@
       ":infinite-scroll-disabled=\"${4|false,true|}\"",
       ":infinite-scroll-immediate=\"${5|true,false|}\""
     ],
-    "description": "element-plus v-infinite-scroll"
+    "description": "v-infinite-scroll"
   }
 }

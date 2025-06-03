@@ -1,26 +1,262 @@
 {
-  "template": {
-    "scope": "vue,html,vue-html",
-    "prefix": "tem",
-    "body": ["<template>", "${1}", "</template>"],
-    "description": "template"
+  "import from 导入": {
+    "body": ["import ${2} from '${1:module}';"],
+    "prefix": "im"
   },
-  "vue3-ts-结构代码": {
-    "scope": "vue,html,vue-html",
-    "prefix": "vbase",
+  "export default 默认导出": {
+    "body": ["export default ${1}"],
+    "prefix": "exd"
+  },
+  "export 导出": {
+    "body": ["export ${1}"],
+    "prefix": "ex"
+  },
+  "default 默认": {
+    "body": ["default ${1}"],
+    "prefix": "de"
+  },
+  "Math.floor(Math.random()*(max-min+1)+min);": {
+    "body": ["// Math.floor(Math.random() * (max - min + 1) + min)"],
+    "prefix": "random"
+  },
+  "debounce 防抖函数": {
     "body": [
-      "<template>",
-      "  <div>init</div>",
-      "</template>",
-      "\t",
-      "<script lang='ts' setup>",
-      "import { ref } from 'vue'",
-      "\t",
-      "</script>",
-      "\t",
-      "<style lang='scss' scoped></style>",
-      "\t"
+      "// 连续点击最后一次生效",
+      "// 调用方法debounce(this.handleClick, 2000)()",
+      "function debounce(fun, time) {",
+      "\tlet timer",
+      "\treturn function () {",
+      "\t\tclearTimeout(timer)",
+      "\t\tlet args = arguments",
+      "\t\ttimer = setTimeout(() => {",
+      "\t\t\tfun.apply(this, args)",
+      "\t\t}, time)",
+      "\t}",
+      "}"
     ],
-    "description": "vue3-ts-结构代码"
+    "prefix": "debounce"
+  },
+  "throttle 节流函数": {
+    "body": [
+      "// 一定时间内执行的次数",
+      "// 调用方法throttle(this.handleClick, 2000)()",
+      "function throttle(fun, time) {",
+      "\tlet t1 = 0",
+      "\treturn function () {",
+      "\t\tlet t2 = new Date().getTime()",
+      "\t\tif (t2 - t1 > time) {",
+      "\t\t\tt1 = t2",
+      "\t\t\treturn fun.apply(this, arguments)",
+      "\t\t}",
+      "\t}",
+      "}"
+    ],
+    "prefix": "throttle"
+  },
+  "validate 自定义校验规则": {
+    "body": [
+      "const validatePassword = (rule, value, callback) => {",
+      "\tif (value === '') {",
+      "\t\tcallback(new Error('请输入密码'))",
+      "\t} else {",
+      "\t\tcallback()",
+      "\t}",
+      "}",
+      "// { validator: validatePassword, trigger: 'blur' }"
+    ],
+    "prefix": "validate"
+  },
+  "rules 校验规则": {
+    "body": [
+      "const rules = {",
+      "\tname: [",
+      "\t\t{ required: true, message: '请输入活动名称', trigger: 'blur' },",
+      "\t\t{ min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }",
+      "\t]",
+      "}"
+    ],
+    "prefix": "rules"
+  },
+  "$nextTick 更新": {
+    "body": ["nextTick(() => {", "\t${1}", "})"],
+    "prefix": "nextTick"
+  },
+  "ElMessage.success 弹窗消息": {
+    "body": ["ElMessage.success('${1}')"],
+    "prefix": "elme"
+  },
+  "ElMessageBox.confirm 确认/取消弹窗": {
+    "body": [
+      "ElMessageBox.confirm('<p style=\"color:red;\">提示内容</p>', '操作提示', {",
+      "\tdangerouslyUseHTMLString: true,",
+      "\tconfirmButtonText: '确定',",
+      "\tcancelButtonText: '取消',",
+      "\ttype: 'warning',",
+      "\tcustomClass: 'confirm-class', // 需要写在没有scope的style里面才会生效",
+      "}).then(() => {",
+      "\t",
+      "}).catch(() => {",
+      "\t",
+      "})"
+    ],
+    "prefix": "elme"
+  },
+  "Promise 代码块": {
+    "body": ["Promise((resolve, reject) => {", "\t$1", "})"],
+    "prefix": "pro"
+  },
+  ".then .catch 代码块": {
+    "body": [".then((res) => {", "\t$1", "}).catch((err) => {", "\t", "})"],
+    "prefix": ".then"
+  },
+  "vite 跨域（vite.config.js）": {
+    "body": [
+      "// vite.config.js，axios不需要baseURL",
+      "export default defineConfig({",
+      "\tserver: {",
+      "\t\thost: 'localhost', // 设置启动项目网址",
+      "\t\tport: 8080, // 设置启动项目端口号",
+      "\t\thttps: false, // 是否使用https协议",
+      "\t\topen: false, // 设置是否自动打开浏览器",
+      "\t\tproxy: {",
+      "\t\t\t'/api': {",
+      "\t\t\ttarget: '${1:后台请求地址}',",
+      "\t\t\tchangeOrigin: true, //允许跨域",
+      "\t\t\trewrite: path => path.replace(/^\\/api/, '')",
+      "\t\t\t},",
+      "\t\t},",
+      "\t},",
+      "})",
+      ""
+    ],
+    "prefix": "kuayu"
+  },
+  "router 懒加载": {
+    "body": ["component: () => import('@/views/${1:文件名}.vue')"],
+    "prefix": "lan"
+  },
+  "axios 请求拦截": {
+    "body": [
+      "http.interceptors.request.use((config) => {",
+      "\tconfig.headers.Authorization = sessionStorage.getItem('token')",
+      "\t$0",
+      "\treturn config;",
+      "}, (error) => {",
+      "\treturn Promise.reject(error);",
+      "})"
+    ],
+    "prefix": "lanjie1"
+  },
+  "axios 响应拦截": {
+    "body": [
+      "http.interceptors.response.use((response) => {",
+      "\treturn response.data",
+      "}, (error) => {",
+      "\tconsole.log(error.response)",
+      "\treturn Promise.reject(error);",
+      "})",
+      ""
+    ],
+    "prefix": "lanjie2"
+  },
+  // ==============================================================
+  // ===========================Array==============================
+  // ==============================================================
+  "forEach 循环数组": {
+    "body": [".forEach((item, index) => {", "\t${1}", "})"],
+    "prefix": ".forEach"
+  },
+  "concat 连接数组，返回新数组": {
+    "body": [".concat(${1:arr})"],
+    "prefix": ".concat"
+  },
+  "every 元素都符合条件,返回true/false": {
+    "body": [".every(i => ${1})"],
+    "prefix": ".every"
+  },
+  "find 返回符合条件的第一个元素 / undefined": {
+    "body": [".find(i => ${1})"],
+    "prefix": ".find"
+  },
+  "fill 替换全部元素": {
+    "body": [".fill(${1})"],
+    "prefix": ".fill"
+  },
+  "filter 过滤数组，返回新数组": {
+    "body": [".filter(i => ${1})"],
+    "prefix": ".filter"
+  },
+  "findIndex 返回符合条件的第一个元素的下标 / -1": {
+    "body": [".findIndex(i => ${1})"],
+    "prefix": ".findIndex"
+  },
+  "includes 判断是否包含指定的元素，返回true/false": {
+    "body": [".includes(${1})"],
+    "prefix": ".includes"
+  },
+  "indexOf 返回数组中指定元素的下标 / -1": {
+    "body": [".indexOf(${1})"],
+    "prefix": ".indexof"
+  },
+  "join 将数组所有元素连成字符串": {
+    "body": [".join(${1})"],
+    "prefix": ".join"
+  },
+  "map 将数组处理后返回新数组": {
+    "body": [".map((item, index) => {", "\treturn ${1}", "})"],
+    "prefix": ".map"
+  },
+  "pop 删除最后一个元素并返回删除的元素": {
+    "body": [".pop()"],
+    "prefix": ".pop"
+  },
+  "push 往最后添加一个元素并返回 length": {
+    "body": [".push(${1})"],
+    "prefix": ".push"
+  },
+  "shift 删除并返回数组的第一个元素": {
+    "body": [".shift(${1})"],
+    "prefix": ".shift"
+  },
+  "unshift 往最前添加一个元素并返回 length": {
+    "body": [".unshift(${1})"],
+    "prefix": ".unshift"
+  },
+  "reduce 接收一个函数作为累加器，返回结果": {
+    "body": [".reduce((prev, next) => {", "\treturn ${1}", "}, initValue)"],
+    "prefix": ".reduce"
+  },
+  "reverse 反转数组": {
+    "body": [".reverse()"],
+    "prefix": ".reverse"
+  },
+  "slice 截取数组": {
+    "body": [".slice(${1:startIndex}, ${2:endIndex})"],
+    "prefix": ".slice"
+  },
+  "substring 截取字符": {
+    "body": [".substring(${1:startIndex}, ${2:endIndex})"],
+    "prefix": ".substring"
+  },
+  "substr 截取字符": {
+    "body": [".substr(${1:startIndex}, ${2:length)"],
+    "prefix": ".substr"
+  },
+  "some 检测数组中是否有元素满足指定条件，返回true/false": {
+    "body": [".some(i => ${1})"],
+    "prefix": ".some"
+  },
+  "sort 纯数字排序": {
+    "body": [".sort((a,b) => a - b)"],
+    "prefix": ".sortnumber"
+  },
+  "split 把一个字符串分割成字符串数组": {
+    "body": [".split(${2:分隔符});"],
+    "prefix": ".split"
+  },
+  "splice 数组增，删，改": {
+    "body": [".splice(${1:startIndex},${2:count});"],
+    "prefix": ".splice"
   }
+  // ===========================Array ENd===================================
 }
