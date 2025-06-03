@@ -4,10 +4,10 @@
     "body": [
       "<el-row :gutter=\"20\">",
       "\t<el-col :span=\"12\" :offset=\"0\">",
-      "\t\t<!-- Content -->",
+      "\t\t",
       "\t</el-col>",
       "\t<el-col :span=\"12\" :offset=\"0\">",
-      "\t\t<!-- Content -->",
+      "\t\t",
       "\t</el-col>",
       "</el-row>"
     ],
@@ -17,25 +17,24 @@
   "Container el-container": {
     "prefix": "epcon",
     "body": [
-      "<el-container :direction=\"${1:vertical}\">",
-      "\t<el-header height=\"$2\">",
-      "\t\t${3:<!-- Header content -->}",
+      "<el-container direction=\"vertical\">",
+      "\t<el-header height=\"60px\">",
+      "\t\t<!-- Header content -->",
       "\t</el-header>",
-      "\t<el-container :direction=\"${4:horizontal}\">",
-      "\t\t<el-aside width=\"${5:200px}\">",
-      "\t\t\t${6:<!-- Aside content -->}",
+      "\t<el-container direction=\"horizontal\">",
+      "\t\t<el-aside width=\"200px\">",
+      "\t\t\t<!-- Aside content -->",
       "\t\t</el-aside>",
-      "\t\t<el-container :direction=\"${7:vertical}\">",
+      "\t\t<el-container direction=\"vertical\">",
       "\t\t\t<el-main>",
-      "\t\t\t\t${9:<!-- Main content -->}",
+      "\t\t\t\t<!-- Main content -->",
       "\t\t\t</el-main>",
-      "\t\t\t<el-footer height=\"$10\">",
-      "\t\t\t\t${11:<!-- Footer content -->}",
+      "\t\t\t<el-footer height=\"60px\">",
+      "\t\t\t\t<!-- Footer content -->",
       "\t\t\t</el-footer>",
       "\t\t</el-container>",
       "\t</el-container>",
-      "</el-container>",
-      "${12}"
+      "</el-container>"
     ],
     "description": "<el-container>"
   },
@@ -52,7 +51,7 @@
   "Button": {
     "prefix": "epb",
     "body": [
-      "<el-button type=\"${1|primary,text,info,success,warning,danger|}\" size=\"${2|default,large,small|}\" @click=\"${3:handleClick}\">${4:确认}</el-button>",
+      "<el-button type=\"${1|primary,info,success,warning,danger,text|}\" size=\"${2|default,large,small|}\" @click=\"${3:handleClick}\">${4:确认}</el-button>",
       "${5}"
     ],
     "description": "<el-button>"
@@ -62,10 +61,9 @@
     "prefix": "epbg",
     "body": [
       "<el-button-group>",
-      "\t<el-button type=\"${1|primary,text,info,success,warning,danger|}\" size=\"${2|default,large,small|}\" @click=\"${3:handleCancel}\">${4:取消}</el-button>",
-      "\t<el-button type=\"${5|primary,text,info,success,warning,danger|}\" size=\"${2|default,large,small|}\" @click=\"${6:handleConfirm}\">${7:确认}</el-button>",
-      "</el-button-group>",
-      "${8}"
+      "\t<el-button type=\"${1|primary,info,success,warning,danger,text|}\" size=\"${2|default,large,small|}\" @click=\"${3:handleCancel}\">${4:取消}</el-button>",
+      "\t<el-button type=\"${5|primary,info,success,warning,danger,text|}\" size=\"${2|default,large,small|}\" @click=\"${6:handleConfirm}\">${7:确认}</el-button>",
+      "</el-button-group>"
     ],
     "description": "<el-button-group>"
   },
@@ -96,7 +94,7 @@
       "<el-radio-group v-model=\"value\" @change=\"change\">",
       "\t<el-radio",
       "\t\tv-for=\"item in radioItems\"",
-      "\t\t:key=\"item.key\"",
+      "\t\t:key=\"item.id\"",
       "\t\t:label=\"item.label\"",
       "\t\t:value=\"item.value\"",
       "\t></el-radio>",
@@ -124,7 +122,7 @@
     "description": "<el-checkbox>"
   },
   "Checkbox Button": {
-    "prefix": "epcbt",
+    "prefix": "epcb",
     "body": ["<el-checkbox-button v-model=\"${1}\" label=\"${2}\" value=\"${3}\" />"],
     "description": "<el-checkbox-button>"
   },
@@ -171,7 +169,7 @@
   },
   "Input Slot": {
     "prefix": "epis",
-    "body": ["<template #\"${1|prefix,suffix,prepend,append|}\">$2</template>", "${3}"],
+    "body": ["<template #${1|prefix,suffix,prepend,append|}>$2</template>", "${3}"],
     "description": "<template slot=''>"
   },
 
@@ -258,7 +256,7 @@
 
   "Select Option": {
     "prefix": "epop",
-    "body": ["<el-option :key=\"$1\" :label=\"$2\" :value=\"$3\"></el-option>", "${3}"],
+    "body": ["<el-option :key=\"$1\" :label=\"$2\" :value=\"$3\" />"],
     "description": "<el-option>"
   },
 
@@ -273,7 +271,7 @@
       "\t\t:label=\"${5:item}.${8:label}\"",
       "\t\t:value=\"${5:item}.${9:value}\">",
       "\t</el-option>",
-      "<el-option-group>",
+      "</el-option-group>",
       "${10}"
     ],
     "description": "<el-option-group>"
@@ -432,7 +430,7 @@
     "prefix": "eptpr",
     "body": [
       "<el-time-picker v-model=\"$1\" size=\"${2|default,large,small|}\"",
-      "\tis-range range-separator=\"${3:-}\" start-placeholder=\"$4\" end-placeholder=\"$5\"  />"
+      "\tis-range range-separator=\"${3:-}\" start-placeholder=\"开始时间\" end-placeholder=\"结束时间\"  />"
     ],
     "description": "<el-time-picker is-range>"
   },
@@ -443,7 +441,7 @@
       "<el-date-picker",
       "\t v-model=\"$1\"",
       "\t type=\"${2|year,month,date,dates,week|}\"",
-      "\t value-format=\"YYYY-MM-DD HH:mm:ss\"",
+      "\t value-format=\"YYYY-MM-DD\"",
       "\t placeholder=\"选择日期时间\"",
       "\t/>"
     ],
@@ -538,8 +536,7 @@
   "ColorPicker": {
     "prefix": "epcp",
     "body": [
-      "<el-color-picker v-model=\"$1\" size=\"${2|default,large,small|}\" :show-alpha=\"${3|true,false|}\" ></el-color-picker>",
-      "${4}"
+      "<el-color-picker v-model=\"$1\" size=\"${2|default,large,small|}\" :show-alpha=\"${3|true,false|}\" />"
     ],
     "description": "<el-color-picker>"
   },
@@ -554,14 +551,14 @@
       "\t<el-form-item>",
       "\t\t<div style=\"width: 100%; display: flex; justify-content: flex-end\">",
       "\t\t\t<el-button @click=\"handleCancel\">取消</el-button>",
-      "\t\t\t<el-button type=\"primary\" @click=\"handleConform\">立即创建</el-button>",
+      "\t\t\t<el-button type=\"primary\" @click=\"handleConform\">确认</el-button>",
       "\t\t</div>",
       "\t</el-form-item>",
       "</el-form>",
       "",
       "<!--",
       "const formRef = ref()",
-      "const = ref({",
+      "const form = ref({",
       "\tusername: ''",
       "})",
       "const rules = {",
@@ -597,20 +594,22 @@
   "Table": {
     "prefix": "ept",
     "body": [
-      "<el-table :data=\"tableData\" border stripe>",
+      "<el-table style=\"width: 100%\" :data=\"tableData\" border stripe>",
       "\t<el-table-column type=\"index\" width=\"50\" />",
       "\t<el-table-column",
       "\t\t v-for=\"col in columns\"",
       "\t\t :prop=\"col.prop\"",
       "\t\t :key=\"col.id\"",
       "\t\t :label=\"col.label\"",
-      "\t\t :width=\"col.width\"",
       "\t></el-table-column>",
       "</el-table>",
       "",
       "<!--",
       "const tableData = ref([])",
-      "const columns = ref([{ id: 1, prop: 'username', label: 'Username', width: '100' }])",
+      "const columns = ref([",
+      "\t{ id: 1, prop: 'username', label: 'Username' },",
+      "\t{ id: 2, prop: 'email', label: 'Email' }",
+      "])",
       "-->"
     ],
     "description": "<el-table>"
@@ -624,8 +623,7 @@
   "Tag": {
     "prefix": "epta",
     "body": [
-      "<el-tag type=\"${1|danger,info,success,warning|}\" size=\"${2|default,large,small|}\"  effect=\"${3|dark,plain|}\" closable @close=\"${4}\">$5</el-tag>",
-      "${6}"
+      "<el-tag type=\"${1|danger,info,success,warning|}\" size=\"${2|default,large,small|}\" effect=\"${3|dark,plain|}\">内容</el-tag>",
     ],
     "description": "<el-tag>"
   },
@@ -633,7 +631,7 @@
   "Progress": {
     "prefix": "eppr",
     "body": [
-      "<el-progress type=\"${1|line,circle,dashboard|}\" :percentage=\"$2\" status=\"${3|success,exception,warning|}\" :stroke-width=\"${4:6}\"></el-progress>",
+      "<el-progress type=\"${1|line,circle,dashboard|}\" :percentage=\"50\" status=\"${3|success,exception,warning|}\" :stroke-width=\"${4:6}\"></el-progress>",
       "${5}"
     ],
     "description": "<el-progress>"
@@ -646,6 +644,7 @@
       "\t ref=\"treeRef\"",
       "\t :data=\"${1:treeData}\"",
       "\t node-key=\"id\"",
+      "\t default-expand-all",
       "\t empty-text=\"no data\"",
       "\t :props=\"{ label: 'label', value: 'value' }\"",
       "\t :show-checkbox=\"false\"",
@@ -680,16 +679,16 @@
       "",
       "<!-- ",
       "const total = ref(0) ",
-      "const pageParams = reactive({ ",
+      "const pageParams = ref({ ",
       "\t pageNum: 1, ",
       "\t pageSize: 10 ",
       "}) ",
       "const currentChange = (current) => { ",
-      "\t pageParams.pageNum = current ",
+      "\t pageParams.value.pageNum = current ",
       "} ",
       "const sizeChange = (size) => { ",
-      "\t pageParams.pageNum = 1 ",
-      "\t pageParams.pageSize = size ",
+      "\t pageParams.value.pageNum = 1 ",
+      "\t pageParams.value.pageSize = size ",
       "} ",
       "-->"
     ],
@@ -699,8 +698,8 @@
   "Badge": {
     "prefix": "epba",
     "body": [
-      "<el-badge :value=\"${1}\" :max=\"${2:99}\" :is-dot=\"${3|false,true|}\" :hidden=\"${4|false,true|}\" type=\"${5|primary,success,warning,danger,info|}\">",
-      "\t<el-button size=\"small\">$6</el-button>",
+      "<el-badge :value=\"10\" :max=\"99\" :is-dot=\"${1|false,true|}\" :hidden=\"${2|false,true|}\" type=\"${3|primary,success,warning,danger,info|}\">",
+      "\t<el-button>按钮</el-button>",
       "</el-badge>",
       "${7}"
     ],
@@ -710,8 +709,7 @@
   "Avatar": {
     "prefix": "epav",
     "body": [
-      "<el-avatar icon=\"el-icon-user-solid\" size=\"${1|large,medium,small|}\" shape=\"${2|circle,square|}\" :src=\"${3}\" fit=\"${4|fill,contain,cover,none,scale-down|}\"></el-avatar>",
-      "${5}"
+      "<el-avatar icon=\"el-icon-user-solid\" size=\"${1|large,medium,small|}\" shape=\"${2|circle,square|}\" src=\"https://api.dicebear.com/7.x/miniavs/svg?seed=1\" fit=\"${4|fill,contain,cover,none,scale-down|}\"></el-avatar>",
     ],
     "description": "<el-avatar>"
   },
@@ -868,7 +866,7 @@
     "body": [
       "<el-button @click=\"handleClick\">打开弹窗</el-button> ",
       "",
-      "<el-drawer v-model=\"drawerShow\" direction=\"rtl\"> ",
+      "<el-drawer v-model=\"drawerShow\" direction=\"rtl\" size=\"450px\">",
       "\t <template #header> ",
       "\t\t <h4>标题区域自定义</h4> ",
       "\t </template> ",
@@ -977,8 +975,8 @@
       "\ttitle=\"${1:标题}\"",
       "\tconfirmButtonText=\"${2:确认}\"",
       "\tcancelButtonText=\"${3:取消}\"",
-      "\tconfirmButtonType=\"${4|primary,text,info,success,warning,danger|}\"",
-      "\tcancelButtonType=\"${5|text,primary,info,success,warning,danger|}\"",
+      "\tconfirmButtonType=\"${4|primary,info,success,warning,danger,text|}\"",
+      "\tcancelButtonType=\"${5|info,primary,success,warning,danger,text|}\"",
       "\ticon=\"${6:el-icon-question}\"",
       "\ticonColor=\"${7:#f90}\"",
       "\t:hideIcon=\"${8|false,true|}\">",
@@ -996,7 +994,7 @@
       "<el-popover",
       "\tplacement=\"${2|top,top-start,top-end,bottom,bottom-start,bottom-end,left,left-start,left-end,right,right-start,right-end|}\"",
       "\ttitle=\"${3:标题}\"",
-      "\twidth=\"$4\"",
+      "\twidth=\"${4:150}\"",
       "\ttrigger=\"${5|click,focus,hover,manual|}\"",
       "\tcontent=\"$6\">",
       "\t${7:<template #reference><el-button>内容</el-button></template>}",
@@ -1008,7 +1006,7 @@
   "Tooltip": {
     "prefix": "epto",
     "body": [
-      "<el-tooltip content=\"$1\" placement=\"${2|top,top-start,top-end,bottom,bottom-start,bottom-end,left,left-start,left-end,right,right-start,right-end|}\" effect=\"${3|dark,light|}\">",
+      "<el-tooltip content=\"${1:提示内容}\" placement=\"${2|top,top-start,top-end,bottom,bottom-start,bottom-end,left,left-start,left-end,right,right-start,right-end|}\" effect=\"${3|dark,light|}\">",
       "\t${4:<el-button>内容</el-button>}",
       "</el-tooltip>",
       "${5}"

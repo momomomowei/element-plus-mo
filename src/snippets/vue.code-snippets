@@ -10,7 +10,7 @@
     "prefix": "notfound"
   },
   "template": {
-    "prefix": "tem",
+    "prefix": "temp",
     "body": ["<template>", "${1}", "</template>"],
     "description": "template"
   },
@@ -49,7 +49,7 @@
     "description": "vue3-setup"
   },
   "vue-template": {
-    "prefix": "vbase",
+    "prefix": "vbaseop",
     "body": [
       "<template>",
       "\t<div>",
@@ -103,7 +103,7 @@
       "\t\t </el-form> ",
       "\t\t <template #footer> ",
       "\t\t\t <div style=\"display: flex; justify-content: flex-end\"> ",
-      "\t\t\t\t <el-button @click=\"dialogParam.visible = false\">取消</el-button> ",
+      "\t\t\t\t <el-button @click=\"handleCancel\">取消</el-button> ",
       "\t\t\t\t <el-button type=\"primary\" @click=\"submitForm\"> ",
       "\t\t\t\t\t {{ dialogParam.type === 'edit' ? '更新' : '添加' }} ",
       "\t\t\t\t </el-button> ",
@@ -183,6 +183,10 @@
       "\t\t\t console.log('cancel') ",
       "\t\t }) ",
       "} ",
+      "const handleCancel = async () => {",
+      "\t resetForm()",
+      "\t dialogParam.value.visible = false ",
+      "}",
       "// 提交表单 ",
       "const submitForm = async () => { ",
       "\t formRef.value?.validate(async (valid) => { ",
