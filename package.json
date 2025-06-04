@@ -2,7 +2,7 @@
   "name": "element-plus-mo",
   "displayName": "Element Plus Mo",
   "description": "Code snippets for Element-Plus",
-  "version": "0.0.6",
+  "version": "0.0.11",
   "publisher": "momomomowei",
   "icon": "img/icon.png",
   "license": "MIT",
@@ -10,8 +10,7 @@
     "vscode": "^1.72.0"
   },
   "dependencies": {
-    "vscode-html-languageservice": "^5.5.0",
-    "vscode-json-languageservice": "^5.6.0"
+    "vscode-html-languageservice": "^5.5.0"
   },
   "repository": {
     "type": "git",

@@ -104,16 +104,18 @@ function findTagResult(list, result, document, pattern) {
           document.positionAt(list[i].start + 1),
           document.positionAt(list[i].start + (list[i].tag?.length || 0) + 1)
         ),
-        target: vscode.Uri.parse(
-          `https://cn.element-plus.org/zh-CN/component/${
-            componentName ? componentName.mapValue : list[i].tag?.replace(pattern, '')
-          }.html`
-        )
+        target: vscode.Uri.parse(getComponentUrl(list[i].tag, pattern, componentName))
       })
     }
     findTagResult(list[i].children, result, document, pattern)
   }
   return result
+}
+
+function getComponentUrl(tag, pattern, componentName) {
+  const baseUrl = 'https://cn.element-plus.org/zh-CN/component'
+  const componentPath = componentName ? componentName.mapValue : tag?.replace(pattern, '')
+  return `${baseUrl}/${componentPath}.html`
 }
 
 module.exports = findTagResult

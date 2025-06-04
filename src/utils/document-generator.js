@@ -6,24 +6,16 @@ class HoverDocumentGenerator {
    * @param {Object} document 文档 具体标签对应的文档
    * @param {string} tag 标签
    * @param {string} attribute 属性 在标签的属性上悬停时具有
-   * @param {string} language 语言
    * @returns {MarkdownString}
    */
-  generateAttribute(document, tag, attribute, language) {
+  generateAttribute(document, tag, attribute) {
     let isUndefined = true // 标记是否具有文档
     let markdownString = new MarkdownString('', true)
     const attributes = document.attributes || [] // 取得属性列表
     if (attributes.length) {
       // 生成表头
-      if (language === 'zh-CN') {
-        markdownString.appendMarkdown(`### ${tag} 属性 \r`)
-        markdownString.appendMarkdown('| 属性 | 说明 | 类型 | 可选值 | 默认值 |\r')
-      } else {
-        markdownString.appendMarkdown(`### ${tag} Attributes \r`)
-        markdownString.appendMarkdown(
-          '| Attributes | Description | Type | Accepted Values | Default |\r'
-        )
-      }
+      markdownString.appendMarkdown(`### ${tag} 属性 \r`)
+      markdownString.appendMarkdown('| 属性 | 说明 | 类型 | 可选值 | 默认值 |\r')
       markdownString.appendMarkdown('|---|---|:-:|---|:-:|\r')
     }
     if (attribute.length === 0) {
@@ -55,21 +47,15 @@ class HoverDocumentGenerator {
    * @param {Object} document 文档 具体标签对应的文档
    * @param {string} tag 标签
    * @param {string} attribute 属性 在标签的属性上悬停时具有
-   * @param {string} language 语言
    * @returns {MarkdownString}
    */
-  generateMethods(document, tag, attribute, language) {
+  generateMethods(document, tag, attribute) {
     let isUndefined = true // 标记是否具有文档
     let markdownString = new MarkdownString('', true)
     const methods = document.methods || []
     if (methods.length) {
-      if (language === 'zh-CN') {
-        markdownString.appendMarkdown(`### ${tag} 方法\r`)
-        markdownString.appendMarkdown('| 方法 | 说明 | 参数 |\r')
-      } else {
-        markdownString.appendMarkdown(`### ${tag} Method\r`)
-        markdownString.appendMarkdown('| Method | Description | Parameters |\r')
-      }
+      markdownString.appendMarkdown(`### ${tag} 方法\r`)
+      markdownString.appendMarkdown('| 方法 | 说明 | 参数 |\r')
       markdownString.appendMarkdown('|---|---|:-:|\r')
     }
     if (attribute.length === 0) {
@@ -97,21 +83,15 @@ class HoverDocumentGenerator {
    * @param {Object} document 文档 具体标签对应的文档
    * @param {string} tag 标签
    * @param {string} attribute 属性 在标签的属性上悬停时具有
-   * @param {string} language 语言
    * @returns {MarkdownString}
    */
-  generateEvents(document, tag, attribute, language) {
+  generateEvents(document, tag, attribute) {
     let isUndefined = true // 标记是否具有文档
     let markdownString = new MarkdownString('', true)
     const events = document.events || []
     if (events.length) {
-      if (language === 'zh-CN') {
-        markdownString.appendMarkdown(`### ${tag} 事件\r`)
-        markdownString.appendMarkdown('| 方法 | 说明 | 参数 |\r')
-      } else {
-        markdownString.appendMarkdown(`### ${tag} Event\r`)
-        markdownString.appendMarkdown('| Event | Description | Parameters |\r')
-      }
+      markdownString.appendMarkdown(`### ${tag} 事件\r`)
+      markdownString.appendMarkdown('| 方法 | 说明 | 参数 |\r')
       markdownString.appendMarkdown('|---|---|:-:|\r')
     }
     if (attribute.length === 0) {
@@ -139,21 +119,15 @@ class HoverDocumentGenerator {
    * @param {Object} document 文档 具体标签对应的文档
    * @param {string} tag 标签
    * @param {string} attribute 属性 在标签的属性上悬停时具有
-   * @param {string} language 语言
    * @returns {MarkdownString}
    */
-  generateSlots(document, tag, attribute, language) {
+  generateSlots(document, tag, attribute) {
     let isUndefined = true // 标记是否具有文档
     let markdownString = new MarkdownString('', true)
     const slots = document.slots || []
     if (slots.length) {
-      if (language === 'zh-CN') {
-        markdownString.appendMarkdown(`### ${tag} 插槽\r`)
-        markdownString.appendMarkdown('| 插槽 | 说明 |\r')
-      } else {
-        markdownString.appendMarkdown(`### ${tag} Slot\r`)
-        markdownString.appendMarkdown('| Slot | Description |\r')
-      }
+      markdownString.appendMarkdown(`### ${tag} 插槽\r`)
+      markdownString.appendMarkdown('| 插槽 | 说明 |\r')
       markdownString.appendMarkdown('|---|---|\r')
     }
     if (attribute.length === 0) {
@@ -181,21 +155,15 @@ class HoverDocumentGenerator {
    * @param {Object} document 文档 具体标签对应的文档
    * @param {string} tag 标签
    * @param {string} attribute 属性 在标签的属性上悬停时具有
-   * @param {string} language 语言
    * @returns {MarkdownString}
    */
-  generateScopedSlots(document, tag, attribute, language) {
+  generateScopedSlots(document, tag, attribute) {
     let isUndefined = true // 标记是否具有文档
     let markdownString = new MarkdownString('', true)
     const scopedSlots = document.scopedSlots || []
     if (scopedSlots.length) {
-      if (language === 'zh-CN') {
-        markdownString.appendMarkdown(`### ${tag} 插槽\r`)
-        markdownString.appendMarkdown('| 插槽 | 说明 |\r')
-      } else {
-        markdownString.appendMarkdown(`### ${tag} Slot\r`)
-        markdownString.appendMarkdown('| Slot | Description |\r')
-      }
+      markdownString.appendMarkdown(`### ${tag} 插槽\r`)
+      markdownString.appendMarkdown('| 插槽 | 说明 |\r')
       markdownString.appendMarkdown('|---|---|\r')
     }
     if (attribute.length === 0) {
@@ -223,23 +191,15 @@ class HoverDocumentGenerator {
    * @param {Object} document 文档 具体标签对应的文档
    * @param {string} tag 标签
    * @param {string} attribute 属性 文档对象具体的属性值
-   * @param {string} language 语言
    * @returns {MarkdownString}
    */
-  generateOther(document, tag, attribute, language) {
+  generateOther(document, tag, attribute) {
     let isUndefined = true // 标记是否具有文档
     let markdownString = new MarkdownString('', true)
     const attributes = document[attribute] || []
     if (attributes.length) {
-      if (language === 'zh-CN') {
-        markdownString.appendMarkdown(`### ${tag} ${attribute}\r`)
-        markdownString.appendMarkdown('| 属性 | 说明 | 类型 | 可选值 | 默认值 |\r')
-      } else {
-        markdownString.appendMarkdown(`### ${tag} ${attribute}\r`)
-        markdownString.appendMarkdown(
-          '| Attributes | Description | Type | Accepted Values | Default |\r'
-        )
-      }
+      markdownString.appendMarkdown(`### ${tag} ${attribute}\r`)
+      markdownString.appendMarkdown('| 属性 | 说明 | 类型 | 可选值 | 默认值 |\r')
       markdownString.appendMarkdown('|---|---|:-:|---|:-:|\r')
       attributes.forEach(row => {
         markdownString.appendMarkdown(
@@ -260,23 +220,22 @@ class HoverDocumentGenerator {
    * @param {string} key 文档对象的key
    * @param {string} tag 标签
    * @param {string} attr 属性
-   * @param {string} language 语言
    * @returns {MarkdownString}
    */
-  generate(document, key, tag, attr, language) {
+  generate(document, key, tag, attr) {
     switch (key) {
       case 'attributes':
-        return this.generateAttribute(document, tag, attr, language)
+        return this.generateAttribute(document, tag, attr)
       case 'methods':
-        return this.generateMethods(document, tag, attr, language)
+        return this.generateMethods(document, tag, attr)
       case 'events':
-        return this.generateEvents(document, tag, attr, language)
+        return this.generateEvents(document, tag, attr)
       case 'slots':
-        return this.generateSlots(document, tag, attr, language)
+        return this.generateSlots(document, tag, attr)
       case 'scopedSlots':
-        return this.generateScopedSlots(document, tag, attr, language)
+        return this.generateScopedSlots(document, tag, attr)
       default:
-        return this.generateOther(document, tag, key, language)
+        return this.generateOther(document, tag, key)
     }
   }
 

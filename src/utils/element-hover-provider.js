@@ -3,7 +3,7 @@ const { HoverDocumentGenerator } = require('./document-generator')
 const { toKebabCase } = require('./index')
 const document = require('../docs/index')
 
-class ElementHoverProvier {
+class ElementHoverProvider {
   constructor() {
     this._position = null
     this._document = null
@@ -162,7 +162,6 @@ class ElementHoverProvier {
 
   /**
    * 创建Hover实例
-   * @param {string} language 语言
    * @param {string} tag 标签
    * @param {string} attr 属性
    * @param {Range} range 范围
@@ -179,8 +178,7 @@ class ElementHoverProvier {
           tagDocument,
           key,
           tag,
-          attr,
-          language
+          attr
         )
         if (hoverMarkdownString) {
           hoverMarkdownStrings.push(hoverMarkdownString)
@@ -193,4 +191,4 @@ class ElementHoverProvier {
   }
 }
 
-module.exports = { ElementHoverProvier }
+module.exports = { ElementHoverProvider }

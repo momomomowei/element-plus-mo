@@ -2,7 +2,7 @@ const vscode = require('vscode')
 const htmlLanguageService = require('vscode-html-languageservice')
 const findTagResult = require('./utils/findTagResult')
 
-const { ElementHoverProvier } = require('./utils/element-hover-provider')
+const { ElementHoverProvider } = require('./utils/element-hover-provider')
 const { ElementCompletionItemProvider } = require('./utils/element-completion-item-provider')
 
 function activate(context) {
@@ -10,20 +10,7 @@ function activate(context) {
 
   const languageServiceHtml = htmlLanguageService.getLanguageService()
 
-  vscode.languages.registerDocumentLinkProvider(
-    {
-      scheme: 'file',
-      pattern: '**/*.vue'
-    },
-    {
-      provideDocumentLinks(document) {
-        const htmlDocument = languageServiceHtml.parseHTMLDocument(document)
-        return findTagResult(htmlDocument.roots, [], document, /^el-/)
-      }
-    }
-  )
-
-  // 注册 completion 提示
+  // 注册 completion（代码补全） 提示
   context.subscriptions.push(
     vscode.languages.registerCompletionItemProvider(
       [
@@ -47,7 +34,7 @@ function activate(context) {
     )
   )
 
-  // 注册 hover 提示
+  // 注册 hover（悬停提示） 提示
   context.subscriptions.push(
     vscode.languages.registerHoverProvider(
       [
@@ -56,7 +43,23 @@ function activate(context) {
           scheme: 'file'
         }
       ],
-      new ElementHoverProvier()
+      new ElementHoverProvider()
+    )
+  )
+
+  // 注册 文档链接
+  context.subscriptions.push(
+    vscode.languages.registerDocumentLinkProvider(
+      {
+        scheme: 'file',
+        pattern: '**/*.vue'
+      },
+      {
+        provideDocumentLinks(document) {
+          const htmlDocument = languageServiceHtml.parseHTMLDocument(document)
+          return findTagResult(htmlDocument.roots, [], document, /^el-/)
+        }
+      }
     )
   )
 }
