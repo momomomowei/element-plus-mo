@@ -3,7 +3,7 @@ const htmlLanguageService = require('vscode-html-languageservice')
 const findTagResult = require('./utils/findTagResult')
 
 const { ElementHoverProvier } = require('./utils/element-hover-provider')
-const { ElementCompletionItemProvider } = require('./utils/element-completion-item-povider')
+const { ElementCompletionItemProvider } = require('./utils/element-completion-item-provider')
 
 function activate(context) {
   console.log('插件启用成功！！！')

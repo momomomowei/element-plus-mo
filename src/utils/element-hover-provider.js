@@ -1,6 +1,6 @@
 const { Position, Range, Hover } = require('vscode')
-const { HoverDocumentGenerator } = require('../utils/document-generator')
-const { toKebabCase } = require('../utils')
+const { HoverDocumentGenerator } = require('./document-generator')
+const { toKebabCase } = require('./index')
 const document = require('../docs/index')
 
 class ElementHoverProvier {
@@ -12,8 +12,8 @@ class ElementHoverProvier {
     this.attrReg = /(?:\(|\s*)([\w-]+)=?/
   }
 
-  provideHover(document, position, token) {
-    this._document = document
+  provideHover(doc, position, token) {
+    this._document = doc
     this._position = position
     this._token = token
 
