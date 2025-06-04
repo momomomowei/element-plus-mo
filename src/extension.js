@@ -1,28 +1,68 @@
-const vscode = require('vscode')
-const ElementProvider = require('./providers/elementProvider')
+const vscode = require('vscode');
+const htmlLanguageService = require('vscode-html-languageservice');
+const findTagResult = require('./utils/findTagResult');
+
+const { ElementHoverProvier } = require('./hover-tips/element-hover-provider');
+const { ElementCompletionItemProvider } = require('./completion/element-completion-item-povider');
 
 function activate(context) {
-  const provider = new ElementProvider()
+	console.log('Congratulations, your extension "elementv-snippet" is now active!');
 
-  // 注册补全提供者
+	const languageServiceHtml = htmlLanguageService.getLanguageService();
+
+	vscode.languages.registerDocumentLinkProvider({
+		scheme: 'file',
+		pattern: '**/*.vue',
+	}, {
+		provideDocumentLinks(document) {
+			const htmlDocument = languageServiceHtml.parseHTMLDocument(document);
+			return findTagResult(htmlDocument.roots, [], document, /^el-/);
+		}
+	});
+
+	// 注册 completion 提示
   context.subscriptions.push(
     vscode.languages.registerCompletionItemProvider(
-      'vue',
-      provider,
-      ' ', // 触发字符：空格
-      ':', // 触发字符：冒号（用于v-bind简写）
-      '"', // 触发字符：双引号（用于属性值补全）
-      "''" // 触发字符：单引号（用于属性值补全）
+      [
+        {
+          language: 'vue',
+          scheme: 'file'
+        }
+      ],
+      new ElementCompletionItemProvider(),
+      '',
+      ' ',
+      ':',
+      '<',
+      '""',
+      '=',
+      "'",
+      '/',
+      '@',
+      '(',
+      '-'
     )
-  )
+  );
 
-  // 注册悬停提供者
-  context.subscriptions.push(vscode.languages.registerHoverProvider('vue', provider))
+  // 注册 hover 提示
+  context.subscriptions.push(
+    vscode.languages.registerHoverProvider(
+      [
+        {
+          language: 'vue',
+          scheme: 'file'
+        }
+      ],
+      new ElementHoverProvier()
+    )
+  );
 }
 
-function deactivate() {}
+function deactivate() {
+	console.log('elementv-snippet is now deactivate~');
+}
 
 module.exports = {
   activate,
   deactivate
-}
+}; 
