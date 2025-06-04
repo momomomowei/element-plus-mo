@@ -9,6 +9,9 @@
   "engines": {
     "vscode": "^1.46.0"
   },
+  "dependencies": {
+    "vscode-html-languageservice": "^5.5.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/momomomowei/element-plus-mo.git"
@@ -16,6 +19,10 @@
   "categories": [
     "Snippets"
   ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./src/extension.js",
   "contributes": {
     "snippets": [
       {

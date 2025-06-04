@@ -1,15 +1,6 @@
-const {
-  CompletionItemProvider,
-  Position,
-  Range,
-  CompletionItem,
-  CompletionItemKind,
-  workspace,
-  SnippetString
-} = require('vscode')
+const { Position, Range, CompletionItemKind, SnippetString } = require('vscode')
 
-const { localDocument } = require('../document')
-const { ExtensionLanguage } = require('..')
+const document = require('../docs/index')
 
 class ElementCompletionItemProvider {
   constructor() {
@@ -144,9 +135,6 @@ class ElementCompletionItemProvider {
    * @param {string} attr 属性
    */
   getAttrValues(tag, attr) {
-    const config = workspace.getConfiguration().get('element-ui-helper')
-    const language = config?.language || ExtensionLanguage.cn
-    const document = localDocument[language]
     const attributes = document[tag].attributes || []
     const attribute = attributes.find(attribute => attribute.name === attr)
     if (!attribute) {
@@ -184,9 +172,6 @@ class ElementCompletionItemProvider {
    */
   getEventCompletionItems(tag) {
     let completionItems = []
-    const config = workspace.getConfiguration().get('element-ui-helper')
-    const language = config?.language || ExtensionLanguage.cn
-    const document = localDocument[language]
     const preText = this.getTextBeforePosition(this._position)
     const prefix = preText.replace(/.*@([\w-]*)$/, '$1')
     const events = document[tag]?.events || []
@@ -216,9 +201,6 @@ class ElementCompletionItemProvider {
    */
   getAttrCompletionItems(tag) {
     let completionItems = []
-    const config = workspace.getConfiguration().get('element-ui-helper')
-    const language = config?.language || ExtensionLanguage.cn
-    const document = localDocument[language]
     const preText = this.getTextBeforePosition(this._position)
     const prefix = preText.replace(/.*[\s@:]/g, '')
     const attributes = document[tag].attributes || []
@@ -256,9 +238,6 @@ class ElementCompletionItemProvider {
    */
   getTagCompletionItems(tag) {
     let completionItems = []
-    const config = workspace.getConfiguration().get('element-ui-helper')
-    const language = config?.language || ExtensionLanguage.cn
-    const document = localDocument[language]
     const preText = this.getTextBeforePosition(this._position)
     const prefix = preText.replace(/.*<([\w-]*)$/, '$1')
     const likeTag = Object.keys(document).filter(name => name.includes(prefix))
