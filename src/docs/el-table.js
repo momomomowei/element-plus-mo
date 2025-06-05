@@ -39,7 +39,7 @@ const attributes = [
     name: 'size',
     description: 'Table 的尺寸',
     type: 'string',
-    value: 'medium / small / mini',
+    value: 'large/default/small',
     default: '—'
   },
   {
@@ -178,6 +178,20 @@ const attributes = [
     default: ''
   },
   {
+    name: 'tooltip-options',
+    description: '溢出的 tooltip 的 effect',
+    type: 'String',
+    value: 'dark/light',
+    default: ''
+  },
+  {
+    name: 'append-filter-panel-to ',
+    description: '挂载到哪个 DOM 元素',
+    type: 'String',
+    value: '-',
+    default: ''
+  },
+  {
     name: 'show-summary',
     description: '是否在表尾显示合计行',
     type: 'Boolean',
@@ -225,7 +239,7 @@ const attributes = [
     description: '是否懒加载子节点数据',
     type: 'Boolean',
     value: '—',
-    default: '—'
+    default: 'false'
   },
   {
     name: 'load',
@@ -240,59 +254,62 @@ const attributes = [
     type: 'Object',
     value: '—',
     default: "{ hasChildren: 'hasChildren', children: 'children' }"
-  }
-]
-
-const methods = [
-  {
-    name: 'clearSelection',
-    description: '用于多选表格，清空用户的选择',
-    parameter: '—'
   },
   {
-    name: 'toggleRowSelection',
-    description:
-      '用于多选表格，切换某一行的选中状态，如果使用了第二个参数，则是设置这一行选中与否（selected 为 true 则选中）',
-    parameter: 'row, selected'
+    name: 'table-layout',
+    description: '设置表格单元、行和列的布局方式',
+    type: 'string',
+    value: 'fixed/auto',
+    default: 'fixed'
   },
   {
-    name: 'toggleAllSelection',
-    description: '用于多选表格，切换所有行的选中状态',
-    parameter: '-'
+    name: 'scrollbar-always-on',
+    description: '总是显示滚动条',
+    type: 'Boolean',
+    value: '—',
+    default: 'false'
   },
   {
-    name: 'toggleRowExpansion',
-    description:
-      '用于可展开表格与树形表格，切换某一行的展开状态，如果使用了第二个参数，则是设置这一行展开与否（expanded 为 true 则展开）',
-    parameter: 'row, expanded'
+    name: 'show-overflow-tooltip',
+    description: '是否隐藏额外内容并在单元格悬停时使用 Tooltip 显示它们。',
+    type: 'Boolean',
+    value: '—',
+    default: 'false'
   },
   {
-    name: 'setCurrentRow',
-    description:
-      '用于单选表格，设定某一行为选中行，如果调用时不加参数，则会取消目前高亮行的选中状态。',
-    parameter: 'row'
+    name: 'flexible',
+    description: '确保主轴的最小尺寸，以便不超过内容',
+    type: 'Boolean',
+    value: '—',
+    default: 'false'
   },
   {
-    name: 'clearSort',
-    description: '用于清空排序条件，数据会恢复成未排序的状态',
-    parameter: '—'
+    name: 'scrollbar-tabindex',
+    description: 'body 的滚动条的包裹容器 tabindex',
+    type: 'string/number',
+    value: '—',
+    default: '-'
   },
   {
-    name: 'clearFilter',
-    description:
-      '不传入参数时用于清空所有过滤条件，数据会恢复成未过滤的状态，也可传入由columnKey组成的数组以清除指定列的过滤条件',
-    parameter: 'columnKey'
+    name: 'allow-drag-last-column ',
+    description: '是否允许拖动最后一列',
+    type: 'Boolean',
+    value: '—',
+    default: 'true'
   },
   {
-    name: 'doLayout',
-    description:
-      '对 Table 进行重新布局。当 Table 或其祖先元素由隐藏切换为显示时，可能需要调用此方法',
-    parameter: '—'
+    name: 'tooltip-formatter',
+    description: '自定义 show-overflow-tooltip 时的 tooltip 内容',
+    type: 'Function',
+    value: '(data: { row: any, column: any, cellValue: any }) => VNode | string',
+    default: '-'
   },
   {
-    name: 'sort',
-    description: '手动对 Table 进行排序。参数`prop`属性指定排序列，`order`指定排序顺序。',
-    parameter: 'prop: string, order: string'
+    name: 'preserve-expanded-content ',
+    description: '在折叠后是否在DOM中保留展开行内容',
+    type: 'Boolean',
+    value: '—',
+    default: 'false'
   }
 ]
 
@@ -383,18 +400,108 @@ const events = [
     name: 'expand-change',
     description:
       '当用户对某一行展开或者关闭的时候会触发该事件（展开行时，回调的第二个参数为 expandedRows；树形表格时第二参数为 expanded）',
-    parameter: 'row, (expandedRows \\'
+    parameter: '(row: any, expandedRows: any[])'
+  },
+  {
+    name: 'scroll',
+    description: '表格被用户滚动后触发',
+    parameter: '({ scrollLeft: number, scrollTop: number }) => void'
   }
 ]
 
 const slots = [
+  { name: 'default', description: '自定义默认内容' },
   {
     name: 'append',
     description:
       '插入至表格最后一行之后的内容，如果需要对表格的内容进行无限滚动操作，可能需要用到这个 slot。若表格有合计行，该 slot 会位于合计行之上。'
-  }
+  },
+  { name: 'empty', description: '当数据为空时自定义的内容' }
 ]
 
-const document = { attributes, methods, events, slots }
+const exposes = [
+  {
+    name: 'clearSelection',
+    description: '用于多选表格，清空用户的选择',
+    parameter: '() => void'
+  },
+  {
+    name: 'getSelectionRows',
+    description: '返回当前选中的行',
+    parameter: '() => any[]'
+  },
+  {
+    name: 'toggleRowSelection',
+    description:
+      '用于多选表格，切换某一行的选中状态，如果使用了第二个参数，则是设置这一行选中与否（selected 为 true 则选中）',
+    parameter: '(row: any, selected?: boolean, ignoreSelectable = true) => void'
+  },
+  {
+    name: 'toggleAllSelection',
+    description: '用于多选表格，切换所有行的选中状态',
+    parameter: '() => void'
+  },
+  {
+    name: 'toggleRowExpansion',
+    description:
+      '用于可展开表格与树形表格，切换某一行的展开状态，如果使用了第二个参数，则是设置这一行展开与否（expanded 为 true 则展开）',
+    parameter: '(row: any, expanded?: boolean) => void'
+  },
+  {
+    name: 'setCurrentRow',
+    description:
+      '用于单选表格，设定某一行为选中行，如果调用时不加参数，则会取消目前高亮行的选中状态。',
+    parameter: '(row: any) => void'
+  },
+  {
+    name: 'clearSort',
+    description: '用于清空排序条件，数据会恢复成未排序的状态',
+    parameter: '() => void'
+  },
+  {
+    name: 'clearFilter',
+    description:
+      '不传入参数时用于清空所有过滤条件，数据会恢复成未过滤的状态，也可传入由columnKey组成的数组以清除指定列的过滤条件',
+    parameter: '(columnKeys?: string[]) => void'
+  },
+  {
+    name: 'doLayout',
+    description:
+      '对 Table 进行重新布局。当 Table 或其祖先元素由隐藏切换为显示时，可能需要调用此方法',
+    parameter: '() => void'
+  },
+  {
+    name: 'sort',
+    description: '手动对 Table 进行排序。参数`prop`属性指定排序列，`order`指定排序顺序。',
+    parameter: '(prop: string, order: string) => void'
+  },
+  {
+    name: 'scrollTo',
+    description: '滚动到一组特定坐标',
+    parameter: '(options: number | ScrollToOptions, yCoord?: number) => void'
+  },
+  {
+    name: 'setScrollTop',
+    description: '设置垂直滚动位置',
+    parameter: '(top?: number) => void'
+  },
+  {
+    name: 'setScrollLeft',
+    description: '设置水平滚动位置',
+    parameter: '(left?: number) => void'
+  },
+  {
+    name: 'columns',
+    description: '获取表列的 context',
+    parameter: 'TableColumnCtx<T>[]'
+  },
+  {
+    name: 'updateKeyChildren',
+    description: '适用于 lazy Table, 需要设置 rowKey, 更新 key children',
+    parameter: '(key: string, data: T[]) => void'
+  },
+]
+
+const document = { attributes, exposes, events, slots }
 
 module.exports = document

@@ -15,16 +15,16 @@ const attributes = [
     default: '-'
   },
   {
-    name: 'column-key',
-    description:
-      'column 的 key，如果需要使用 filter-change 事件，则需要此属性标识是哪个 column 的筛选条件',
+    name: 'label',
+    description: '显示的标题',
     type: 'string',
     value: '—',
     default: '—'
   },
   {
-    name: 'label',
-    description: '显示的标题',
+    name: 'column-key',
+    description:
+      'column 的 key，如果需要使用 filter-change 事件，则需要此属性标识是哪个 column 的筛选条件',
     type: 'string',
     value: '—',
     default: '—'
@@ -178,6 +178,13 @@ const attributes = [
     default: '—'
   },
   {
+    name: 'filter-class-name',
+    description: '过滤弹出框的 className',
+    type: 'String',
+    value: '-',
+    default: '—'
+  },
+  {
     name: 'filter-multiple',
     description: '数据过滤的选项是否多选',
     type: 'Boolean',
@@ -198,17 +205,22 @@ const attributes = [
     type: 'Array',
     value: '—',
     default: '—'
-  }
-]
-
-const scopedSlots = [
-  { name: '—', description: '自定义列的内容，参数为 { row, column, $index }' },
+  },
   {
-    name: 'header',
-    description: '自定义表头的内容. 参数为 { column, $index }'
+    name: 'tooltip-formatter',
+    description: '使用 show-overflow-tooltip 时自定义 tooltip 内容',
+    type: 'Function',
+    value: '(data: { row: any, column: any, cellValue: any }) => VNode | string',
+    default: '—'
   }
 ]
 
-const document = { attributes, scopedSlots }
+const slots = [
+  { name: 'default', description: '自定义列的内容，参数为 { row, column, $index }' },
+  { name: 'header', description: '自定义表头的内容. 参数为 { column, $index }' },
+  { name: 'filter-icon', description: '自定义 filter 图标. 参数为 { filterOpened: boolean }' }
+]
+
+const document = { attributes, slots }
 
 module.exports = document

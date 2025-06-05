@@ -7,17 +7,10 @@ const attributes = [
     default: '0'
   },
   {
-    name: 'type',
-    description: '布局模式，可选 flex，现代浏览器下有效',
-    type: 'string',
-    value: '—',
-    default: '—'
-  },
-  {
     name: 'justify',
     description: 'flex 布局下的水平排列方式',
     type: 'string',
-    value: 'start/end/center/space-around/space-between',
+    value: 'start/end/center/space-around/space-between/space-evenly',
     default: 'start'
   },
   {
@@ -25,17 +18,24 @@ const attributes = [
     description: 'flex 布局下的垂直排列方式',
     type: 'string',
     value: 'top/middle/bottom',
-    default: 'top'
+    default: '-'
   },
   {
     name: 'tag',
     description: '自定义元素标签',
     type: 'string',
-    value: '*',
+    value: '-',
     default: 'div'
   }
 ]
 
-const document = { attributes }
+const slots = [
+  {
+    name: 'default',
+    description: '自定义默认内容'
+  }
+]
+
+const document = { attributes, slots }
 
 module.exports = document

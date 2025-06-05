@@ -78,6 +78,13 @@ const attributes = [
     default: 'false'
   },
   {
+    name: 'check-on-click-leaf',
+    description: '点击叶节点(最后一个子节点)时是否检查或取消节点',
+    type: 'boolean',
+    value: '—',
+    default: 'true'
+  },
+  {
     name: 'auto-expand-parent',
     description: '展开子节点的时候是否自动展开父节点',
     type: 'boolean',
@@ -142,9 +149,9 @@ const attributes = [
     default: '16'
   },
   {
-    name: 'icon-class',
+    name: 'icon',
     description: '自定义树节点的图标',
-    type: 'string',
+    type: 'string/Component',
     value: '-',
     default: '-'
   },
@@ -210,7 +217,7 @@ const props = [
   }
 ]
 
-const methods = [
+const exposes = [
   {
     name: 'filter',
     description: '对树节点进行筛选操作',
@@ -391,8 +398,11 @@ const events = [
   }
 ]
 
-const scopedSlots = [{ name: '—', description: '自定义树节点的内容，参数为 { node, data }' }]
+const slots = [
+  { name: 'default', description: '自定义树节点的内容，参数为 { node, data }' },
+  { name: 'empty', description: '当数据为空时自定义的内容' }
+]
 
-const document = { attributes, events, scopedSlots, methods, props }
+const document = { attributes, events, slots, exposes, props }
 
 module.exports = document

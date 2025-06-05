@@ -1,98 +1,40 @@
 const vscode = require('vscode')
 
 const mapValue = [
-  {
-    value: 'table-column',
-    mapValue: 'table'
-  },
-  {
-    value: 'input-search',
-    mapValue: 'input'
-  },
-  {
-    value: 'row',
-    mapValue: 'layout'
-  },
-  {
-    value: 'col',
-    mapValue: 'layout'
-  },
-  {
-    value: 'header',
-    mapValue: 'container'
-  },
-  {
-    value: 'main',
-    mapValue: 'container'
-  },
-  {
-    value: 'footer',
-    mapValue: 'container'
-  },
-  {
-    value: 'aside',
-    mapValue: 'container'
-  },
-  {
-    value: 'breadcrumb-item',
-    mapValue: 'breadcrumb'
-  },
-  {
-    value: 'radio-group',
-    mapValue: 'radio'
-  },
-  {
-    value: 'checkbox-group',
-    mapValue: 'checkbox'
-  },
-  {
-    value: 'tab-pane',
-    mapValue: 'tabs'
-  },
-  {
-    value: 'menu-item',
-    mapValue: 'menu'
-  },
-  {
-    value: 'submenu',
-    mapValue: 'menu'
-  },
-  {
-    value: 'anchor-link',
-    mapValue: 'anchor'
-  },
-  {
-    value: 'timeline-item',
-    mapValue: 'timeline'
-  },
-  {
-    value: 'collapse-item',
-    mapValue: 'collapse'
-  },
-  {
-    value: 'descriptions-item',
-    mapValue: 'descriptions'
-  },
-  {
-    value: 'dropdown-menu',
-    mapValue: 'dropdown'
-  },
-  {
-    value: 'dropdown-item',
-    mapValue: 'dropdown'
-  },
-  {
-    value: 'carousel-item',
-    mapValue: 'carousel'
-  },
-  {
-    value: 'step',
-    mapValue: 'steps'
-  },
-  {
-    value: 'form-item',
-    mapValue: 'form'
-  }
+  { value: 'table-column', mapValue: 'table' },
+  { value: 'input-search', mapValue: 'input' },
+  { value: 'row', mapValue: 'layout' },
+  { value: 'col', mapValue: 'layout' },
+  { value: 'header', mapValue: 'container' },
+  { value: 'main', mapValue: 'container' },
+  { value: 'footer', mapValue: 'container' },
+  { value: 'aside', mapValue: 'container' },
+  { value: 'breadcrumb-item', mapValue: 'breadcrumb' },
+  { value: 'radio-group', mapValue: 'radio' },
+  { value: 'radio-button', mapValue: 'radio' },
+  { value: 'button-group', mapValue: 'button' },
+  { value: 'checkbox-button', mapValue: 'checkbox' },
+  { value: 'checkbox-group', mapValue: 'checkbox' },
+  { value: 'tab-pane', mapValue: 'tabs' },
+  { value: 'menu-item', mapValue: 'menu' },
+  { value: 'menu-item-group', mapValue: 'menu' },
+  { value: 'option-group', mapValue: 'select' },
+  { value: 'sub-menu', mapValue: 'menu' },
+  { value: 'anchor-link', mapValue: 'anchor' },
+  { value: 'timeline-item', mapValue: 'timeline' },
+  { value: 'collapse-item', mapValue: 'collapse' },
+  { value: 'descriptions-item', mapValue: 'descriptions' },
+  { value: 'dropdown-menu', mapValue: 'dropdown' },
+  { value: 'dropdown-menu-item', mapValue: 'dropdown' },
+  { value: 'dropdown-item', mapValue: 'dropdown' },
+  { value: 'carousel-item', mapValue: 'carousel' },
+  { value: 'cascader-panel', mapValue: 'cascader' },
+  { value: 'check-tag', mapValue: 'tag' },
+  { value: 'step', mapValue: 'steps' },
+  { value: 'form-item', mapValue: 'form' },
+  { value: 'image-viewer', mapValue: 'image' },
+  { value: 'skeleton-item', mapValue: 'skeleton' },
+  { value: 'tour-step', mapValue: 'tour' }
 ]
 
 function findTagResult(list, result, document, pattern) {

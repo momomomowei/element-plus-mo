@@ -17,7 +17,7 @@ const attributes = [
     name: 'icon',
     description: '图标类型',
     type: 'string',
-    value: 'success / warning / info / error',
+    value: 'primary/success/warning/info/error',
     default: 'info'
   }
 ]

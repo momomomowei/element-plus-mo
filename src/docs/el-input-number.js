@@ -1,6 +1,6 @@
 const attributes = [
   {
-    name: 'value/v-model',
+    name: 'model-value/v-model',
     description: '绑定值',
     type: 'number',
     value: '—',
@@ -45,8 +45,15 @@ const attributes = [
     name: 'size',
     description: '计数器尺寸',
     type: 'string',
-    value: 'large, small',
+    value: 'large/default/small',
     default: '—'
+  },
+  {
+    name: 'readonly',
+    description: '原生 readonly 属性，是否只读',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
   },
   {
     name: 'disabled',
@@ -77,8 +84,8 @@ const attributes = [
     default: '—'
   },
   {
-    name: 'label',
-    description: '输入框关联的label文字',
+    name: 'aria-label',
+    description: '等价于原生 input aria-label 属性',
     type: 'string',
     value: '—',
     default: '—'
@@ -89,32 +96,60 @@ const attributes = [
     type: 'string',
     value: '-',
     default: '-'
+  },
+  {
+    name: 'id',
+    description: '等价于原生 input id 属性',
+    type: 'string',
+    value: '-',
+    default: '-'
+  },
+  {
+    name: 'value-on-clear',
+    description: '当输入框被清空时显示的值',
+    type: 'number/min/max',
+    value: '-',
+    default: '-'
+  },
+  {
+    name: 'validate-event',
+    description: '输入时是否触发表单的校验',
+    type: 'boolean',
+    value: '-',
+    default: 'true'
   }
 ]
 
-const methods = [
-  { name: 'focus', description: '使 input 获取焦点', parameter: '-' },
-  { name: 'select', description: '选中 input 中的文字', parameter: '—' }
+const slots = [
+  { name: 'prefix', description: '输入框头部内容' },
+  { name: 'suffix', description: '输入框尾部内容' },
+  { name: 'decrease-icon', description: '	自定义输入框按钮减少图标' },
+  { name: 'increase-icon', description: '自定义输入框按钮增加图标' }
 ]
 
 const events = [
   {
     name: 'change',
     description: '绑定值被改变时触发',
-    parameter: 'currentValue, oldValue'
+    parameter: '(currentValue: number | undefined, oldValue: number | undefined) => void'
   },
   {
     name: 'blur',
     description: '在组件 Input 失去焦点时触发',
-    parameter: '(event: Event)'
+    parameter: '(event: FocusEvent) => void'
   },
   {
     name: 'focus',
     description: '在组件 Input 获得焦点时触发',
-    parameter: '(event: Event)'
+    parameter: '(event: FocusEvent) => void'
   }
 ]
 
-const document = { attributes, methods, events }
+const exposes = [
+  { name: 'focus', description: '	使 input 组件获得焦点', parameter: '() => void' },
+  { name: 'blur', description: '使 input 组件失去焦点', parameter: '() => void' }
+]
+
+const document = { attributes, exposes, events, slots }
 
 module.exports = document

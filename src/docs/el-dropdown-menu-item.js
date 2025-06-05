@@ -23,12 +23,14 @@ const attributes = [
   {
     name: 'icon',
     description: '图标类名',
-    type: 'string',
+    type: 'string/Component',
     value: '—',
     default: '—'
   }
 ]
 
-const document = { attributes }
+const slots = [{ name: 'default', description: '自定义Dropdown-Item内容' }]
+
+const document = { attributes, slots }
 
 module.exports = document

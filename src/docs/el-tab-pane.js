@@ -36,6 +36,11 @@ const attributes = [
   }
 ]
 
-const document = { attributes }
+const slots = [
+  { name: 'default', description: 'Tab-pane 的内容' },
+  { name: 'label', description: 'Tab-pane 的标题内容' }
+]
+
+const document = { attributes, slots }
 
 module.exports = document

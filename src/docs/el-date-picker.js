@@ -1,10 +1,10 @@
 const attributes = [
   {
-    name: 'value/v-model',
+    name: 'model-value/v-model',
     description: '绑定值',
-    type: 'date(DatePicker) / array(DateRangePicker)',
+    type: 'number/string/object',
     value: '—',
-    default: '—'
+    default: ''
   },
   {
     name: 'readonly',
@@ -21,6 +21,13 @@ const attributes = [
     default: 'false'
   },
   {
+    name: 'size',
+    description: '尺寸',
+    type: 'string',
+    value: 'large/default/small',
+    default: '—'
+  },
+  {
     name: 'editable',
     description: '文本框可输入',
     type: 'boolean',
@@ -33,13 +40,6 @@ const attributes = [
     type: 'boolean',
     value: '—',
     default: 'true'
-  },
-  {
-    name: 'size',
-    description: '输入框尺寸',
-    type: 'string',
-    value: 'large, small, mini',
-    default: '—'
   },
   {
     name: 'placeholder',
@@ -66,22 +66,16 @@ const attributes = [
     name: 'type',
     description: '显示类型',
     type: 'string',
-    value: 'year/month/date/dates/ week/datetime/datetimerange/ daterange/monthrange',
+    value:
+      'year/years/month/months/date/dates/datetime/week/datetimerange/daterange/monthrange/yearrange',
     default: 'date'
   },
   {
     name: 'format',
-    description: '显示在输入框中的格式',
+    description: '显示在输入框中的格式,参见 date formats',
     type: 'string',
-    value: '见[日期格式](#/zh-CN/component/date-picker#ri-qi-ge-shi)',
-    default: 'yyyy-MM-dd'
-  },
-  {
-    name: 'align',
-    description: '对齐方式',
-    type: 'string',
-    value: 'left, center, right',
-    default: 'left'
+    value: '-',
+    default: 'YYYY-MM-DD'
   },
   {
     name: 'popper-class',
@@ -127,6 +121,13 @@ const attributes = [
     default: '—'
   },
   {
+    name: 'id',
+    description: '等价于原生 input id 属性',
+    type: 'string',
+    value: '—',
+    default: '—'
+  },
+  {
     name: 'name',
     description: '原生属性',
     type: 'string',
@@ -143,16 +144,16 @@ const attributes = [
   {
     name: 'prefix-icon',
     description: '自定义头部图标的类名',
-    type: 'string',
+    type: 'string/Component',
     value: '—',
-    default: 'el-icon-date'
+    default: '-'
   },
   {
     name: 'clear-icon',
     description: '自定义清空图标的类名',
-    type: 'string',
+    type: 'string/Component',
     value: '—',
-    default: 'el-icon-circle-close'
+    default: 'CircleClose'
   },
   {
     name: 'validate-event',
@@ -160,85 +161,120 @@ const attributes = [
     type: 'boolean',
     value: '-',
     default: 'true'
+  },
+  {
+    name: 'disabled-date',
+    description:
+      '一个用来判断该日期是否被禁用的函数，接受一个 Date 对象作为参数。 应该返回一个 Boolean 值。',
+    type: '(data: Date) => boolean',
+    value: '-',
+    default: '-'
+  },
+  {
+    name: 'shortcuts',
+    description: '设置快捷选项，需要传入数组对象',
+    type: 'Array<{ text: string, value: Date | Function }>',
+    value: '-',
+    default: '[]'
+  },
+  {
+    name: 'cell-class-name',
+    description: '设置自定义类名',
+    type: '(data: Date) => string',
+    value: '-',
+    default: '-'
+  },
+  {
+    name: 'teleported',
+    description: '是否将 date-picker 的下拉列表插入至 body 元素',
+    type: 'boolean',
+    value: '—',
+    default: 'true'
+  },
+  {
+    name: 'empty-values',
+    description: '组件的空值配置 参考config-provider',
+    type: 'array',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'value-on-clear',
+    description: '清空选项的值 参考 config-provider',
+    type: 'string/number/boolean/Function',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'fallback-placements',
+    description: 'Tooltip 可用的 positions 请查看popper.js 文档',
+    type: 'array',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'placement',
+    description: '下拉框出现的位置',
+    type: 'string',
+    value: '—',
+    default: '-'
   }
 ]
-
-const methods = [{ name: 'focus', description: '使 input 获取焦点', parameter: '—' }]
 
 const events = [
   {
     name: 'change',
     description: '用户确认选定的值时触发',
-    parameter: '组件绑定值。格式与绑定值一致，可受 `value-format` 控制'
+    parameter: '(val: typeof v-model) => void'
   },
   {
     name: 'blur',
     description: '当 input 失去焦点时触发',
-    parameter: '组件实例'
+    parameter: '(e: FocusEvent) => void'
   },
   {
     name: 'focus',
     description: '当 input 获得焦点时触发',
-    parameter: '组件实例'
+    parameter: '(e: FocusEvent) => void'
+  },
+  {
+    name: 'clear',
+    description: '可清空的模式下用户点击清空按钮时触发',
+    parameter: '() => void'
+  },
+  {
+    name: 'calendar-change',
+    description: '在日历所选日期更改时触发',
+    parameter: '(val: [Date, null | Date]) => void'
+  },
+  {
+    name: 'panel-change',
+    description: '当日期面板改变时触发。',
+    parameter: `(date: Date | [Date, Date], mode: 'month' | 'year', view?: string) => void`
+  },
+  {
+    name: 'visible-change',
+    description: '当 DatePicker 的下拉列表出现/消失时触发',
+    parameter: '(visibility: boolean) => void'
   }
 ]
 
-const pickerOptions = [
-  {
-    name: 'shortcuts',
-    description: '设置快捷选项，需要传入 { text, onClick } 对象用法参考 demo 或下表',
-    type: 'Object[]',
-    value: '—',
-    default: '—'
-  },
-  {
-    name: 'disabledDate',
-    description: '设置禁用状态，参数为当前日期，要求返回 Boolean',
-    type: 'Function',
-    value: '—',
-    default: '—'
-  },
-  {
-    name: 'cellClassName',
-    description: '设置日期的 className',
-    type: 'Function(Date)',
-    value: '—',
-    default: '—'
-  },
-  {
-    name: 'firstDayOfWeek',
-    description: '周起始日',
-    type: 'Number',
-    value: '1 到 7',
-    default: '7'
-  },
-  {
-    name: 'onPick',
-    description: '选中日期后会执行的回调，只有当 daterange 或 datetimerange 才生效',
-    type: 'Function({ maxDate, minDate })',
-    value: '—',
-    default: '—'
-  }
+const slots = [
+  { name: 'default', description: '自定义单元格内容' },
+  { name: 'range-separator', description: '自定义范围分割符内容' },
+  { name: 'prev-month', description: '上个月的图标' },
+  { name: 'next-month', description: '下个月的图标' },
+  { name: 'prev-year', description: '上一年图标' },
+  { name: 'next-year', description: '下一年图标' }
 ]
 
-const shortcuts = [
-  {
-    name: 'text',
-    description: '标题文本',
-    type: 'string',
-    value: '—',
-    default: '—'
-  },
-  {
-    name: 'onClick',
-    description:
-      "选中后的回调函数，参数是 vm，可通过触发 'pick' 事件设置选择器的值。例如 vm.$emit('pick', new Date())",
-    type: 'function',
-    value: '—',
-    default: '—'
-  }
+const exposes = [
+  { name: 'focus', description: '使组件获取焦点', parameter: '() => void' },
+  { name: 'blur', description: '使组件失去焦点', parameter: '() => void' },
+  { name: 'handleOpen', description: '打开日期选择器弹窗', parameter: '() => void' },
+  { name: 'handleClose', description: '关闭日期选择器弹窗', parameter: '() => void' }
 ]
 
-const document = { attributes, methods, events, pickerOptions, shortcuts }
+const document = { attributes, events, slots, exposes }
 
 module.exports = document

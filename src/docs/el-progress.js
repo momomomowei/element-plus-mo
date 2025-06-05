@@ -35,6 +35,20 @@ const attributes = [
     default: '—'
   },
   {
+    name: 'indeterminate',
+    description: '是否为动画进度条',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
+  },
+  {
+    name: 'duration',
+    description: '控制动画进度条速度和条纹进度条流动速度',
+    type: 'number',
+    value: '—',
+    default: '3'
+  },
+  {
     name: 'color',
     description: '进度条背景色（会覆盖 status 状态颜色）',
     type: 'string/function/array',
@@ -68,9 +82,25 @@ const attributes = [
     type: 'function(percentage)',
     value: '—',
     default: '—'
+  },
+  {
+    name: 'striped',
+    description: '在进度条上增加条纹',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
+  },
+  {
+    name: 'striped-flow',
+    description: '让进度条上的条纹流动起来',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
   }
 ]
 
-const document = { attributes }
+const slots = [{ name: 'default', description: '自定义默认内容' }]
+
+const document = { attributes, slots }
 
 module.exports = document

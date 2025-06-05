@@ -1,10 +1,31 @@
 const attributes = [
   {
+    name: 'model-value/v-model',
+    description: '是否显示 Drawer',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
+  },
+  {
     name: 'append-to-body',
     description: 'Drawer 自身是否插入至 body 元素上。嵌套的 Drawer 必须指定该属性并赋值为 true',
     type: 'boolean',
     value: '—',
     default: 'false'
+  },
+  {
+    name: 'append-to',
+    description: 'Dialog 挂载到哪个 DOM 元素 将覆盖 append-to-body',
+    type: 'string',
+    value: 'CSSSelector/HTMLElement',
+    default: 'body'
+  },
+  {
+    name: 'lock-scroll',
+    description: '是否在 Drawer 出现时将 body 滚动锁定',
+    type: 'boolean',
+    value: '—',
+    default: 'true'
   },
   {
     name: 'before-close',
@@ -14,6 +35,13 @@ const attributes = [
     default: '—'
   },
   {
+    name: 'close-on-click-modal',
+    description: '是否可以通过点击 modal 关闭 Drawer',
+    type: 'boolean',
+    value: '—',
+    default: 'true'
+  },
+  {
     name: 'close-on-press-escape',
     description: '是否可以通过按下 ESC 关闭 Drawer',
     type: 'boolean',
@@ -21,11 +49,18 @@ const attributes = [
     default: 'true'
   },
   {
-    name: 'custom-class',
-    description: 'Drawer 的自定义类名',
-    type: 'string',
+    name: 'open-delay',
+    description: 'dialog 打开的延时时间，单位毫秒',
+    type: 'number',
     value: '—',
-    default: '—'
+    default: '0'
+  },
+  {
+    name: 'close-delay',
+    description: 'dialog 关闭的延时时间，单位毫秒',
+    type: 'number',
+    value: '—',
+    default: '0'
   },
   {
     name: 'destroy-on-close',
@@ -37,13 +72,6 @@ const attributes = [
   {
     name: 'modal',
     description: '是否需要遮罩层',
-    type: 'boolean',
-    value: '—',
-    default: 'true'
-  },
-  {
-    name: 'modal-append-to-body',
-    description: '遮罩层是否插入至 body 元素上，若为 false，则遮罩层会插入至 Drawer 的父元素上',
     type: 'boolean',
     value: '—',
     default: 'true'
@@ -78,57 +106,103 @@ const attributes = [
     default: '—'
   },
   {
-    name: 'visible',
-    description: '是否显示 Drawer，支持 .sync 修饰符',
-    type: 'boolean',
-    value: '—',
-    default: 'false'
-  },
-  {
-    name: 'wrapperClosable',
-    description: '点击遮罩层是否可以关闭 Drawer',
-    type: 'boolean',
-    value: '-',
-    default: 'true'
-  },
-  {
-    name: 'withHeader',
+    name: 'with-header',
     description:
       '控制是否显示 header 栏, 默认为 true, 当此项为 false 时, title attribute 和 title slot 均不生效',
     type: 'boolean',
     value: '-',
     default: 'true'
-  }
-]
-
-const methods = [
+  },
   {
-    name: 'closeDrawer',
-    description: '用于关闭 Drawer, 该方法会调用传入的 `before-close` 方法',
-    parameter: ''
+    name: 'modal-class',
+    description: '遮罩层的自定义类名',
+    type: 'string',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'header-class',
+    description: 'header 部分的自定义 class 名',
+    type: 'string',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'body-class',
+    description: 'body 部分的自定义 class 名',
+    type: 'string',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'footer-class',
+    description: 'footer 部分的自定义 class 名',
+    type: 'string',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'z-index',
+    description: '和原生的 CSS 的 z-index 相同，改变 z 轴的顺序',
+    type: 'number',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'header-aria-level',
+    description: 'header 的 aria-level 属性',
+    type: 'string',
+    value: '—',
+    default: '2'
+  },
+  {
+    name: 'custom-class',
+    description: 'Drawer 的自定义类名',
+    type: 'string',
+    value: '—',
+    default: '—'
   }
 ]
 
 const events = [
-  { name: 'open', description: 'Drawer 打开的回调', parameter: '—' },
+  { name: 'open', description: 'Drawer 打开的回调', parameter: '() => void' },
   {
     name: 'opened',
     description: 'Drawer 打开动画结束时的回调',
-    parameter: '—'
+    parameter: '() => void'
   },
-  { name: 'close', description: 'Drawer 关闭的回调', parameter: '—' },
+  { name: 'close', description: 'Drawer 关闭的回调', parameter: '() => void' },
   {
     name: 'closed',
     description: 'Drawer 关闭动画结束时的回调',
-    parameter: '—'
+    parameter: '() => void'
+  },
+  {
+    name: 'open-auto-focus',
+    description: '输入焦点聚焦在 Drawer 内容时的回调',
+    parameter: '() => void'
+  },
+  {
+    name: 'close-auto-focus',
+    description: '输入焦点从 Drawer 内容失焦时的回调',
+    parameter: '() => void'
   }
 ]
 
 const slots = [
-  { name: '—', description: 'Drawer 的内容' },
-  { name: 'title', description: 'Drawer 标题区的内容' }
+  { name: 'default', description: 'Drawer 默认内容' },
+  { name: 'header', description: 'Drawer 标题的内容；会替换标题部分，但不会移除关闭按钮' },
+  { name: 'footer', description: 'Dialog 按钮操作区的内容' }
 ]
 
-const document = { attributes, methods, events, slots }
+const exposes = [
+  {
+    name: 'handleClose',
+    description: '用于关闭 Drawer, 该方法会调用传入的 `before-close` 方法',
+    parameter: '-'
+  }
+]
+
+const document = { attributes, exposes, events, slots }
 
 module.exports = document

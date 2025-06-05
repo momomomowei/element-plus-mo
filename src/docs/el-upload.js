@@ -14,6 +14,13 @@ const attributes = [
     default: '—'
   },
   {
+    name: 'method',
+    description: '设置上传请求方法',
+    type: 'string',
+    value: '—',
+    default: 'post'
+  },
+  {
     name: 'multiple',
     description: '是否支持多选文件',
     type: 'boolean',
@@ -22,10 +29,10 @@ const attributes = [
   },
   {
     name: 'data',
-    description: '上传时附带的额外参数',
-    type: 'object',
+    description: '上传时附带的额外参数支持 Awaitable 数据，和 Function',
+    type: 'object/function',
     value: '—',
-    default: '—'
+    default: '{}'
   },
   {
     name: 'name',
@@ -64,53 +71,67 @@ const attributes = [
     default: '—'
   },
   {
+    name: 'crossorigin',
+    description: '原生属性 crossorigin',
+    type: 'string',
+    value: '—',
+    default: '—'
+  },
+  {
     name: 'on-preview',
     description: '点击文件列表中已上传的文件时的钩子',
     type: 'function(file)',
-    value: '—',
+    value: '(uploadFile: UploadFile) => void',
     default: '—'
   },
   {
     name: 'on-remove',
     description: '文件列表移除文件时的钩子',
     type: 'function(file, fileList)',
-    value: '—',
+    value: '(uploadFile: UploadFile, uploadFiles: UploadFiles) => void',
     default: '—'
   },
   {
     name: 'on-success',
     description: '文件上传成功时的钩子',
     type: 'function(response, file, fileList)',
-    value: '—',
+    value: '(response: any, uploadFile: UploadFile, uploadFiles: UploadFiles) => void',
     default: '—'
   },
   {
     name: 'on-error',
     description: '文件上传失败时的钩子',
     type: 'function(err, file, fileList)',
-    value: '—',
+    value: '(error: Error, uploadFile: UploadFile, uploadFiles: UploadFiles) => void',
     default: '—'
   },
   {
     name: 'on-progress',
     description: '文件上传时的钩子',
     type: 'function(event, file, fileList)',
-    value: '—',
+    value: '(evt: UploadProgressEvent, uploadFile: UploadFile, uploadFiles: UploadFiles) => void',
     default: '—'
   },
   {
     name: 'on-change',
     description: '文件状态改变时的钩子，添加文件、上传成功和上传失败时都会被调用',
     type: 'function(file, fileList)',
-    value: '—',
+    value: '(uploadFile: UploadFile, uploadFiles: UploadFiles) => void',
     default: '—'
+  },
+  {
+    name: 'on-exceed',
+    description: '文件超出个数限制时的钩子',
+    type: 'function(files, fileList)',
+    value: '(files: File[], uploadFiles: UploadUserFile[]) => void',
+    default: '-'
   },
   {
     name: 'before-upload',
     description:
       '上传文件之前的钩子，参数为上传的文件，若返回 "false" 或者返回 Promise 且被 reject，则停止上传。',
     type: 'function(file)',
-    value: '—',
+    value: '(rawFile: UploadRawFile) => Awaitable<void | undefined | null | boolean | File | Blob>',
     default: '—'
   },
   {
@@ -118,7 +139,7 @@ const attributes = [
     description:
       '删除文件之前的钩子，参数为上传的文件和文件列表，若返回 "false" 或者返回 Promise 且被 reject，则停止删除。',
     type: 'function(file, fileList)',
-    value: '—',
+    value: '(uploadFile: UploadFile, uploadFiles: UploadFiles) => Awaitable<boolean>',
     default: '—'
   },
   {
@@ -136,7 +157,7 @@ const attributes = [
     default: 'true'
   },
   {
-    name: 'file-list',
+    name: 'file-list/v-model:file-list',
     description: "上传的文件列表, 例如: [{name: 'food.jpg', url: 'https://xxx.cdn.com/xxx.jpg'}]",
     type: 'array',
     value: '—',
@@ -146,7 +167,7 @@ const attributes = [
     name: 'http-request',
     description: '覆盖默认的上传行为，可以自定义上传的实现',
     type: 'function',
-    value: '—',
+    value: '(options: UploadRequestOptions) => XMLHttpRequest | Promise<unknown>',
     default: '—'
   },
   {
@@ -162,35 +183,40 @@ const attributes = [
     type: 'number',
     value: '—',
     default: '—'
-  },
-  {
-    name: 'on-exceed',
-    description: '文件超出个数限制时的钩子',
-    type: 'function(files, fileList)',
-    value: '—',
-    default: '-'
   }
 ]
 
-const methods = [
-  {
-    name: 'clearFiles',
-    description: '清空已上传的文件列表（该方法不支持在 before-upload 中调用）',
-    parameter: '—'
-  },
+const slots = [
+  { name: 'default', description: '自定义默认内容' },
+  { name: 'trigger', description: '触发文件选择框的内容' },
+  { name: 'tip', description: '提示说明文字' },
+  { name: 'file', description: '缩略图模板的内容：{ file: UploadFile, index: number }' }
+]
+
+const exposes = [
   {
     name: 'abort',
     description: '取消上传请求',
-    parameter: '（ file: fileList 中的 file 对象 ）'
+    parameter: '(file: UploadFile) => void'
   },
-  { name: 'submit', description: '手动上传文件列表', parameter: '—' }
+  { name: 'submit', description: '手动上传文件列表', parameter: '() => void' },
+  {
+    name: 'clearFiles',
+    description: '清空已上传的文件列表（该方法不支持在 before-upload 中调用）',
+    parameter: '(status?: UploadStatus[]) => void'
+  },
+  {
+    name: 'handleStart',
+    description: '手动选择文件',
+    parameter: '(rawFile: UploadRawFile) => void'
+  },
+  {
+    name: 'handleRemove',
+    description: '手动移除文件。 file 和rawFile 已被合并。',
+    parameter: '(file: UploadFile | UploadRawFile, rawFile?: UploadRawFile) => void'
+  }
 ]
 
-const slots = [
-  { name: 'trigger', description: '触发文件选择框的内容' },
-  { name: 'tip', description: '提示说明文字' }
-]
-
-const document = { attributes, methods, slots }
+const document = { attributes, exposes, slots }
 
 module.exports = document

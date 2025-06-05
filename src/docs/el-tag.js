@@ -38,23 +38,32 @@ const attributes = [
     name: 'size',
     description: '尺寸',
     type: 'string',
-    value: 'medium / small / mini',
+    value: 'large/default/small',
     default: '—'
   },
   {
     name: 'effect',
     description: '主题',
     type: 'string',
-    value: 'dark / light / plain',
+    value: 'dark/light/plain',
     default: 'light'
+  },
+  {
+    name: 'round',
+    description: 'Tag 是否为圆形',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
   }
 ]
 
 const events = [
-  { name: 'click', description: '点击 Tag 时触发的事件', parameter: '—' },
-  { name: 'close', description: '关闭 Tag 时触发的事件', parameter: '—' }
+  { name: 'click', description: '点击 Tag 时触发的事件', parameter: '(evt: MouseEvent) => void' },
+  { name: 'close', description: '关闭 Tag 时触发的事件', parameter: '(evt: MouseEvent) => void' }
 ]
 
-const document = { attributes, events }
+const slots = [{ name: 'default', description: '自定义默认内容' }]
+
+const document = { attributes, events, slots }
 
 module.exports = document

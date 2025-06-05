@@ -50,6 +50,8 @@ const attributes = [
   }
 ]
 
-const document = { attributes }
+const slots = [{ name: 'default', description: '默认插槽，Step' }]
+
+const document = { attributes, slots }
 
 module.exports = document

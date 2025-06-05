@@ -17,13 +17,13 @@ const attributes = [
     name: 'icon',
     description: '图标',
     type: '传入 icon 的 class 全名来自定义 icon，也支持 slot 方式写入',
-    value: 'string',
+    value: 'string/Component',
     default: '—'
   },
   {
     name: 'status',
     description: '设置当前步骤的状态，不设置则根据 steps 确定状态',
-    type: 'wait / process / finish / error / success',
+    type: 'wait/process/finish/error/success',
     value: '-',
     default: ''
   }

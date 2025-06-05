@@ -1,8 +1,8 @@
 const attributes = [
   {
-    name: 'value/v-model',
-    description: '绑定值',
-    type: 'date(TimePicker) / string(TimeSelect)',
+    name: 'model-value/v-model',
+    description: '绑定值，如果它是数组，长度应该是 2',
+    type: 'number/string/Date/[Date, Date]/[number, number]/[string, string]',
     value: '—',
     default: '—'
   },
@@ -36,9 +36,9 @@ const attributes = [
   },
   {
     name: 'size',
-    description: '输入框尺寸',
+    description: '尺寸',
     type: 'string',
-    value: 'medium / small / mini',
+    value: 'large/default/small',
     default: '—'
   },
   {
@@ -77,25 +77,11 @@ const attributes = [
     default: 'false'
   },
   {
-    name: 'align',
-    description: '对齐方式',
-    type: 'string',
-    value: 'left / center / right',
-    default: 'left'
-  },
-  {
     name: 'popper-class',
     description: 'TimePicker 下拉框的类名',
     type: 'string',
     value: '—',
     default: '—'
-  },
-  {
-    name: 'picker-options',
-    description: '当前时间日期选择器特有的选项参考下表',
-    type: 'object',
-    value: '—',
-    default: '{}'
   },
   {
     name: 'range-separator',
@@ -105,18 +91,34 @@ const attributes = [
     default: "'-'"
   },
   {
+    name: 'format',
+    description: '显示在输入框中的格式',
+    type: 'string',
+    value:
+      '见[日期格式](#https://cn.element-plus.org/zh-CN/component/date-picker.html#date-formats)',
+    default: '—'
+  },
+  {
     name: 'value-format',
     description: '可选，仅TimePicker时可用，绑定值的格式。不指定则绑定值为 Date 对象',
     type: 'string',
-    value: '见[日期格式](#/zh-CN/component/date-picker#ri-qi-ge-shi)',
+    value:
+      '见[日期格式](#https://cn.element-plus.org/zh-CN/component/date-picker.html#date-formats)',
     default: '—'
   },
   {
     name: 'default-value',
     description: '可选，选择器打开时默认显示的时间',
-    type: 'Date(TimePicker) / string(TimeSelect)',
-    value: '可被`new Date()`解析(TimePicker) / 可选值(TimeSelect)',
+    type: 'Date/Object',
+    value: '可被`new Date()`解析(TimePicker)/可选值(TimeSelect)',
     default: '—'
+  },
+  {
+    name: 'id',
+    description: 'input 的 id',
+    type: 'string',
+    value: '—',
+    default: '-'
   },
   {
     name: 'name',
@@ -124,6 +126,13 @@ const attributes = [
     type: 'string',
     value: '—',
     default: '—'
+  },
+  {
+    name: 'aria-label',
+    description: '等价于原生 input aria-label 属性',
+    type: 'string',
+    value: '—',
+    default: '-'
   },
   {
     name: 'prefix-icon',
@@ -138,47 +147,94 @@ const attributes = [
     type: 'string',
     value: '—',
     default: 'el-icon-circle-close'
+  },
+  {
+    name: 'disabled-hours',
+    description: '禁止选择部分小时选项',
+    type: 'Function',
+    value: '(role: string, comparingDate?: Dayjs) => number[]',
+    default: '-'
+  },
+  {
+    name: 'disabled-minutes',
+    description: '禁止选择部分分钟选项',
+    type: 'Function',
+    value: '(hour: number, role: string, comparingDate?: Dayjs) => number[]',
+    default: '-'
+  },
+  {
+    name: 'disabled-seconds',
+    description: '禁止选择部分秒选项',
+    type: 'Function',
+    value: '(hour: number, minute: number, role: string, comparingDate?: Dayjs) => number[]',
+    default: '-'
+  },
+  {
+    name: 'teleported',
+    description: '是否将 popover 的下拉列表镜像至 body 元素',
+    type: 'boolean',
+    value: '-',
+    default: 'true'
+  },
+  {
+    name: 'tabindex',
+    description: 'input 的 tabindex',
+    type: 'string/number',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'empty-values',
+    description: '组件的空值配置 参考config-provider',
+    type: 'array',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'value-on-clear',
+    description: '清空选项的值 参考 config-provider',
+    type: 'string/number/boolean/Function',
+    value: '—',
+    default: '-'
   }
 ]
-
-const methods = [{ name: 'focus', description: '使 input 获取焦点', parameter: '-' }]
 
 const events = [
   {
     name: 'change',
     description: '用户确认选定的值时触发',
-    parameter: '组件绑定值'
+    parameter:
+      '(val: number | string | Date | [number, number] | [string, string] | [Date, Date]) => void'
   },
   {
     name: 'blur',
     description: '当 input 失去焦点时触发',
-    parameter: '组件实例'
+    parameter: '(e: FocusEvent) => void'
   },
   {
     name: 'focus',
     description: '当 input 获得焦点时触发',
-    parameter: '组件实例'
-  }
-]
-
-const pickerOptions = [
-  {
-    name: 'selectableRange',
-    description:
-      '可选时间段，例如"18:30:00 - 20:30:00"或者传入数组["09:30:00 - 12:00:00", "14:30:00 - 18:30:00"]',
-    type: 'string / array',
-    value: '—',
-    default: '—'
+    parameter: '(e: FocusEvent) => void'
   },
   {
-    name: 'format',
-    description: '时间格式化(TimePicker)',
-    type: 'string',
-    value: 'HH,mm,ss,A',
-    default: '"HH:mm:ss"'
+    name: 'clear',
+    description: '可清空的模式下用户点击清空按钮时触发',
+    parameter: '() => void'
+  },
+  {
+    name: 'visible-change',
+    description: '当 TimePicker 的下拉列表出现/消失时触发',
+    parameter: '(visibility: boolean) => void'
   }
 ]
 
-const document = { attributes, methods, events, pickerOptions }
+const exposes = [
+  { name: 'focus', description: '使组件获取焦点', parameter: '() => void' },
+  { name: 'blur', description: '使组件失去焦点', parameter: '() => void' },
+  { name: 'handleOpen', description: '打开时间选择器弹窗', parameter: '() => void' },
+  { name: 'handleClose', description: '关闭时间选择器弹窗', parameter: '() => void' }
+]
+
+const document = { attributes, exposes, events }
 
 module.exports = document

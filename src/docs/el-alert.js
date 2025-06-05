@@ -10,7 +10,7 @@ const attributes = [
     name: 'type',
     description: '主题',
     type: 'string',
-    value: 'success/warning/info/error',
+    value: 'primary/success/warning/info/error',
     default: 'info'
   },
   {
@@ -55,15 +55,18 @@ const attributes = [
     value: 'light/dark',
     default: 'light'
   }
-];
+]
 
-const events = [{ name: 'close', description: '关闭alert时触发的事件', parameter: '—' }];
+const events = [
+  { name: 'close', description: '关闭alert时触发的事件', parameter: 'event: MouseEvent) => void' }
+]
 
 const slots = [
-  { name: '—', description: '描述' },
-  { name: 'title', description: '标题的内容' }
-];
+  { name: 'default', description: 'Alert 内容描述' },
+  { name: 'title', description: '标题的内容' },
+  { name: 'icon', description: 'icon 的内容' }
+]
 
-const document = { attributes, events, slots };
+const document = { attributes, events, slots }
 
-module.exports = document;
+module.exports = document

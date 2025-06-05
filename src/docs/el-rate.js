@@ -1,7 +1,7 @@
 const attributes = [
   {
-    name: 'value/v-model',
-    description: '绑定值',
+    name: 'model-value/v-model',
+    description: '选中项绑定值',
     type: 'number',
     value: '—',
     default: '0'
@@ -12,6 +12,13 @@ const attributes = [
     type: 'number',
     value: '—',
     default: '5'
+  },
+  {
+    name: 'size',
+    description: '尺寸',
+    type: 'string',
+    value: 'large/default/small',
+    default: '—'
   },
   {
     name: 'disabled',
@@ -64,26 +71,26 @@ const attributes = [
     default: '#EFF2F7'
   },
   {
-    name: 'icon-classes',
+    name: 'icons',
     description:
-      'icon 的类名。若传入数组，共有 3 个元素，为 3 个分段所对应的类名；若传入对象，可自定义分段，键名为分段的界限值，键值为对应的类名',
+      '图标组件 若传入数组，则需要传入 3 个元素，分别为 3 个部分所对应的类名；若传入对象，则可自定义分段，键名为分段的界限值，键值为对应的类名',
     type: 'array/object',
     value: '—',
-    default: "['el-icon-star-on', 'el-icon-star-on','el-icon-star-on']"
+    default: '[StarFilled, StarFilled, StarFilled]'
   },
   {
-    name: 'void-icon-class',
-    description: '未选中 icon 的类名',
-    type: 'string',
+    name: 'void-icon',
+    description: '未被选中的图标组件',
+    type: 'string/Component',
     value: '—',
-    default: 'el-icon-star-off'
+    default: 'Star'
   },
   {
-    name: 'disabled-void-icon-class',
-    description: '只读时未选中 icon 的类名',
+    name: 'disabled-void-icon',
+    description: '禁用状态的未选择图标',
     type: 'string',
     value: '—',
-    default: 'el-icon-star-on'
+    default: 'StarFilled'
   },
   {
     name: 'show-text',
@@ -118,12 +125,47 @@ const attributes = [
     description: '分数显示模板',
     type: 'string',
     value: '—',
-    default: '{value}'
+    default: '-'
+  },
+  {
+    name: 'clearable',
+    description: '是否可以重置值为 0',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
+  },
+  {
+    name: 'id',
+    description: '原生 id 属性',
+    type: 'string',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'aria-label',
+    description: '和 Rate 的 aria-label 属性保持一致',
+    type: 'string',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'label',
+    description: '和 Rate 的 aria-label 属性保持一致(deprecated)',
+    type: 'string',
+    value: '—',
+    default: '—'
   }
 ]
 
-const events = [{ name: 'change', description: '分值改变时触发', parameter: '改变后的分值' }]
+const events = [
+  { name: 'change', description: '分值改变时触发', parameter: '(value: number) => void' }
+]
 
-const document = { attributes, events }
+const exposes = [
+  { name: 'setCurrentValue', description: '设置当前值', parameter: '(value: number) => void' },
+  { name: 'resetCurrentValue', description: '重置当前值', parameter: '() => void' }
+]
+
+const document = { attributes, events, exposes }
 
 module.exports = document

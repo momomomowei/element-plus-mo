@@ -1,8 +1,8 @@
 const attributes = [
   {
-    name: 'value/v-model',
+    name: 'model-value/v-model',
     description: '绑定值，选中选项卡的 name',
-    type: 'string',
+    type: 'string/number',
     value: '—',
     default: '第一个选项卡的 name'
   },
@@ -61,25 +61,48 @@ const events = [
   {
     name: 'tab-click',
     description: 'tab 被选中时触发',
-    parameter: '被选中的标签 tab 实例'
+    parameter: '(pane: TabsPaneContext, ev: Event) => void'
+  },
+  {
+    name: 'tab-change',
+    description: 'activeName 改变时触发',
+    parameter: '(name: TabPaneName) => void'
   },
   {
     name: 'tab-remove',
     description: '点击 tab 移除按钮后触发',
-    parameter: '被删除的标签的 name'
+    parameter: '(name: TabPaneName) => void'
   },
   {
     name: 'tab-add',
     description: '点击 tabs 的新增按钮后触发',
-    parameter: '—'
+    parameter: '() => void'
   },
   {
     name: 'edit',
     description: '点击 tabs 的新增按钮或 tab 被关闭后触发',
-    parameter: '(targetName, action)'
+    parameter: '(targetName, action) => void'
   }
 ]
 
-const document = { attributes, events }
+const slots = [
+  { name: 'default', description: '默认插槽，Tab-pane' },
+  { name: 'add-icon', description: '自定义添加按钮图标' }
+]
+
+const exposes = [
+  {
+    name: 'currentName',
+    description: '当前活动的面板名称',
+    parameter: 'Ref<TabPaneName>'
+  },
+  {
+    name: 'tabNavRef',
+    description: 'tab-nav 组件实例',
+    parameter: 'Ref<TabNavInstance | undefined>'
+  }
+]
+
+const document = { attributes, events, slots, exposes }
 
 module.exports = document

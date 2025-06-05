@@ -14,44 +14,58 @@ const attributes = [
     default: 'false'
   },
   {
+    name: 'center',
+    description: '是否垂直居中',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
+  },
+  {
     name: 'placement',
     description: '时间戳位置',
     type: 'string',
-    value: 'top / bottom',
+    value: 'top/bottom',
     default: 'bottom'
   },
   {
     name: 'type',
     description: '节点类型',
     type: 'string',
-    value: 'primary / success / warning / danger / info',
+    value: 'primary/success/warning/danger/info',
     default: '-'
   },
   {
     name: 'color',
     description: '节点颜色',
     type: 'string',
-    value: 'hsl / hsv / hex / rgb',
+    value: 'hsl/hsv/hex/rgb',
     default: '-'
   },
   {
     name: 'size',
     description: '节点尺寸',
     type: 'string',
-    value: 'normal / large',
+    value: 'normal/large',
     default: 'normal'
   },
   {
     name: 'icon',
-    description: '节点图标',
-    type: 'string',
+    description: '自定义图标',
+    type: 'string/Component',
     value: '—',
-    default: '-'
+    default: '—'
+  },
+  {
+    name: 'hollow',
+    description: '是否空心点',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
   }
 ]
 
 const slots = [
-  { name: '—', description: 'Timeline-Item 的内容' },
+  { name: 'default', description: 'Timeline-Item 的内容' },
   { name: 'dot', description: '自定义节点' }
 ]
 

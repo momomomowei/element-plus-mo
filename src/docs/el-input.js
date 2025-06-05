@@ -1,5 +1,19 @@
 const attributes = [
   {
+    name: 'v-model',
+    description: '绑定值',
+    type: 'string/number',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'model-value',
+    description: '绑定值',
+    type: 'string/number',
+    value: '—',
+    default: '—'
+  },
+  {
     name: 'type',
     description: '类型',
     type: 'string',
@@ -8,23 +22,16 @@ const attributes = [
     default: 'text'
   },
   {
-    name: 'value/v-model',
-    description: '绑定值',
-    type: 'string / number',
-    value: '—',
-    default: '—'
-  },
-  {
     name: 'maxlength',
     description: '原生属性，最大输入长度',
-    type: 'number',
+    type: 'string/number',
     value: '—',
     default: '—'
   },
   {
     name: 'minlength',
     description: '原生属性，最小输入长度',
-    type: 'number',
+    type: 'string/number',
     value: '—',
     default: '—'
   },
@@ -50,6 +57,20 @@ const attributes = [
     default: 'false'
   },
   {
+    name: 'formatter',
+    description: '指定输入值的格式。(只有当 type 是"text"时才能工作)',
+    type: 'Function (value: string | number) => string',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'parser',
+    description: '指定从格式化器输入中提取的值。(仅当 type 是"text"时才起作用)',
+    type: 'Function (value: string) => string',
+    value: '—',
+    default: '-'
+  },
+  {
     name: 'show-password',
     description: '是否显示切换密码图标',
     type: 'boolean',
@@ -67,20 +88,20 @@ const attributes = [
     name: 'size',
     description: '输入框尺寸，只在 `type!="textarea"` 时有效',
     type: 'string',
-    value: 'medium / small / mini',
+    value: 'large/default/small',
     default: '—'
   },
   {
     name: 'prefix-icon',
     description: '输入框头部图标',
-    type: 'string',
+    type: 'string/Component',
     value: '—',
     default: '—'
   },
   {
     name: 'suffix-icon',
     description: '输入框尾部图标',
-    type: 'string',
+    type: 'string/Component',
     value: '—',
     default: '—'
   },
@@ -95,7 +116,7 @@ const attributes = [
     name: 'autosize',
     description:
       '自适应内容高度，只对 `type="textarea"` 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-    type: 'boolean / object',
+    type: 'boolean/object',
     value: '—',
     default: 'false'
   },
@@ -171,7 +192,14 @@ const attributes = [
   },
   {
     name: 'label',
-    description: '输入框关联的label文字',
+    description: '等价于原生 input aria-label 属性',
+    type: 'string',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'aria-label',
+    description: '等价于原生 input aria-label 属性',
     type: 'string',
     value: '—',
     default: '—'
@@ -179,7 +207,7 @@ const attributes = [
   {
     name: 'tabindex',
     description: '输入框的tabindex',
-    type: 'string',
+    type: 'string/number',
     value: '-',
     default: '-'
   },
@@ -189,43 +217,68 @@ const attributes = [
     type: 'boolean',
     value: '-',
     default: 'true'
+  },
+  {
+    name: 'input-style',
+    description: 'input 元素或 textarea 元素的 style',
+    type: 'string/object',
+    value: '-',
+    default: '{}'
   }
-]
-
-const methods = [
-  { name: 'focus', description: '使 input 获取焦点', parameter: '—' },
-  { name: 'blur', description: '使 input 失去焦点', parameter: '—' },
-  { name: 'select', description: '选中 input 中的文字', parameter: '—' }
 ]
 
 const events = [
   {
     name: 'blur',
     description: '在 Input 失去焦点时触发',
-    parameter: '(event: Event)'
+    parameter: '(event: FocusEvent) => void'
   },
   {
     name: 'focus',
     description: '在 Input 获得焦点时触发',
-    parameter: '(event: Event)'
+    parameter: '(event: FocusEvent) => void'
   },
   {
     name: 'change',
     description: '仅在输入框失去焦点或用户按下回车时触发',
-    parameter: '(value: string \\'
+    parameter: '(value: string | number) => void'
   },
   {
     name: 'input',
     description: '在 Input 值改变时触发',
-    parameter: '(value: string \\'
+    parameter: '(value: string | number) => void'
   },
   {
     name: 'clear',
     description: '在点击由 `clearable` 属性生成的清空按钮时触发',
-    parameter: '—'
+    parameter: '() => void'
   }
 ]
 
-const document = { attributes, methods, events }
+const slots = [
+  { name: 'prefix', description: '输入框头部内容，只对非 type="textarea" 有效' },
+  { name: 'suffix', description: '输入框尾部内容，只对非 type="textarea" 有效' },
+  { name: 'prepend', description: '输入框头部内容，只对非 type="textarea" 有效' },
+  { name: 'append', description: '输入框尾部内容，只对非 type="textarea" 有效' }
+]
+
+const exposes = [
+  { name: 'blur', description: '使 input 失去焦点', parameter: '() => void' },
+  { name: 'clear', description: '使 input 失去焦点', parameter: '() => void' },
+  { name: 'focus', description: '使 input 获取焦点', parameter: '() => void' },
+  { name: 'input', description: 'Input HTML 元素', parameter: 'Ref<HTMLInputElement>' },
+  {
+    name: 'ref',
+    description: '	HTML元素 input 或 textarea',
+    parameter: 'Ref<HTMLInputElement | HTMLTextAreaElement>'
+  },
+  { name: 'resizeTextarea', description: '改变 textarea 大小', parameter: '() => void' },
+  { name: 'select', description: '选中 input 中的文字', parameter: '() => void' },
+  { name: 'textarea', description: 'HTML textarea 元素', parameter: 'Ref<HTMLTextAreaElement>' },
+  { name: 'textareaStyle', description: 'textarea 的样式', parameter: 'Ref<StyleValue>' },
+  { name: 'isComposing ', description: '是否是输入 composing 状态', parameter: 'Ref<boolean>' }
+]
+
+const document = { attributes, exposes, events, slots }
 
 module.exports = document

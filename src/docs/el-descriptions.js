@@ -17,14 +17,14 @@ const attributes = [
     name: 'direction',
     description: '排列的方向',
     type: 'string',
-    value: 'vertical / horizontal',
+    value: 'vertical/horizontal',
     default: 'horizontal'
   },
   {
     name: 'size',
-    description: '列表的尺寸',
+    description: '尺寸',
     type: 'string',
-    value: 'medium / small / mini',
+    value: 'large/default/small',
     default: '—'
   },
   {
@@ -42,43 +42,16 @@ const attributes = [
     default: '—'
   },
   {
-    name: 'colon',
-    description: '是否显示冒号',
-    type: 'boolean',
-    value: '—',
-    default: true
-  },
-  {
-    name: 'labelClassName',
-    description: '自定义标签类名',
-    type: 'string',
-    value: '—',
-    default: '—'
-  },
-  {
-    name: 'contentClassName',
-    description: '自定义内容类名',
-    type: 'string',
-    value: '—',
-    default: '—'
-  },
-  {
-    name: 'labelStyle',
-    description: '自定义标签样式',
-    type: 'object',
-    value: '—',
-    default: '—'
-  },
-  {
-    name: 'contentStyle',
-    description: '自定义内容样式',
-    type: 'object',
+    name: 'label-width',
+    description: '每一列的标签宽度',
+    type: 'string/number',
     value: '—',
     default: '—'
   }
 ]
 
 const slots = [
+  { name: 'default', description: '自定义默认内容' },
   { name: 'title', description: '自定义标题，显示在左上方' },
   { name: 'extra', description: '自定义操作区，显示在右上方' }
 ]

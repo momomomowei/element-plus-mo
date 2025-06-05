@@ -1,167 +1,104 @@
-const elalert = require('./el-alert')
-const elaside = require('./el-aside')
-const elautocomplete = require('./el-autocomplete')
-const elavatar = require('./el-avatar')
-const elbacktop = require('./el-backtop')
-const elbadge = require('./el-badge')
-const elbreadcrumbitem = require('./el-breadcrumb-item')
-const elbreadcrumb = require('./el-breadcrumb')
-const elbutton = require('./el-button')
-const elcard = require('./el-card')
-const elcarouselitem = require('./el-carousel-item')
-const elcarousel = require('./el-carousel')
-const elcascaderpanel = require('./el-cascader-panel')
-const elcascader = require('./el-cascader')
-const elcheckboxbutton = require('./el-checkbox-button')
-const elcheckboxgroup = require('./el-checkbox-group')
-const elcheckbox = require('./el-checkbox')
-const elcol = require('./el-col')
-const elcollapseitem = require('./el-collapse-item')
-const elcollapse = require('./el-collapse')
-const elcolorpicker = require('./el-color-picker')
-const elcontainer = require('./el-container')
-const eldatepicker = require('./el-date-picker')
-const eldatetimepicker = require('./el-datetime-picker')
-const eldialog = require('./el-dialog')
-const eldivider = require('./el-divider')
-const eldrawer = require('./el-drawer')
-const eldropdownmenuitem = require('./el-dropdown-menu-item')
-const eldropdown = require('./el-dropdown')
-const elfooter = require('./el-footer')
-const elformitem = require('./el-form-item')
-const elform = require('./el-form')
-const elheader = require('./el-header')
-const elimage = require('./el-image')
-const elinfinitescroll = require('./el-infinite-scroll')
-const elinputnumber = require('./el-input-number')
-const elinput = require('./el-input')
-const ellink = require('./el-link')
-const elmenuitemgroup = require('./el-menu-item-group')
-const elmenuitem = require('./el-menu-item')
-const elmenu = require('./el-menu')
-const eloptiongroup = require('./el-option-group')
-const eloption = require('./el-option')
-const elpageheader = require('./el-page-header')
-const elpagination = require('./el-pagination')
-const elpopconfirm = require('./el-popconfirm')
-const elpopover = require('./el-popover')
-const elprogress = require('./el-progress')
-const elradiobutton = require('./el-radio-button')
-const elradiogroup = require('./el-radio-group')
-const elradio = require('./el-radio')
-const elrate = require('./el-rate')
-const elrow = require('./el-row')
-const elselect = require('./el-select')
-const elslider = require('./el-slider')
-const elstep = require('./el-step')
-const elsteps = require('./el-steps')
-const elsubmenu = require('./el-submenu')
-const elswitch = require('./el-switch')
-const eltabpane = require('./el-tab-pane')
-const eltablecolumn = require('./el-table-column')
-const eltable = require('./el-table')
-const eltabs = require('./el-tabs')
-const eltag = require('./el-tag')
-const eltimepicker = require('./el-time-picker')
-const eltimeselect = require('./el-time-select')
-const eltimelineitem = require('./el-timeline-item')
-const eltimeline = require('./el-timeline')
-const eltooltip = require('./el-tooltip')
-const eltransfer = require('./el-transfer')
-const eltree = require('./el-tree')
-const elupload = require('./el-upload')
-const calendar = require('./el-calendar')
-const descriptionsItem = require('./el-descriptions-item')
-const descriptions = require('./el-descriptions')
-const empty = require('./el-empty')
-const result = require('./el-result')
-const skeletonItem = require('./el-skeleton-item')
-const skeleton = require('./el-skeleton')
-const elscrollbar = require('./el-scrollbar')
-const elspace = require('./el-space')
-const eltreeselect = require('./el-tree-select')
-
 module.exports = {
-  'el-alert': elalert,
-  'el-aside': elaside,
-  'el-autocomplete': elautocomplete,
-  'el-avatar': elavatar,
-  'el-backtop': elbacktop,
-  'el-badge': elbadge,
-  'el-breadcrumb-item': elbreadcrumbitem,
-  'el-breadcrumb': elbreadcrumb,
-  'el-button': elbutton,
-  'el-card': elcard,
-  'el-carousel-item': elcarouselitem,
-  'el-carousel': elcarousel,
-  'el-cascader-panel': elcascaderpanel,
-  'el-cascader': elcascader,
-  'el-checkbox-button': elcheckboxbutton,
-  'el-checkbox-group': elcheckboxgroup,
-  'el-checkbox': elcheckbox,
-  'el-col': elcol,
-  'el-collapse-item': elcollapseitem,
-  'el-collapse': elcollapse,
-  'el-color-picker': elcolorpicker,
-  'el-container': elcontainer,
-  'el-date-picker': eldatepicker,
-  'el-datetime-picker': eldatetimepicker,
-  'el-dialog': eldialog,
-  'el-divider': eldivider,
-  'el-drawer': eldrawer,
-  'el-dropdown-menu-item': eldropdownmenuitem,
-  'el-dropdown': eldropdown,
-  'el-footer': elfooter,
-  'el-form-item': elformitem,
-  'el-form': elform,
-  'el-header': elheader,
-  'el-image': elimage,
-  'el-infinite-scroll': elinfinitescroll,
-  'el-input-number': elinputnumber,
-  'el-input': elinput,
-  'el-link': ellink,
-  'el-menu-item-group': elmenuitemgroup,
-  'el-menu-item': elmenuitem,
-  'el-menu': elmenu,
-  'el-option-group': eloptiongroup,
-  'el-option': eloption,
-  'el-page-header': elpageheader,
-  'el-pagination': elpagination,
-  'el-popconfirm': elpopconfirm,
-  'el-popover': elpopover,
-  'el-progress': elprogress,
-  'el-radio-button': elradiobutton,
-  'el-radio-group': elradiogroup,
-  'el-radio': elradio,
-  'el-rate': elrate,
-  'el-row': elrow,
-  'el-select': elselect,
-  'el-slider': elslider,
-  'el-step': elstep,
-  'el-steps': elsteps,
-  'el-submenu': elsubmenu,
-  'el-switch': elswitch,
-  'el-tab-pane': eltabpane,
-  'el-table-column': eltablecolumn,
-  'el-table': eltable,
-  'el-tabs': eltabs,
-  'el-tag': eltag,
-  'el-time-picker': eltimepicker,
-  'el-time-select': eltimeselect,
-  'el-timeline-item': eltimelineitem,
-  'el-timeline': eltimeline,
-  'el-tooltip': eltooltip,
-  'el-transfer': eltransfer,
-  'el-tree': eltree,
-  'el-upload': elupload,
-  'el-calendar': calendar,
-  'el-descriptions-item': descriptionsItem,
-  'el-descriptions': descriptions,
-  'el-empty': empty,
-  'el-result': result,
-  'el-skeleton-item': skeletonItem,
-  'el-skeleton': skeleton,
-  'el-scrollbar': elscrollbar,
-  'el-space': elspace,
-  'el-tree-select': eltreeselect
+  'el-affix': require('./el-affix'),
+  'el-alert': require('./el-alert'),
+  'el-anchor-link': require('./el-anchor-link'),
+  'el-anchor': require('./el-anchor'),
+  'el-aside': require('./el-aside'),
+  'el-autocomplete': require('./el-autocomplete'),
+  'el-avatar': require('./el-avatar'),
+  'el-backtop': require('./el-backtop'),
+  'el-badge': require('./el-badge'),
+  'el-breadcrumb-item': require('./el-breadcrumb-item'),
+  'el-breadcrumb': require('./el-breadcrumb'),
+  'el-button-group': require('./el-button-group'),
+  'el-button': require('./el-button'),
+  'el-calendar': require('./el-calendar'),
+  'el-card': require('./el-card'),
+  'el-carousel-item': require('./el-carousel-item'),
+  'el-carousel': require('./el-carousel'),
+  'el-cascader-panel': require('./el-cascader-panel'),
+  'el-cascader': require('./el-cascader'),
+  'el-check-tag': require('./el-check-tag'),
+  'el-checkbox-button': require('./el-checkbox-button'),
+  'el-checkbox-group': require('./el-checkbox-group'),
+  'el-checkbox': require('./el-checkbox'),
+  'el-col': require('./el-col'),
+  'el-collapse-item': require('./el-collapse-item'),
+  'el-collapse': require('./el-collapse'),
+  'el-color-picker': require('./el-color-picker'),
+  'el-config-provider': require('./el-config-provider'),
+  'el-container': require('./el-container'),
+  'el-countdown': require('./el-countdown'),
+  'el-date-picker': require('./el-date-picker'),
+  'el-datetime-picker': require('./el-datetime-picker'),
+  'el-descriptions-item': require('./el-descriptions-item'),
+  'el-descriptions': require('./el-descriptions'),
+  'el-dialog': require('./el-dialog'),
+  'el-divider': require('./el-divider'),
+  'el-drawer': require('./el-drawer'),
+  'el-dropdown-menu-item': require('./el-dropdown-menu-item'),
+  'el-dropdown-menu': require('./el-dropdown-menu'),
+  'el-dropdown': require('./el-dropdown'),
+  'el-empty': require('./el-empty'),
+  'el-footer': require('./el-footer'),
+  'el-form-item': require('./el-form-item'),
+  'el-form': require('./el-form'),
+  'el-header': require('./el-header'),
+  'el-icon': require('./el-icon'),
+  'el-image-viewer': require('./el-image-viewer'),
+  'el-image': require('./el-image'),
+  'el-infinite-scroll': require('./el-infinite-scroll'),
+  'el-input-number': require('./el-input-number'),
+  'el-input-tag': require('./el-input-tag'),
+  'el-input': require('./el-input'),
+  'el-link': require('./el-link'),
+  'el-main': require('./el-main'),
+  'el-mention': require('./el-mention'),
+  'el-menu-item-group': require('./el-menu-item-group'),
+  'el-menu-item': require('./el-menu-item'),
+  'el-menu': require('./el-menu'),
+  'el-option-group': require('./el-option-group'),
+  'el-option': require('./el-option'),
+  'el-page-header': require('./el-page-header'),
+  'el-pagination': require('./el-pagination'),
+  'el-popconfirm': require('./el-popconfirm'),
+  'el-popover': require('./el-popover'),
+  'el-progress': require('./el-progress'),
+  'el-radio-button': require('./el-radio-button'),
+  'el-radio-group': require('./el-radio-group'),
+  'el-radio': require('./el-radio'),
+  'el-rate': require('./el-rate'),
+  'el-result': require('./el-result'),
+  'el-row': require('./el-row'),
+  'el-scrollbar': require('./el-scrollbar'),
+  'el-segmented': require('./el-segmented'),
+  'el-select-v2': require('./el-select-v2'),
+  'el-select': require('./el-select'),
+  'el-skeleton-item': require('./el-skeleton-item'),
+  'el-skeleton': require('./el-skeleton'),
+  'el-slider': require('./el-slider'),
+  'el-space': require('./el-space'),
+  'el-statistic': require('./el-statistic'),
+  'el-step': require('./el-step'),
+  'el-steps': require('./el-steps'),
+  'el-sub-menu': require('./el-sub-menu'),
+  'el-switch': require('./el-switch'),
+  'el-tab-pane': require('./el-tab-pane'),
+  'el-table-column': require('./el-table-column'),
+  'el-table-v2': require('./el-table-v2'),
+  'el-table': require('./el-table'),
+  'el-tabs': require('./el-tabs'),
+  'el-tag': require('./el-tag'),
+  'el-text': require('./el-text'),
+  'el-time-picker': require('./el-time-picker'),
+  'el-time-select': require('./el-time-select'),
+  'el-timeline-item': require('./el-timeline-item'),
+  'el-timeline': require('./el-timeline'),
+  'el-tooltip': require('./el-tooltip'),
+  'el-tour-step': require('./el-tour-step'),
+  'el-tour': require('./el-tour'),
+  'el-transfer': require('./el-transfer'),
+  'el-tree-v2': require('./el-tree-v2'),
+  'el-tree': require('./el-tree'),
+  'el-upload': require('./el-upload'),
 }

@@ -1,13 +1,5 @@
-const attributes = [
-  {
-    name: 'reverse',
-    description: '指定节点排序方向，默认为正序',
-    type: 'boolean',
-    value: '—',
-    default: 'false'
-  }
-]
+const slots = [{ name: 'default', description: '自定义默认内容' }]
 
-const document = { attributes }
+const document = { slots }
 
 module.exports = document

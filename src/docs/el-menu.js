@@ -3,7 +3,7 @@ const attributes = [
     name: 'mode',
     description: '模式',
     type: 'string',
-    value: 'horizontal / vertical',
+    value: 'horizontal/vertical',
     default: 'vertical'
   },
   {
@@ -14,25 +14,18 @@ const attributes = [
     default: false
   },
   {
-    name: 'background-color',
-    description: '菜单的背景色（仅支持 hex 格式）',
-    type: 'string',
+    name: 'ellipsis-icon',
+    description: '自定义省略图标 (仅在水平模式下可用)',
+    type: 'string/Component',
     value: '—',
-    default: '#ffffff'
+    default: '-'
   },
   {
-    name: 'text-color',
-    description: '菜单的文字颜色（仅支持 hex 格式）',
-    type: 'string',
+    name: 'popper-offset',
+    description: '弹出层的偏移量(对所有子菜单有效)',
+    type: 'number',
     value: '—',
-    default: '#303133'
-  },
-  {
-    name: 'active-text-color',
-    description: '当前激活菜单的文字颜色（仅支持 hex 格式）',
-    type: 'string',
-    value: '—',
-    default: '#409EFF'
+    default: '6'
   },
   {
     name: 'default-active',
@@ -59,7 +52,7 @@ const attributes = [
     name: 'menu-trigger',
     description: '子菜单打开的触发方式(只在 mode 为 horizontal 时有效)',
     type: 'string',
-    value: 'hover / click',
+    value: 'hover/click',
     default: 'hover'
   },
   {
@@ -76,19 +69,69 @@ const attributes = [
     type: 'boolean',
     value: '—',
     default: true
-  }
-]
-
-const methods = [
-  {
-    name: 'open',
-    description: '展开指定的 sub-menu',
-    parameter: 'index: 需要打开的 sub-menu 的 index'
   },
   {
-    name: 'close',
-    description: '收起指定的 sub-menu',
-    parameter: 'index: 需要收起的 sub-menu 的 index'
+    name: 'popper-effect',
+    description: 'Tooltip 主题，内置了 dark / light 两种主题，当菜单折叠时生效',
+    type: 'string',
+    value: 'light/dark',
+    default: 'light'
+  },
+  {
+    name: 'close-on-click-outside',
+    description: '可选，单击外部时是否折叠菜单',
+    type: 'boolean',
+    value: '-',
+    default: 'false'
+  },
+  {
+    name: 'popper-class',
+    description: '为 popper 添加类名',
+    type: 'string',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'show-timeout',
+    description: '菜单出现前的延迟',
+    type: 'number',
+    value: '—',
+    default: '300'
+  },
+  {
+    name: 'hide-timeout',
+    description: '菜单消失前的延迟',
+    type: 'number',
+    value: '—',
+    default: '300'
+  },
+  {
+    name: 'background-color',
+    description: '菜单的背景色（仅支持 hex 格式）',
+    type: 'string',
+    value: '—',
+    default: '#ffffff'
+  },
+  {
+    name: 'text-color',
+    description: '菜单的文字颜色（仅支持 hex 格式）',
+    type: 'string',
+    value: '—',
+    default: '#303133'
+  },
+  {
+    name: 'active-text-color',
+    description: '当前激活菜单的文字颜色（仅支持 hex 格式）',
+    type: 'string',
+    value: '—',
+    default: '#409EFF'
+  },
+  {
+    name: 'persistent',
+    description: '当菜单处于非活动状态且 persistent 为 false 时，菜单将被销毁',
+    type: 'boolean',
+    value: '—',
+    default: 'true'
   }
 ]
 
@@ -110,6 +153,26 @@ const events = [
   }
 ]
 
-const document = { methods, events, attributes }
+const exposes = [
+  {
+    name: 'open',
+    description: '打开一个特定的子菜单，参数是要打开的子菜单的索引',
+    parameter: '(index: string) => void'
+  },
+  {
+    name: 'close',
+    description: '关闭一个特定的子菜单，参数是要关闭子菜单的索引',
+    parameter: '(index: string) => void'
+  },
+  {
+    name: 'updateActiveIndex',
+    description: '通过索引激活指定菜单',
+    parameter: '(index: string) => void'
+  }
+]
+
+const slots = [{ name: 'default', description: '自定义默认内容' }]
+
+const document = { exposes, events, attributes, slots }
 
 module.exports = document

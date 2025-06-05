@@ -31,7 +31,7 @@ const attributes = [
     name: 'label-width',
     description:
       "表单域标签的宽度，例如 '50px'。作为 Form 直接子元素的 form-item 会继承该值。支持 `auto`。",
-    type: 'string',
+    type: 'string/number',
     value: '—',
     default: '—'
   },
@@ -47,6 +47,13 @@ const attributes = [
     description: '是否显示必填字段的标签旁边的红色星号',
     type: 'boolean',
     value: '—',
+    default: 'false'
+  },
+  {
+    name: 'require-asterisk-position',
+    description: '星号的位置。',
+    type: 'string',
+    value: 'left/right',
     default: 'false'
   },
   {
@@ -81,7 +88,7 @@ const attributes = [
     name: 'size',
     description: '用于控制该表单内组件的尺寸',
     type: 'string',
-    value: 'medium / small / mini',
+    value: 'large/default/small',
     default: '—'
   },
   {
@@ -91,31 +98,20 @@ const attributes = [
     type: 'boolean',
     value: '—',
     default: 'false'
-  }
-]
-
-const methods = [
-  {
-    name: 'validate',
-    description:
-      '对整个表单进行校验的方法，参数为一个回调函数。该回调函数会在校验结束后被调用，并传入两个参数：是否校验成功和未通过校验的字段。若不传入回调函数，则会返回一个 promise',
-    parameter: 'Function(callback: Function(boolean, object))'
   },
   {
-    name: 'validateField',
-    description: '对部分表单字段进行校验的方法',
-    parameter: 'Function(props: array | string, callback: Function(errorMessage: string))'
+    name: 'scroll-to-error',
+    description: '当校验失败时，滚动到第一个错误表单项',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
   },
   {
-    name: 'resetFields',
-    description: '对整个表单进行重置，将所有字段值重置为初始值并移除校验结果',
-    parameter: '—'
-  },
-  {
-    name: 'clearValidate',
-    description:
-      '移除表单项的校验结果。传入待移除的表单项的 prop 属性或者 prop 组成的数组，如不传则移除整个表单的校验结果',
-    parameter: 'Function(props: array | string)'
+    name: 'scroll-into-view-options',
+    description: '当校验有失败结果时，滚动到第一个失败的表单项目 可通过 scrollIntoView 配置',
+    type: 'boolean/object',
+    value: '—',
+    default: 'true'
   }
 ]
 
@@ -127,6 +123,47 @@ const events = [
   }
 ]
 
-const document = { attributes, methods, events }
+const slots = [
+  {
+    name: 'default',
+    description: '自定义默认内容'
+  }
+]
+
+const exposes = [
+  {
+    name: 'validate',
+    description: '对整个表单的内容进行验证。 接收一个回调函数，或返回 Promise',
+    parameter: '`(callback?: FormValidateCallback) => Promise<void>`'
+  },
+  {
+    name: 'validateField',
+    description: '验证具体的某个字段。',
+    parameter:
+      '`(props?: Arrayable<FormItemProp>, callback?: FormValidateCallback) => FormValidationResult`'
+  },
+  {
+    name: 'resetFields',
+    description: '重置该表单项，将其值重置为初始值，并移除校验结果',
+    parameter: '`(props?: Arrayable<FormItemProp>) => void`'
+  },
+  {
+    name: 'scrollToField',
+    description: '滚动到指定的字段',
+    parameter: '`(prop: FormItemProp) => void`'
+  },
+  {
+    name: 'clearValidate',
+    description: '清理某个字段的表单验证信息。',
+    parameter: '`(props?: Arrayable<FormItemProp>) => void`'
+  },
+  {
+    name: 'fields',
+    description: '获取所有字段的 context',
+    parameter: '`FormItemContext[]`'
+  }
+]
+
+const document = { attributes, events, slots, exposes }
 
 module.exports = document

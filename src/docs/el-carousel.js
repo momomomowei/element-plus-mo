@@ -56,6 +56,13 @@ const attributes = [
     default: '—'
   },
   {
+    name: 'cardScale',
+    description: '当 type 为 card时，二级卡的缩放大小',
+    type: 'number',
+    value: '',
+    default: '0.83'
+  },
+  {
     name: 'loop',
     description: '是否循环显示',
     type: 'boolean',
@@ -68,27 +75,48 @@ const attributes = [
     type: 'string',
     value: 'horizontal/vertical',
     default: 'horizontal'
-  }
-]
-
-const methods = [
-  {
-    name: 'setActiveItem',
-    description: '手动切换幻灯片',
-    parameter: '需要切换的幻灯片的索引，从 0 开始；或相应 `el-carousel-item` 的 `name` 属性值'
   },
-  { name: 'prev', description: '切换至上一张幻灯片', parameter: '—' },
-  { name: 'next', description: '切换至下一张幻灯片', parameter: '—' }
+  {
+    name: 'pause-on-hover',
+    description: '鼠标悬浮时暂停自动切换',
+    type: 'boolean',
+    value: '-',
+    default: 'true'
+  },
+  {
+    name: 'motion-blur',
+    description: '添加动态模糊以给走马灯注入活力和流畅性。',
+    type: 'boolean',
+    value: '-',
+    default: 'false'
+  }
 ]
 
 const events = [
   {
     name: 'change',
     description: '幻灯片切换时触发',
-    parameter: '目前激活的幻灯片的索引，原幻灯片的索引'
+    parameter: '(current: number, prev: number) => boolean'
   }
 ]
 
-const document = { attributes, methods, events }
+const slots = [{ name: 'default', description: '自定义默认内容' }]
+
+const exposes = [
+  {
+    name: 'activeIndex',
+    description: '当前幻灯片的索引',
+    parameter: 'number'
+  },
+  {
+    name: 'setActiveItem',
+    description: '手动切换幻灯片',
+    parameter: '(index: string | number) => void'
+  },
+  { name: 'prev', description: '切换至上一张幻灯片', parameter: '() => void' },
+  { name: 'next', description: '切换至下一张幻灯片', parameter: '() => void' }
+]
+
+const document = { attributes, exposes, events, slots }
 
 module.exports = document

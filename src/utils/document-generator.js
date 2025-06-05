@@ -43,6 +43,7 @@ class HoverDocumentGenerator {
   }
 
   /**
+   * // methods 已经改为 exposes 默认暴露
    * 生成方法文档表格
    * @param {Object} document 文档 具体标签对应的文档
    * @param {string} tag 标签
@@ -52,9 +53,10 @@ class HoverDocumentGenerator {
   generateMethods(document, tag, attribute) {
     let isUndefined = true // 标记是否具有文档
     let markdownString = new MarkdownString('', true)
-    const methods = document.methods || []
+    const methods = document.exposes || []
     if (methods.length) {
-      markdownString.appendMarkdown(`### ${tag} 方法\r`)
+      markdownString.appendMarkdown('---\r')
+      markdownString.appendMarkdown(`### ${tag} 暴露\r`)
       markdownString.appendMarkdown('| 方法 | 说明 | 参数 |\r')
       markdownString.appendMarkdown('|---|---|:-:|\r')
     }
@@ -90,6 +92,7 @@ class HoverDocumentGenerator {
     let markdownString = new MarkdownString('', true)
     const events = document.events || []
     if (events.length) {
+      markdownString.appendMarkdown('---\r')
       markdownString.appendMarkdown(`### ${tag} 事件\r`)
       markdownString.appendMarkdown('| 方法 | 说明 | 参数 |\r')
       markdownString.appendMarkdown('|---|---|:-:|\r')
@@ -126,6 +129,7 @@ class HoverDocumentGenerator {
     let markdownString = new MarkdownString('', true)
     const slots = document.slots || []
     if (slots.length) {
+      markdownString.appendMarkdown('---\r')
       markdownString.appendMarkdown(`### ${tag} 插槽\r`)
       markdownString.appendMarkdown('| 插槽 | 说明 |\r')
       markdownString.appendMarkdown('|---|---|\r')
@@ -162,6 +166,7 @@ class HoverDocumentGenerator {
     let markdownString = new MarkdownString('', true)
     const scopedSlots = document.scopedSlots || []
     if (scopedSlots.length) {
+      markdownString.appendMarkdown('---\r')
       markdownString.appendMarkdown(`### ${tag} 插槽\r`)
       markdownString.appendMarkdown('| 插槽 | 说明 |\r')
       markdownString.appendMarkdown('|---|---|\r')
@@ -198,6 +203,7 @@ class HoverDocumentGenerator {
     let markdownString = new MarkdownString('', true)
     const attributes = document[attribute] || []
     if (attributes.length) {
+      markdownString.appendMarkdown('---\r')
       markdownString.appendMarkdown(`### ${tag} ${attribute}\r`)
       markdownString.appendMarkdown('| 属性 | 说明 | 类型 | 可选值 | 默认值 |\r')
       markdownString.appendMarkdown('|---|---|:-:|---|:-:|\r')
@@ -226,7 +232,7 @@ class HoverDocumentGenerator {
     switch (key) {
       case 'attributes':
         return this.generateAttribute(document, tag, attr)
-      case 'methods':
+      case 'exposes':
         return this.generateMethods(document, tag, attr)
       case 'events':
         return this.generateEvents(document, tag, attr)

@@ -10,14 +10,14 @@ const attributes = [
       name: 'size',
       description: '设置头像的大小',
       type: 'number/string',
-      value: 'number / large / medium / small',
+      value: 'number/large/medium/small',
       default: 'large'
     },
     {
       name: 'shape',
       description: '设置头像的形状',
       type: 'string',
-      value: 'circle / square',
+      value: 'circle/square',
       default: 'circle'
     },
     {
@@ -28,7 +28,7 @@ const attributes = [
       default: ''
     },
     {
-      name: 'srcSet',
+      name: 'src-set',
       description: '以逗号分隔的一个或多个字符串列表表明一系列用户代理使用的可能的图像',
       type: 'string',
       value: '',
@@ -45,7 +45,7 @@ const attributes = [
       name: 'fit',
       description: '当展示类型为图片的时候，设置图片如何适应容器框',
       type: 'string',
-      value: 'fill / contain / cover / none / scale-down',
+      value: 'fill/contain/cover/none/scale-down',
       default: 'cover'
     }
   ];
@@ -54,7 +54,7 @@ const attributes = [
     {
       name: 'error',
       description: '图片类头像加载失败的回调， 返回 false 会关闭组件默认的 fallback 行为',
-      parameter: '(e: Event)'
+      parameter: '(e: Event) => void'
     }
   ];
   

@@ -23,7 +23,7 @@ const attributes = [
   {
     name: 'wrap-style',
     description: '包裹容器的自定义样式',
-    type: 'string',
+    type: 'string/object(CSSSProperties | CSSSProperties[] | string[])',
     value: '—',
     default: '-'
   },
@@ -37,7 +37,7 @@ const attributes = [
   {
     name: 'view-style',
     description: '视图的自定义样式',
-    type: 'string',
+    type: 'string/object(CSSSProperties | CSSSProperties[] | string[])',
     value: '—',
     default: '-'
   },
@@ -75,26 +75,50 @@ const attributes = [
     type: 'number',
     value: '—',
     default: '20'
+  },
+  {
+    name: 'id',
+    description: '视图ID',
+    type: 'string',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'role',
+    description: '视图的角色',
+    type: 'string',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'aria-label',
+    description: '视图的 aria-label',
+    type: 'string',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'aria-orientation',
+    description: '视图的 aria-label',
+    type: 'string',
+    value: 'horizontal/vertical',
+    default: '-'
+  },
+  {
+    name: 'tabindex',
+    description: '容器的tabindex',
+    type: 'number/string',
+    value: '—',
+    default: '-'
   }
 ]
 
 const methods = [
   {
-    name: 'scrollTo',
-    description: '滚动到一组特定坐标',
-    parameter: '(options: ScrollToOptions | number, yCoord?: number)'
-  },
-  {
-    name: 'setScrollTop',
-    description: '设置滚动条到顶部的距离',
-    parameter: '（scrollTop: number）'
-  },
-  {
-    name: 'setScrollLeft',
-    description: '设置滚动条到左边的距离',
-    parameter: '(scrollLeft: number)'
-  },
-  { name: 'update', description: '手动更新滚动条状态', parameter: '-' }
+    name: 'scroll',
+    description: '当触发滚动事件时，返回滚动的距离',
+    parameter: '({ scrollLeft: number, scrollTop: number }) => void'
+  }
 ]
 
 const events = [
@@ -105,7 +129,7 @@ const events = [
   }
 ]
 
-const slots = [{ name: '—', description: '自定义默认内容' }]
+const slots = [{ name: 'default', description: '自定义默认内容' }]
 
 const document = { attributes, methods, events, slots }
 

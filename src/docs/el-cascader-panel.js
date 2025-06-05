@@ -1,54 +1,63 @@
 const attributes = [
   {
-    name: 'value/v-model',
+    name: 'model-value/v-model',
     description: '选中项绑定值',
-    type: '-',
+    type: 'string/number/object',
     value: '—',
     default: '—'
   },
   {
     name: 'options',
-    description: '可选项数据源，键名可通过 `Props` 属性配置',
+    description: '选项的数据源， value 和 label 可以通过 CascaderProps 自定义.',
     type: 'array',
     value: '—',
     default: '—'
   },
   {
     name: 'props',
-    description: '配置选项，具体见下表',
+    description: '配置选项, 请参阅 CascaderProps 表',
     type: 'object',
     value: '—',
     default: '—'
   }
 ]
 
-const methods = [
-  {
-    name: 'getCheckedNodes',
-    description: '获取选中的节点数组',
-    parameter: '(leafOnly) 是否只是叶子节点，默认值为 `false`'
-  },
-  { name: 'clearCheckedNodes', description: '清空选中的节点', parameter: '-' }
-]
-
 const events = [
   {
     name: 'change',
     description: '当选中节点变化时触发',
-    parameter: '选中节点的值'
+    parameter: '(value: CascaderValue) => void'
   },
   {
     name: 'expand-change',
     description: '当展开节点发生变化时触发',
-    parameter: '各父级选项值组成的数组'
+    parameter: '(value: CascaderNodePathValue) => void'
+  },
+  {
+    name: 'close',
+    description: '面板的关闭事件，提供给 Cascader 以便做更好的判断。',
+    parameter: '() => void'
   }
 ]
 
 const slots = [
   {
-    name: '-',
+    name: 'default',
     description: '自定义备选项的节点内容，参数为 { node, data }，分别为当前节点的 Node 对象和数据'
+  },
+  {
+    name: 'empty',
+    description: '没有数据时面板的内容。'
   }
+]
+
+const exposes = [
+  {
+    name: 'getCheckedNodes',
+    description: '获取选中的节点数组',
+    parameter: '(leafOnly: boolean) => CascaderNode[] | undefined'
+  },
+  { name: 'clearCheckedNodes', description: '清空选中的节点', parameter: '() => void' }
 ]
 
 const props = [
@@ -129,9 +138,16 @@ const props = [
     type: 'string',
     value: '—',
     default: "'leaf'"
+  },
+  {
+    name: 'hoverThreshold',
+    description: 'hover 时展开菜单的灵敏度阈值',
+    type: 'number',
+    value: '—',
+    default: '500'
   }
 ]
 
-const document = { attributes, methods, events, slots, props }
+const document = { attributes, events, slots, exposes, props }
 
 module.exports = document

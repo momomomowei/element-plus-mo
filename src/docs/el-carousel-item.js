@@ -15,6 +15,8 @@ const attributes = [
   }
 ]
 
-const document = { attributes }
+const slots = [{ name: 'default', description: '自定义默认内容' }]
+
+const document = { attributes, slots }
 
 module.exports = document

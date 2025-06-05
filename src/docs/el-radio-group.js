@@ -1,8 +1,8 @@
 const attributes = [
   {
-    name: 'value/v-model',
+    name: 'model-value/v-model',
     description: '绑定值',
-    type: 'string / number / boolean',
+    type: 'string/number/boolean',
     value: '—',
     default: '—'
   },
@@ -10,7 +10,7 @@ const attributes = [
     name: 'size',
     description: '单选框组尺寸，仅对按钮形式的 Radio 或带有边框的 Radio 有效',
     type: 'string',
-    value: 'medium / small / mini',
+    value: 'large/default/small',
     default: '—'
   },
   {
@@ -21,18 +21,32 @@ const attributes = [
     default: 'false'
   },
   {
-    name: 'text-color',
-    description: '按钮形式的 Radio 激活时的文本颜色',
-    type: 'string',
+    name: 'validate-event',
+    description: '输入时是否触发表单的校验',
+    type: 'boolean',
     value: '—',
-    default: '#ffffff'
+    default: 'true'
   },
   {
-    name: 'fill',
-    description: '按钮形式的 Radio 激活时的填充色和边框色',
+    name: 'aria-label',
+    description: '与 RadioGroup 中的 aria-label 属性相同',
     type: 'string',
     value: '—',
-    default: '#409EFF'
+    default: '-'
+  },
+  {
+    name: 'name',
+    description: '原生 name 属性',
+    type: 'string',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'id',
+    description: '原生 id 属性',
+    type: 'string',
+    value: '—',
+    default: '-'
   }
 ]
 
@@ -40,10 +54,17 @@ const events = [
   {
     name: 'change',
     description: '绑定值变化时触发的事件',
-    parameter: '选中的 Radio label 值'
+    parameter: '(value: string | number | boolean) => void'
   }
 ]
 
-const document = { attributes, events }
+const slots = [
+  {
+    name: 'default',
+    description: '自定义默认内容，子标签Radio / RadioButton'
+  }
+]
+
+const document = { attributes, events, slots }
 
 module.exports = document

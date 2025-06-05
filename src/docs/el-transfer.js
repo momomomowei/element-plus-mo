@@ -1,7 +1,7 @@
 const attributes = [
   {
-    name: 'value/v-model',
-    description: '绑定值',
+    name: 'model-value/v-model',
+    description: '选中项绑定值',
     type: 'array',
     value: '—',
     default: '—'
@@ -90,14 +90,13 @@ const attributes = [
     type: 'array',
     value: '—',
     default: '[ ]'
-  }
-]
-
-const methods = [
+  },
   {
-    name: 'clearQuery',
-    description: '清空某个面板的搜索关键词',
-    parameter: "'left' / 'right'，指定需要清空的面板"
+    name: 'validate-event',
+    description: '是否触发表单验证',
+    type: 'boolean',
+    value: '—',
+    default: 'true'
   }
 ]
 
@@ -105,33 +104,52 @@ const events = [
   {
     name: 'change',
     description: '右侧列表元素变化时触发',
-    parameter: "当前值、数据移动的方向（'left' / 'right'）、发生移动的数据 key 数组"
+    parameter:
+      '(value: TransferKey[], direction: TransferDirection, movedKeys: TransferKey[]) => void'
   },
   {
     name: 'left-check-change',
     description: '左侧列表元素被用户选中 / 取消选中时触发',
-    parameter: '当前被选中的元素的 key 数组、选中状态发生变化的元素的 key 数组'
+    parameter: '(value: TransferKey[], movedKeys?: TransferKey[]) => void'
   },
   {
     name: 'right-check-change',
     description: '右侧列表元素被用户选中 / 取消选中时触发',
-    parameter: '当前被选中的元素的 key 数组、选中状态发生变化的元素的 key 数组'
+    parameter: '(value: TransferKey[], movedKeys?: TransferKey[]) => void'
   }
 ]
 
 const slots = [
+  { name: 'default', description: '自定义数据项的内容， 参数为 { option }' },
   { name: 'left-footer', description: '左侧列表底部的内容' },
-  { name: 'right-footer', description: '右侧列表底部的内容' }
+  { name: 'right-footer', description: '右侧列表底部的内容' },
+  { name: 'left-empty', description: '左侧面板为空或没有数据符合筛选条件时的内容' },
+  { name: 'right-empty', description: '右侧面板为空或没有数据符合筛选条件时的内容' }
 ]
 
-const scopedSlots = [{ name: '—', description: '自定义数据项的内容，参数为 { option }' }]
+const exposes = [
+  {
+    name: 'clearQuery',
+    description: '清空某个面板的搜索关键词',
+    parameter: '(which: TransferDirection) => void'
+  },
+  {
+    name: 'leftPanel',
+    description: '左侧面板 ref',
+    parameter: 'Ref<TransferPanelInstance>'
+  },
+  {
+    name: 'rightPanel',
+    description: '右侧面板 ref',
+    parameter: 'Ref<TransferPanelInstance>'
+  }
+]
 
 const document = {
   attributes,
-  methods,
   events,
   slots,
-  scopedSlots
+  exposes
 }
 
 module.exports = document

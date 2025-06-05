@@ -1,8 +1,8 @@
 const attributes = [
   {
-    name: 'value/v-model',
-    description: '绑定值',
-    type: 'date(DateTimePicker) / array(DateTimeRangePicker)',
+    name: 'model-value/v-model',
+    description: '绑定值，如果它是数组，长度应该是 2',
+    type: 'number/string/Date/[Date, Date]/[string, string]',
     value: '—',
     default: '—'
   },
@@ -38,7 +38,7 @@ const attributes = [
     name: 'size',
     description: '输入框尺寸',
     type: 'string',
-    value: 'large, small, mini',
+    value: 'large/default/small',
     default: '—'
   },
   {
@@ -63,7 +63,7 @@ const attributes = [
     default: '—'
   },
   {
-    name: 'time-arrow-control',
+    name: 'arrow-control',
     description: '是否使用箭头进行时间选择',
     type: 'boolean',
     value: '—',
@@ -73,7 +73,7 @@ const attributes = [
     name: 'type',
     description: '显示type',
     type: 'string',
-    value: 'year/month/date/week/ datetime/datetimerange/daterange',
+    value: 'year/month/date/week/datetime/datetimerange/daterange',
     default: 'date'
   },
   {
@@ -81,14 +81,7 @@ const attributes = [
     description: '显示在输入框中的格式',
     type: 'string',
     value: '见[日期格式](#/zh-CN/component/date-picker#ri-qi-ge-shi)',
-    default: 'yyyy-MM-dd HH:mm:ss'
-  },
-  {
-    name: 'align',
-    description: '对齐方式',
-    type: 'string',
-    value: 'left, center, right',
-    default: 'left'
+    default: 'YYYY-MM-DD HH:mm:ss'
   },
   {
     name: 'popper-class',
@@ -96,13 +89,6 @@ const attributes = [
     type: 'string',
     value: '—',
     default: '—'
-  },
-  {
-    name: 'picker-options',
-    description: '当前时间日期选择器特有的选项参考下表',
-    type: 'object',
-    value: '—',
-    default: '{}'
   },
   {
     name: 'range-separator',
@@ -130,12 +116,33 @@ const attributes = [
     name: 'value-format',
     description: '可选，绑定值的格式。不指定则绑定值为 Date 对象',
     type: 'string',
-    value: '见[日期格式](#/zh-CN/component/date-picker#ri-qi-ge-shi)',
+    value: '见[日期格式](https://day.js.org/docs/en/display/format)',
+    default: '—'
+  },
+  {
+    name: 'date-format',
+    description: '可选，时间选择器下拉列表中显示的日期格式',
+    type: 'string',
+    value: '见[日期格式](https://day.js.org/docs/en/display/format)',
+    default: '—'
+  },
+  {
+    name: 'time-format',
+    description: '可选，时间选择器下拉列表中显示的时间格式',
+    type: 'string',
+    value: '见[日期格式](https://day.js.org/docs/en/display/format)',
+    default: '—'
+  },
+  {
+    name: 'id',
+    description: '等价于原生 input id 属性',
+    type: 'string',
+    value: '—',
     default: '—'
   },
   {
     name: 'name',
-    description: '原生属性',
+    description: '等价于原生 input name 属性',
     type: 'string',
     value: '—',
     default: '—'
@@ -150,20 +157,68 @@ const attributes = [
   {
     name: 'prefix-icon',
     description: '自定义头部图标的类名',
-    type: 'string',
+    type: 'string/Component',
     value: '—',
-    default: 'el-icon-date'
+    default: 'Date'
   },
   {
     name: 'clear-icon',
     description: '自定义清空图标的类名',
-    type: 'string',
+    type: 'string/Component',
     value: '—',
-    default: 'el-icon-circle-close'
+    default: 'CircleClose'
+  },
+  {
+    name: 'shortcuts',
+    description: '设置快捷选项，需要传入数组对象',
+    type: 'Array<{ text: string, value: Date | Function }>',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'disabled-date',
+    description:
+      '一个用来判断该日期是否被禁用的函数，接受一个 Date 对象作为参数。 应该返回一个 Boolean 值。',
+    type: '(data: Date) => boolean',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'cell-class-name',
+    description: '设置自定义类名',
+    type: '(data: Date) => string',
+    value: '-',
+    default: '-'
+  },
+  {
+    name: 'teleported',
+    description: '是否将 date-picker 的下拉列表插入至 body 元素',
+    type: 'boolean',
+    value: '—',
+    default: 'true'
+  },
+  {
+    name: 'empty-values',
+    description: '组件的空值配置 参考config-provider',
+    type: 'array',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'value-on-clear',
+    description: '清空选项的值 参考 config-provider',
+    type: 'string/number/boolean/Function',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'show-now',
+    description: '是否显示 now 按钮',
+    type: 'boolean',
+    value: '—',
+    default: 'true'
   }
 ]
-
-const methods = [{ name: 'focus', description: '使 input 获取焦点', parameter: '—' }]
 
 const events = [
   {
@@ -174,73 +229,50 @@ const events = [
   {
     name: 'blur',
     description: '当 input 失去焦点时触发',
-    parameter: '组件实例'
+    parameter: '(e: FocusEvent)'
   },
   {
     name: 'focus',
     description: '当 input 获得焦点时触发',
-    parameter: '组件实例'
-  }
-]
-
-const slots = [{ name: 'range-separator', description: '自定义分隔符' }]
-
-const pickerOptions = [
-  {
-    name: 'shortcuts',
-    description: '设置快捷选项，需要传入 { text, onClick } 对象用法参考 demo 或下表',
-    type: 'Object[]',
-    value: '—',
-    default: '—'
+    parameter: '(e: FocusEvent)'
   },
   {
-    name: 'disabledDate',
-    description: '设置禁用状态，name为当前日期，要求返回 Boolean',
-    type: 'Function',
-    value: '—',
-    default: '—'
+    name: 'clear',
+    description: '可清空的模式下用户点击清空按钮时触发',
+    parameter: '() => void'
   },
   {
-    name: 'cellClassName',
-    description: '设置日期的 className',
-    type: 'Function(Date)',
-    value: '—',
-    default: '—'
-  },
-  {
-    name: 'firstDayOfWeek',
-    description: '周起始日',
-    type: 'Number',
-    value: '1 到 7',
-    default: 7
-  }
-]
-
-const shortcuts = [
-  {
-    name: 'text',
-    description: '标题文本',
-    type: 'string',
-    value: '—',
-    default: '—'
-  },
-  {
-    name: 'onClick',
+    name: 'calendar-change',
     description:
-      "选中后的回调函数，参数是 vm，可通过触发 'pick' 事件设置选择器的值。例如 vm.$emit('pick', new Date())",
-    type: 'function',
-    value: '—',
-    default: '—'
+      '如果用户没有选择日期，那默认展示当前日的月份。 选中日历日期后会执行的回调，只有当 datetimerange 才生效',
+    parameter: '[Date, Date]'
+  },
+  {
+    name: 'visible-change',
+    description: '当 DateTimePicker 的下拉列表出现/消失时触发',
+    parameter: '(visibility: boolean) => void'
   }
+]
+
+const slots = [
+  { name: 'default', description: '自定义单元格内容' },
+  { name: 'range-separator', description: '自定义范围分割符内容' },
+  { name: 'prev-month', description: '上个月的图标' },
+  { name: 'next-month', description: '下个月的图标' },
+  { name: 'prev-year', description: '上一年图标' },
+  { name: 'next-year', description: '下一年图标' }
+]
+
+const exposes = [
+  { name: 'focus', description: '使组件获取焦点', parameter: '() => void' },
+  { name: 'blur', description: '使组件失去焦点', parameter: '() => void' }
 ]
 
 const document = {
   attributes,
-  methods,
   events,
   slots,
-  pickerOptions,
-  shortcuts
+  exposes
 }
 
 module.exports = document
