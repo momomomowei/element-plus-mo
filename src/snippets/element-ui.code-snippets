@@ -616,14 +616,18 @@
   },
   "Table Column": {
     "prefix": "eptc",
-    "body": ["<el-table-column label=\"${1}\" prop=\"${1}\"></el-table-column>"],
+    "body": [
+      "<el-table-column label=\"${1:标题}\" prop=\"${2:prop}\">",
+      "\t${3}",
+      "</el-table-column>"
+    ],
     "description": "<el-table-column>"
   },
 
   "Tag": {
     "prefix": "epta",
     "body": [
-      "<el-tag type=\"${1|danger,info,success,warning|}\" size=\"${2|default,large,small|}\" effect=\"${3|dark,plain|}\">内容</el-tag>",
+      "<el-tag type=\"${1|info,success,warning,danger|}\" size=\"${2|default,large,small|}\" effect=\"${3|dark,plain|}\">内容</el-tag>"
     ],
     "description": "<el-tag>"
   },
@@ -709,7 +713,7 @@
   "Avatar": {
     "prefix": "epav",
     "body": [
-      "<el-avatar icon=\"el-icon-user-solid\" size=\"${1|large,medium,small|}\" shape=\"${2|circle,square|}\" src=\"https://api.dicebear.com/7.x/miniavs/svg?seed=1\" fit=\"${4|fill,contain,cover,none,scale-down|}\"></el-avatar>",
+      "<el-avatar icon=\"el-icon-user-solid\" size=\"${1|large,medium,small|}\" shape=\"${2|circle,square|}\" src=\"https://api.dicebear.com/7.x/miniavs/svg?seed=1\" fit=\"${4|fill,contain,cover,none,scale-down|}\"></el-avatar>"
     ],
     "description": "<el-avatar>"
   },
@@ -1088,10 +1092,7 @@
 
   "Calendar": {
     "prefix": "epcal",
-    "body": [
-      "<el-calendar v-model=\"${1}\" :first-day-of-week=\"${2:1}\"></el-calendar>",
-      "${3}"
-    ],
+    "body": ["<el-calendar v-model=\"${1}\" :first-day-of-week=\"${2:1}\"></el-calendar>", "${3}"],
     "description": "<el-calendar>"
   },
 

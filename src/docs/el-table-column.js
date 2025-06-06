@@ -218,7 +218,8 @@ const attributes = [
 const slots = [
   { name: 'default', description: '自定义列的内容，参数为 { row, column, $index }' },
   { name: 'header', description: '自定义表头的内容. 参数为 { column, $index }' },
-  { name: 'filter-icon', description: '自定义 filter 图标. 参数为 { filterOpened: boolean }' }
+  { name: 'filter-icon', description: '自定义 filter 图标. 参数为 { filterOpened: boolean }' },
+  { name: 'expand', description: '展开列的自定义内容. 参数为 { expanded: boolean }' },
 ]
 
 const document = { attributes, slots }

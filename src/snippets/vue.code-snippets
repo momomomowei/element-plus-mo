@@ -11,14 +11,16 @@
   },
   "template": {
     "prefix": "temp",
-    "body": ["<template>", "${1}", "</template>"],
+    "body": ["<template>", "\t${1}", "</template>"],
     "description": "template"
   },
   "vue3-ts-setup": {
     "prefix": "vbasets",
     "body": [
       "<template>",
-      "  <div>init</div>",
+      "\t<div>",
+      "\t${1}",
+      "\t</div>",
       "</template>",
       "",
       "<script lang='ts' setup>",
@@ -35,7 +37,9 @@
     "prefix": "vbase",
     "body": [
       "<template>",
-      "  <div>init</div>",
+      "\t<div>",
+      "\t${1}",
+      "\t</div>",
       "</template>",
       "",
       "<script setup>",
@@ -53,7 +57,7 @@
     "body": [
       "<template>",
       "\t<div>",
-      "",
+      "\t${1}",
       "\t</div>",
       "</template>",
       "",
