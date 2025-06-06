@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '绑定值',
+    type: 'string/number/boolean',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'model-value',
     description: '绑定值',
     type: 'string/number/boolean',
     value: '—',
@@ -82,7 +89,7 @@ const events = [
   {
     name: 'change',
     description: '当所选值更改时触发，参数是当前选中的值',
-    parameter: '(val: any) => void'
+    parameter: '`(val: any) => void`'
   }
 ]
 

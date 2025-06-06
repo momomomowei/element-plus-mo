@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '选中项绑定值',
+    type: 'string/number/object',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'model-value',
     description: '选中项绑定值',
     type: 'string/number/object',
     value: '—',
@@ -26,17 +33,17 @@ const events = [
   {
     name: 'change',
     description: '当选中节点变化时触发',
-    parameter: '(value: CascaderValue) => void'
+    parameter: '`(value: CascaderValue) => void`'
   },
   {
     name: 'expand-change',
     description: '当展开节点发生变化时触发',
-    parameter: '(value: CascaderNodePathValue) => void'
+    parameter: '`(value: CascaderNodePathValue) => void`'
   },
   {
     name: 'close',
     description: '面板的关闭事件，提供给 Cascader 以便做更好的判断。',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 
@@ -55,9 +62,9 @@ const exposes = [
   {
     name: 'getCheckedNodes',
     description: '获取选中的节点数组',
-    parameter: '(leafOnly: boolean) => CascaderNode[] | undefined'
+    parameter: '`(leafOnly: boolean) => CascaderNode[]`'
   },
-  { name: 'clearCheckedNodes', description: '清空选中的节点', parameter: '() => void' }
+  { name: 'clearCheckedNodes', description: '清空选中的节点', parameter: '`() => void`' }
 ]
 
 const props = [

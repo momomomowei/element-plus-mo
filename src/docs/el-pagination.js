@@ -6,13 +6,6 @@ const attributes = [
     value: 'large/default/small',
     default: '—'
   },
-  // {
-  //   name: 'small',
-  //   description: '是否使用小型分页样式',
-  //   type: 'boolean',
-  //   value: '—',
-  //   default: 'false'
-  // },
   {
     name: 'background',
     description: '是否为分页按钮添加背景色',
@@ -21,7 +14,14 @@ const attributes = [
     default: 'false'
   },
   {
-    name: 'page-size/v-model:page-size',
+    name: 'v-model:page-size',
+    description: '每页显示条目个数',
+    type: 'number',
+    value: '—',
+    default: '10'
+  },
+  {
+    name: 'page-size',
     description: '每页显示条目个数',
     type: 'number',
     value: '—',
@@ -57,8 +57,15 @@ const attributes = [
     default: '7'
   },
   {
-    name: 'current-page/v-model:current-page',
-    description: '当前页数，支持 .sync 修饰符',
+    name: 'v-model:current-page',
+    description: '当前页数',
+    type: 'number',
+    value: '—',
+    default: '1'
+  },
+  {
+    name: 'current-page',
+    description: '当前页数',
     type: 'number',
     value: '—',
     default: '1'
@@ -153,27 +160,27 @@ const events = [
   {
     name: 'size-change',
     description: 'pageSize 改变时会触发',
-    parameter: '(value: number) => void'
+    parameter: '`(value: number) => void`'
   },
   {
     name: 'current-change',
     description: 'currentPage 改变时会触发',
-    parameter: '(value: number) => void'
+    parameter: '`(value: number) => void`'
   },
   {
     name: 'change',
     description: 'current-page 或 page-size 更改时触发',
-    parameter: '(currentPage: number, pageSize: number) => void'
+    parameter: '`(currentPage: number, pageSize: number) => void`'
   },
   {
     name: 'prev-click',
     description: '用户点击上一页按钮改变当前页后触发',
-    parameter: '(value: number) => void'
+    parameter: '`(value: number) => void`'
   },
   {
     name: 'next-click',
     description: '用户点击下一页按钮改变当前页后触发',
-    parameter: '(value: number) => void'
+    parameter: '`(value: number) => void`'
   }
 ]
 

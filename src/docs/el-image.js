@@ -137,15 +137,15 @@ const attributes = [
 ]
 
 const events = [
-  { name: 'load', description: '图片加载成功触发', parameter: '(e: Event) => void' },
-  { name: 'error', description: '图片加载失败触发', parameter: '(e: Event) => void' },
-  { name: 'switch', description: '切换图像时触发', parameter: '(index: number) => void' },
+  { name: 'load', description: '图片加载成功触发', parameter: '`(e: Event) => void`' },
+  { name: 'error', description: '图片加载失败触发', parameter: '`(e: Event) => void`' },
+  { name: 'switch', description: '切换图像时触发', parameter: '`(index: number) => void`' },
   {
     name: 'close',
     description: '当点击 X 按钮或者在hide-on-click-modal为 true 时点击遮罩层时触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
-  { name: 'show', description: '当 Viewer 显示时触发', parameter: '() => void' }
+  { name: 'show', description: '当 Viewer 显示时触发', parameter: '`() => void`' }
 ]
 
 const slots = [
@@ -164,7 +164,7 @@ const exposes = [
   {
     name: 'showPreview',
     description: '手动打开大图预览',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 const document = { attributes, events, slots, exposes }

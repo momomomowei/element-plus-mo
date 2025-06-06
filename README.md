@@ -1,6 +1,12 @@
 # Element Plus Snippets
 
-部分取自大佬的仓库：https://github.com/wanganjuan/element-plus-snippets.git
+本插件只是为了本人开发方便而发存，有些内容并不是原创，只是整合了大佬的，望周知！
+
+快捷键部分来自大佬：https://github.com/wanganjuan/element-plus-snippets.git
+大佬的插件地址：https://marketplace.visualstudio.com/items?itemName=jingwang37.element-plus-snippets
+
+悬停提示部分来自大佬：https://github.com/MikuBlog
+大佬的插件地址：https://marketplace.visualstudio.com/items?itemName=wangluo.vue-element-plus-snippets
 
 ## 代码片段使用指南
 

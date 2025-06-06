@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '绑定值',
+    type: 'array',
+    value: '—',
+    default: '[]'
+  },
+  {
+    name: 'model-value',
     description: '绑定值',
     type: 'array',
     value: '—',
@@ -152,38 +159,38 @@ const events = [
   {
     name: 'change',
     description: '仅在输入框失去焦点或用户按下回车时触发',
-    parameter: '(value: string[]) => void'
+    parameter: '`(value: string[]) => void`'
   },
   {
     name: 'input',
     description: '在 Input 值改变时触发',
-    parameter: '(value: string) => void'
+    parameter: '`(value: string) => void`'
   },
   {
     name: 'add-tag',
     description: 'tag 被添加时触发',
-    parameter: '(value: string) => void'
+    parameter: '`(value: string) => void`'
   },
   {
     name: 'remove-tag',
     description: 'tag 被移除时触发',
-    parameter: '(value: string) => void'
+    parameter: '`(value: string) => void`'
   },
   {
     name: 'blur',
     description: '在 Input 失去焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   },
   {
     name: 'focus',
     description: '在 Input 获得焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   },
 
   {
     name: 'clear',
     description: '点击清除图标时触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 
@@ -194,8 +201,8 @@ const slots = [
 ]
 
 const exposes = [
-  { name: 'focus', description: '使 input 获取焦点', parameter: '() => void' },
-  { name: 'blur', description: '使 input 失去焦点', parameter: '() => void' }
+  { name: 'focus', description: '使 input 获取焦点', parameter: '`() => void`' },
+  { name: 'blur', description: '使 input 失去焦点', parameter: '`() => void`' }
 ]
 
 const document = { attributes, exposes, events, slots }

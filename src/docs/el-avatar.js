@@ -54,7 +54,7 @@ const attributes = [
     {
       name: 'error',
       description: '图片类头像加载失败的回调， 返回 false 会关闭组件默认的 fallback 行为',
-      parameter: '(e: Event) => void'
+      parameter: '`(e: Event) => void`'
     }
   ];
   

@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '绑定值，选中选项卡的 name',
+    type: 'string/number',
+    value: '—',
+    default: '第一个选项卡的 name'
+  },
+  {
+    name: 'model-value',
     description: '绑定值，选中选项卡的 name',
     type: 'string/number',
     value: '—',
@@ -61,27 +68,27 @@ const events = [
   {
     name: 'tab-click',
     description: 'tab 被选中时触发',
-    parameter: '(pane: TabsPaneContext, ev: Event) => void'
+    parameter: '`(pane: TabsPaneContext, ev: Event) => void`'
   },
   {
     name: 'tab-change',
     description: 'activeName 改变时触发',
-    parameter: '(name: TabPaneName) => void'
+    parameter: '`(name: TabPaneName) => void`'
   },
   {
     name: 'tab-remove',
     description: '点击 tab 移除按钮后触发',
-    parameter: '(name: TabPaneName) => void'
+    parameter: '`(name: TabPaneName) => void`'
   },
   {
     name: 'tab-add',
     description: '点击 tabs 的新增按钮后触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'edit',
     description: '点击 tabs 的新增按钮或 tab 被关闭后触发',
-    parameter: '(targetName, action) => void'
+    parameter: '`(targetName, action) => void`'
   }
 ]
 
@@ -94,12 +101,12 @@ const exposes = [
   {
     name: 'currentName',
     description: '当前活动的面板名称',
-    parameter: 'Ref<TabPaneName>'
+    parameter: '`Ref<TabPaneName>`'
   },
   {
     name: 'tabNavRef',
     description: 'tab-nav 组件实例',
-    parameter: 'Ref<TabNavInstance | undefined>'
+    parameter: '`Ref<TabNavInstance>`'
   }
 ]
 

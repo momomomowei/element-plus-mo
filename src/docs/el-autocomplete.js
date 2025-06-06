@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value / v-model',
+    name: 'v-model',
+    description: '选中项绑定值',
+    type: 'string',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'model-value',
     description: '选中项绑定值',
     type: 'string',
     value: '—',
@@ -141,32 +148,32 @@ const events = [
   {
     name: 'blur',
     description: '当选择器的输入框失去焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   },
   {
     name: 'focus',
     description: '当选择器的输入框获得焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   },
   {
     name: 'input',
     description: '在 Input 值改变时触发',
-    parameter: '(value: string | number) => void'
+    parameter: '`(value: string \\| number) => void`'
   },
   {
     name: 'clear',
     description: '在点击由 clearable 属性生成的清空按钮时触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'select',
     description: '点击选中建议项时触发',
-    parameter: '(item: typeof modelValue | any) => void'
+    parameter: '`(item: typeof modelValue \\| any) => void`'
   },
   {
     name: 'change',
     description: '在 Input 值改变时触发',
-    parameter: '(value: string | number) => void'
+    parameter: '`(value: string \\| number) => void`'
   }
 ]
 
@@ -179,6 +186,22 @@ const slots = [
   { name: 'loading ', description: '修改加载区域内容' }
 ]
 
-const document = { attributes, events, slots }
+const exposes = [
+  { name: 'activated', description: '自动补全输入框是否被激活', parameter: '`Ref<boolean>`' },
+  { name: 'blur', description: '使 input 失去焦点', parameter: '`() => void`' },
+  { name: 'close', description: '折叠建议列表', parameter: '`() => void`' },
+  { name: 'focus', description: '使 input 获取焦点', parameter: '`() => void`' },
+  { name: 'handleSelect', description: '手动触发选中建议事件', parameter: '`(item: any) => promise<void>`' },
+  { name: 'handleKeyEnter', description: '手动触发键盘回车事件', parameter: '`() => promise<void>`' },
+  { name: 'highlightedIndex', description: '当前高亮显示选项的索引', parameter: '`Ref<number>`' },
+  { name: 'highlight', description: '在建议中高亮显示一个项目', parameter: '`(itemIndex: number) => void`' },
+  { name: 'inputRef', description: 'el-input 组件实例', parameter: '`Ref<ElInputInstance>`' },
+  { name: 'loading', description: '远程获取提示内容的加载状态指示器', parameter: '`Ref<boolean>`' },
+  { name: 'popperRef', description: 'el-tooltip 组件实例', parameter: '`Ref<ElTooltipInstance>`' },
+  { name: 'suggestions', description: '获取自动补全结果', parameter: '`Ref<record<string, any>>`' },
+  { name: 'getData', description: '加载建议列表', parameter: '`(queryString: string) => void`' },
+]
+
+const document = { attributes, events, slots, exposes }
 
 module.exports = document

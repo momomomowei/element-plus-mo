@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'checked/v-model:checked',
+    name: 'checked',
+    description: '是否选中',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
+  },
+  {
+    name: 'v-model:checked',
     description: '是否选中',
     type: 'boolean',
     value: '—',

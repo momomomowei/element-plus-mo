@@ -119,7 +119,7 @@ const events = [
   {
     name: 'validate',
     description: '任一表单项被校验后触发',
-    parameter: '被校验的表单项 prop 值，校验是否通过，错误消息（如果存在）'
+    parameter: '`(prop: FormItemProp, isValid: boolean, message: string) => void`'
   }
 ]
 

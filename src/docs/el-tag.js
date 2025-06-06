@@ -58,8 +58,8 @@ const attributes = [
 ]
 
 const events = [
-  { name: 'click', description: '点击 Tag 时触发的事件', parameter: '(evt: MouseEvent) => void' },
-  { name: 'close', description: '关闭 Tag 时触发的事件', parameter: '(evt: MouseEvent) => void' }
+  { name: 'click', description: '点击 Tag 时触发的事件', parameter: '`(evt: MouseEvent) => void`' },
+  { name: 'close', description: '关闭 Tag 时触发的事件', parameter: '`(evt: MouseEvent) => void`' }
 ]
 
 const slots = [{ name: 'default', description: '自定义默认内容' }]

@@ -39,7 +39,7 @@ const exposes = [
   {
     name: 'isActive',
     description: '当前折叠项是否激活',
-    parameter: 'ComputedRef<boolean | undefined>'
+    parameter: '`ComputedRef<boolean>`'
   }
 ]
 

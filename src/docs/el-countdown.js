@@ -47,12 +47,12 @@ const events = [
   {
     name: 'change',
     description: '时间差改变事件',
-    parameter: '(value: number) => void'
+    parameter: '`(value: number) => void`'
   },
   {
     name: 'finish',
     description: '倒计时结束事件',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 
@@ -66,7 +66,7 @@ const exposes = [
   {
     name: 'displayValue',
     description: '当前显示值',
-    parameter: 'Ref<string>'
+    parameter: '`Ref<string>`'
   }
 ]
 

@@ -139,17 +139,17 @@ const events = [
   {
     name: 'select',
     description: '菜单激活回调',
-    parameter: 'index: 选中菜单项的 index, indexPath: 选中菜单项的 index path'
+    parameter: '`index: 选中菜单项的 index, indexPath: 选中菜单项的 index path`'
   },
   {
     name: 'open',
     description: 'sub-menu 展开的回调',
-    parameter: 'index: 打开的 sub-menu 的 index， indexPath: 打开的 sub-menu 的 index path'
+    parameter: '`index: 打开的 sub-menu 的 index， indexPath: 打开的 sub-menu 的 index path`'
   },
   {
     name: 'close',
     description: 'sub-menu 收起的回调',
-    parameter: 'index: 收起的 sub-menu 的 index， indexPath: 收起的 sub-menu 的 index path'
+    parameter: '`index: 收起的 sub-menu 的 index， indexPath: 收起的 sub-menu 的 index path`'
   }
 ]
 
@@ -157,17 +157,17 @@ const exposes = [
   {
     name: 'open',
     description: '打开一个特定的子菜单，参数是要打开的子菜单的索引',
-    parameter: '(index: string) => void'
+    parameter: '`(index: string) => void`'
   },
   {
     name: 'close',
     description: '关闭一个特定的子菜单，参数是要关闭子菜单的索引',
-    parameter: '(index: string) => void'
+    parameter: '`(index: string) => void`'
   },
   {
     name: 'updateActiveIndex',
     description: '通过索引激活指定菜单',
-    parameter: '(index: string) => void'
+    parameter: '`(index: string) => void`'
   }
 ]
 

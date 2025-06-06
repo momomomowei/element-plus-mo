@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '选中项绑定值',
+    type: 'array',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'model-value',
     description: '选中项绑定值',
     type: 'array',
     value: '—',
@@ -105,17 +112,17 @@ const events = [
     name: 'change',
     description: '右侧列表元素变化时触发',
     parameter:
-      '(value: TransferKey[], direction: TransferDirection, movedKeys: TransferKey[]) => void'
+      '`(value: TransferKey[], direction: TransferDirection, movedKeys: TransferKey[]) => void`'
   },
   {
     name: 'left-check-change',
     description: '左侧列表元素被用户选中 / 取消选中时触发',
-    parameter: '(value: TransferKey[], movedKeys?: TransferKey[]) => void'
+    parameter: '`(value: TransferKey[], movedKeys?: TransferKey[]) => void`'
   },
   {
     name: 'right-check-change',
     description: '右侧列表元素被用户选中 / 取消选中时触发',
-    parameter: '(value: TransferKey[], movedKeys?: TransferKey[]) => void'
+    parameter: '`(value: TransferKey[], movedKeys?: TransferKey[]) => void`'
   }
 ]
 
@@ -131,17 +138,17 @@ const exposes = [
   {
     name: 'clearQuery',
     description: '清空某个面板的搜索关键词',
-    parameter: '(which: TransferDirection) => void'
+    parameter: '`(which: TransferDirection) => void`'
   },
   {
     name: 'leftPanel',
     description: '左侧面板 ref',
-    parameter: 'Ref<TransferPanelInstance>'
+    parameter: '`Ref<TransferPanelInstance>`'
   },
   {
     name: 'rightPanel',
     description: '右侧面板 ref',
-    parameter: 'Ref<TransferPanelInstance>'
+    parameter: '`Ref<TransferPanelInstance>`'
   }
 ]
 

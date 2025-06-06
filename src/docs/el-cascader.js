@@ -1,8 +1,15 @@
 const attributes = [
   {
-    name: 'model-value / v-model',
+    name: 'v-model',
     description: '选中项绑定值',
-    type: 'string/number/object(string[] | number[] | any)',
+    type: 'string/number/string[]/number[])',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'model-value',
+    description: '选中项绑定值',
+    type: 'string/number/string[]/number[])',
     value: '—',
     default: '—'
   },
@@ -24,7 +31,7 @@ const attributes = [
     name: 'size',
     description: '尺寸',
     type: 'string',
-    value: 'large / default / small',
+    value: 'large/default/small',
     default: '—'
   },
   {
@@ -75,7 +82,7 @@ const attributes = [
     description: '选项分隔符',
     type: 'string',
     value: '—',
-    default: "斜杠' / '"
+    default: "斜杠'/'"
   },
   {
     name: 'filterable',
@@ -199,37 +206,37 @@ const events = [
   {
     name: 'change',
     description: '当绑定值变化时触发的事件',
-    parameter: '(value: CascaderValue) => void'
+    parameter: '`(value: CascaderValue) => void`'
   },
   {
     name: 'expand-change',
     description: '当展开节点发生变化时触发',
-    parameter: '(value: CascaderValue) => void'
+    parameter: '`(value: CascaderValue) => void`'
   },
   {
     name: 'blur',
     description: '当失去焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   },
   {
     name: 'focus',
     description: '当获得焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   },
   {
     name: 'clear',
     description: '可清空的单选模式下用户点击清空按钮时触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'visible-change',
     description: '下拉框出现/隐藏时触发',
-    parameter: '(value: boolean) => void'
+    parameter: '`(value: boolean) => void`'
   },
   {
     name: 'remove-tag',
     description: '在多选模式下，移除Tag时触发',
-    parameter: "(value: CascaderNode['valueByOption']) => void"
+    parameter: "`(value: CascaderNode['valueByOption']) => void`"
   }
 ]
 
@@ -248,37 +255,37 @@ const exposes = [
   {
     name: 'getCheckedNodes',
     description: '获取一个当前选中节点的数组。(仅仅是传单) 是否只返回叶选中的节点，默认是 false',
-    parameter: '(leafOnly: boolean) => CascaderNode[] | undefined'
+    parameter: '`(leafOnly: boolean) => CascaderNode[]`'
   },
   {
     name: 'cascaderPanelRef',
     description: 'cascader 面板的 ref',
-    parameter: 'ComputedRef<any>'
+    parameter: '`ComputedRef<any>`'
   },
   {
     name: 'togglePopperVisible',
     description: '切换 popper 可见状态',
-    parameter: '(visible?: boolean) => void'
+    parameter: '`(visible?: boolean) => void`'
   },
   {
     name: 'contentRef',
     description: 'cascader 内容的 ref',
-    parameter: 'ComputedRef<any>'
+    parameter: '`ComputedRef<any>`'
   },
   {
     name: 'presentText',
     description: '选中的内容文本',
-    parameter: 'ComputedRef<string>'
+    parameter: '`ComputedRef<string>`'
   },
   {
     name: 'visible-change',
     description: '下拉框出现/隐藏时触发',
-    parameter: '(value: boolean) => void'
+    parameter: '`(value: boolean) => void`'
   },
   {
     name: 'remove-tag',
     description: '在多选模式下，移除Tag时触发',
-    parameter: "(value: CascaderNode['valueByOption']) => void"
+    parameter: "`(value: CascaderNode['valueByOption']) => void`"
   }
 ]
 

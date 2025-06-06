@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '选中项绑定值',
+    type: 'string',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'model-value',
     description: '选中项绑定值',
     type: 'string',
     value: '—',
@@ -86,21 +93,21 @@ const attributes = [
 ]
 
 const events = [
-  { name: 'change', description: '当绑定值变化时触发', parameter: '(value: string) => void' },
+  { name: 'change', description: '当绑定值变化时触发', parameter: '`(value: string) => void`' },
   {
     name: 'active-change',
     description: '面板中当前显示的颜色发生改变时触发',
-    parameter: '(value: string) => void'
+    parameter: '`(value: string) => void`'
   },
   {
     name: 'focus',
     description: '当获得焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   },
   {
     name: 'blur',
     description: '当失去焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   }
 ]
 
@@ -108,27 +115,27 @@ const exposes = [
   {
     name: 'color',
     description: '当前色彩对象',
-    parameter: 'Color'
+    parameter: '`Color`'
   },
   {
     name: 'show',
     description: '手动显示颜色选择器',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'hide',
     description: '手动隐藏颜色选择器',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'focus',
     description: '使 picker 获得焦点',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'blur',
     description: '使 picker 失去焦点',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 

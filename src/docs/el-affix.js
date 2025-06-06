@@ -33,12 +33,12 @@ const events = [
   {
     name: 'change',
     description: '固钉状态改变时触发的事件',
-    parameter: '(fixed: boolean) => void'
+    parameter: '`(fixed: boolean) => void`'
   },
   {
     name: 'scroll',
     description: '滚动时触发的事件',
-    parameter: '(value: { scrollTop: number, fixed: boolean }) => void'
+    parameter: '`(value: { scrollTop: number, fixed: boolean }) => void`'
   }
 ]
 
@@ -46,12 +46,12 @@ const exposes = [
   {
     name: 'update',
     description: '手动更新固钉状态',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'updateRoot',
     description: '手动更新根元素的盒模型信息',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 

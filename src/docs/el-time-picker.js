@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '绑定值，如果它是数组，长度应该是 2',
+    type: 'number/string/Date/[Date, Date]/[number, number]/[string, string]',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'model-value',
     description: '绑定值，如果它是数组，长度应该是 2',
     type: 'number/string/Date/[Date, Date]/[number, number]/[string, string]',
     value: '—',
@@ -166,7 +173,7 @@ const attributes = [
     name: 'disabled-seconds',
     description: '禁止选择部分秒选项',
     type: 'Function',
-    value: '(hour: number, minute: number, role: string, comparingDate?: Dayjs) => number[]',
+    value: '`(hour: number, minute: number, role: string, comparingDate?: Dayjs) => number[]`',
     default: '-'
   },
   {
@@ -204,35 +211,35 @@ const events = [
     name: 'change',
     description: '用户确认选定的值时触发',
     parameter:
-      '(val: number | string | Date | [number, number] | [string, string] | [Date, Date]) => void'
+      '`(val: number \\| string \\| Date \\| [number, number] \\| [string, string] \\| [Date, Date]) => void`'
   },
   {
     name: 'blur',
     description: '当 input 失去焦点时触发',
-    parameter: '(e: FocusEvent) => void'
+    parameter: '`(e: FocusEvent) => void`'
   },
   {
     name: 'focus',
     description: '当 input 获得焦点时触发',
-    parameter: '(e: FocusEvent) => void'
+    parameter: '`(e: FocusEvent) => void`'
   },
   {
     name: 'clear',
     description: '可清空的模式下用户点击清空按钮时触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'visible-change',
     description: '当 TimePicker 的下拉列表出现/消失时触发',
-    parameter: '(visibility: boolean) => void'
+    parameter: '`(visibility: boolean) => void`'
   }
 ]
 
 const exposes = [
-  { name: 'focus', description: '使组件获取焦点', parameter: '() => void' },
-  { name: 'blur', description: '使组件失去焦点', parameter: '() => void' },
-  { name: 'handleOpen', description: '打开时间选择器弹窗', parameter: '() => void' },
-  { name: 'handleClose', description: '关闭时间选择器弹窗', parameter: '() => void' }
+  { name: 'focus', description: '使组件获取焦点', parameter: '`() => void`' },
+  { name: 'blur', description: '使组件失去焦点', parameter: '`() => void`' },
+  { name: 'handleOpen', description: '打开时间选择器弹窗', parameter: '`() => void`' },
+  { name: 'handleClose', description: '关闭时间选择器弹窗', parameter: '`() => void`' }
 ]
 
 const document = { attributes, exposes, events }

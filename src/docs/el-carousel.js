@@ -96,7 +96,7 @@ const events = [
   {
     name: 'change',
     description: '幻灯片切换时触发',
-    parameter: '(current: number, prev: number) => boolean'
+    parameter: '`(current: number, prev: number) => boolean`'
   }
 ]
 
@@ -106,15 +106,15 @@ const exposes = [
   {
     name: 'activeIndex',
     description: '当前幻灯片的索引',
-    parameter: 'number'
+    parameter: '`number`'
   },
   {
     name: 'setActiveItem',
     description: '手动切换幻灯片',
-    parameter: '(index: string | number) => void'
+    parameter: '`(index: string \\| number) => void`'
   },
-  { name: 'prev', description: '切换至上一张幻灯片', parameter: '() => void' },
-  { name: 'next', description: '切换至下一张幻灯片', parameter: '() => void' }
+  { name: 'prev', description: '切换至上一张幻灯片', parameter: '`() => void`' },
+  { name: 'next', description: '切换至下一张幻灯片', parameter: '`() => void`' }
 ]
 
 const document = { attributes, exposes, events, slots }

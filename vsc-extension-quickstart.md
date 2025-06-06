@@ -1,5 +1,15 @@
 # Welcome to your VS Code Extension
 
+## 打包插件
+
+```shell
+npm install -g vsce
+```
+
+```shell
+vsce package
+```
+
 ## What's in the folder
 
 * This folder contains all of the files necessary for your extension.

@@ -210,7 +210,7 @@ const attributes = [
     name: 'tooltip-formatter',
     description: '使用 show-overflow-tooltip 时自定义 tooltip 内容',
     type: 'Function',
-    value: '(data: { row: any, column: any, cellValue: any }) => VNode | string',
+    value: '`(data: { row: any, column: any, cellValue: any }) => VNode \\| string`',
     default: '—'
   }
 ]

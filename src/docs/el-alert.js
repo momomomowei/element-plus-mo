@@ -58,7 +58,7 @@ const attributes = [
 ]
 
 const events = [
-  { name: 'close', description: '关闭alert时触发的事件', parameter: 'event: MouseEvent) => void' }
+  { name: 'close', description: '关闭alert时触发的事件', parameter: '`event: MouseEvent) => void`' }
 ]
 
 const slots = [

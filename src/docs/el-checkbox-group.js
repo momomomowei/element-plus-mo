@@ -1,8 +1,15 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
     description: '绑定值',
-    type: 'array(string[] | number[])',
+    type: 'string[]/number[]',
+    value: '—',
+    default: '[]'
+  },
+  {
+    name: 'model-value',
+    description: '绑定值',
+    type: 'string[]/number[]',
     value: '—',
     default: '[]'
   },
@@ -82,7 +89,7 @@ const events = [
   {
     name: 'change',
     description: '当绑定值变化时触发的事件',
-    parameter: '(value: string[] | number[]) => void'
+    parameter: '`(value: string[] \\| number[]) => void`'
   }
 ]
 

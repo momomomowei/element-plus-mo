@@ -9,7 +9,7 @@ const attributes = [
   {
     name: 'size',
     description: 'SVG 图标的大小，size x size',
-    type: 'number / string',
+    type: 'number/string',
     value: '—',
     default: '继承字体大小'
   }

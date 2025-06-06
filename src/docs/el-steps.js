@@ -2,7 +2,7 @@ const attributes = [
   {
     name: 'space',
     description: '每个 step 的间距，不填写将自适应间距。支持百分比。',
-    type: 'number / string',
+    type: 'number/string',
     value: '—',
     default: '—'
   },
@@ -24,14 +24,14 @@ const attributes = [
     name: 'process-status',
     description: '设置当前步骤的状态',
     type: 'string',
-    value: 'wait / process / finish / error / success',
+    value: 'wait/process/finish/error/success',
     default: 'process'
   },
   {
     name: 'finish-status',
     description: '设置结束步骤的状态',
     type: 'string',
-    value: 'wait / process / finish / error / success',
+    value: 'wait/process/finish/error/success',
     default: 'finish'
   },
   {

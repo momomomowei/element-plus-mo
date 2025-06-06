@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '绑定值',
+    type: 'number',
+    value: '—',
+    default: '0'
+  },
+  {
+    name: 'model-value',
     description: '绑定值',
     type: 'number',
     value: '—',
@@ -131,23 +138,23 @@ const events = [
   {
     name: 'change',
     description: '绑定值被改变时触发',
-    parameter: '(currentValue: number | undefined, oldValue: number | undefined) => void'
+    parameter: '`(currentValue: number, oldValue: number) => void`'
   },
   {
     name: 'blur',
     description: '在组件 Input 失去焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   },
   {
     name: 'focus',
     description: '在组件 Input 获得焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   }
 ]
 
 const exposes = [
-  { name: 'focus', description: '	使 input 组件获得焦点', parameter: '() => void' },
-  { name: 'blur', description: '使 input 组件失去焦点', parameter: '() => void' }
+  { name: 'focus', description: '	使 input 组件获得焦点', parameter: '`() => void`' },
+  { name: 'blur', description: '使 input 组件失去焦点', parameter: '`() => void`' }
 ]
 
 const document = { attributes, exposes, events, slots }

@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '绑定值',
+    type: 'number/string/object',
+    value: '—',
+    default: ''
+  },
+  {
+    name: 'model-value',
     description: '绑定值',
     type: 'number/string/object',
     value: '—',
@@ -166,21 +173,21 @@ const attributes = [
     name: 'disabled-date',
     description:
       '一个用来判断该日期是否被禁用的函数，接受一个 Date 对象作为参数。 应该返回一个 Boolean 值。',
-    type: '(data: Date) => boolean',
+    type: '`(data: Date) => boolean`',
     value: '-',
     default: '-'
   },
   {
     name: 'shortcuts',
     description: '设置快捷选项，需要传入数组对象',
-    type: 'Array<{ text: string, value: Date | Function }>',
+    type: '`Array<{ text: string, value: Date \\| Function }>`',
     value: '-',
     default: '[]'
   },
   {
     name: 'cell-class-name',
     description: '设置自定义类名',
-    type: '(data: Date) => string',
+    type: '`(data: Date) => string`',
     value: '-',
     default: '-'
   },
@@ -225,37 +232,37 @@ const events = [
   {
     name: 'change',
     description: '用户确认选定的值时触发',
-    parameter: '(val: typeof v-model) => void'
+    parameter: '`(val: typeof v-model) => void`'
   },
   {
     name: 'blur',
     description: '当 input 失去焦点时触发',
-    parameter: '(e: FocusEvent) => void'
+    parameter: '`(e: FocusEvent) => void`'
   },
   {
     name: 'focus',
     description: '当 input 获得焦点时触发',
-    parameter: '(e: FocusEvent) => void'
+    parameter: '`(e: FocusEvent) => void`'
   },
   {
     name: 'clear',
     description: '可清空的模式下用户点击清空按钮时触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'calendar-change',
     description: '在日历所选日期更改时触发',
-    parameter: '(val: [Date, null | Date]) => void'
+    parameter: '`(val: [Date, null \\| Date]) => void`'
   },
   {
     name: 'panel-change',
     description: '当日期面板改变时触发。',
-    parameter: `(date: Date | [Date, Date], mode: 'month' | 'year', view?: string) => void`
+    parameter: "`(date: Date \\| [Date, Date], mode: 'month' \\| 'year', view?: string) => void`"
   },
   {
     name: 'visible-change',
     description: '当 DatePicker 的下拉列表出现/消失时触发',
-    parameter: '(visibility: boolean) => void'
+    parameter: '`(visibility: boolean) => void`'
   }
 ]
 
@@ -269,10 +276,10 @@ const slots = [
 ]
 
 const exposes = [
-  { name: 'focus', description: '使组件获取焦点', parameter: '() => void' },
-  { name: 'blur', description: '使组件失去焦点', parameter: '() => void' },
-  { name: 'handleOpen', description: '打开日期选择器弹窗', parameter: '() => void' },
-  { name: 'handleClose', description: '关闭日期选择器弹窗', parameter: '() => void' }
+  { name: 'focus', description: '使组件获取焦点', parameter: '`() => void`' },
+  { name: 'blur', description: '使组件失去焦点', parameter: '`() => void`' },
+  { name: 'handleOpen', description: '打开日期选择器弹窗', parameter: '`() => void`' },
+  { name: 'handleClose', description: '关闭日期选择器弹窗', parameter: '`() => void`' }
 ]
 
 const document = { attributes, events, slots, exposes }

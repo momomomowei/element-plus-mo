@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '选中项绑定值',
+    type: 'number/number[]',
+    value: '—',
+    default: '0'
+  },
+  {
+    name: 'model-value',
     description: '选中项绑定值',
     type: 'number/number[]',
     value: '—',
@@ -80,14 +87,14 @@ const attributes = [
     name: 'format-tooltip',
     description: '格式化 tooltip message',
     type: 'Function',
-    value: '(value: number) => number | string',
+    value: '`(value: number) => number \\| string`',
     default: '—'
   },
   {
     name: 'format-value-text',
     description: '显示屏幕阅读器的 aria-valuenow 属性的格式',
     type: 'Function',
-    value: '(value: number) => number | string',
+    value: '`(value: number) => number \\| string`',
     default: '—'
   },
   {
@@ -190,12 +197,12 @@ const events = [
   {
     name: 'change',
     description: '值改变时触发（使用鼠标拖曳时，只在松开鼠标后触发）',
-    parameter: '(value: Arrayable<number>) => boolean'
+    parameter: '`(value: Arrayable<number>) => boolean`'
   },
   {
     name: 'input',
     description: '数据改变时触发（使用鼠标拖曳时，活动过程实时触发）',
-    parameter: '(value: Arrayable<number>) => boolean'
+    parameter: '`(value: Arrayable<number>) => boolean`'
   }
 ]
 

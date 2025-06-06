@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '绑定值，必须等于 active-value 或 inactive-value，默认为 Boolean 类型',
+    type: 'boolean/string/number',
+    value: '—',
+    default: 'false'
+  },
+  {
+    name: 'model-value',
     description: '绑定值，必须等于 active-value 或 inactive-value，默认为 Boolean 类型',
     type: 'boolean/string/number',
     value: '—',
@@ -164,12 +171,12 @@ const events = [
   {
     name: 'change',
     description: 'switch 状态发生变化时的回调函数',
-    parameter: '(val: boolean | string | number) => void'
+    parameter: '`(val: boolean \\| string \\| number) => void`'
   }
 ]
 
 const exposes = [
-  { name: 'focus', description: '手动 focus 到 switch 组件', parameter: '() => void' }
+  { name: 'focus', description: '手动 focus 到 switch 组件', parameter: '`() => void`' }
 ]
 
 const document = { attributes, exposes, events, slots }

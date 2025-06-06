@@ -26,7 +26,7 @@ const events = [
   {
     name: 'click',
     description: '点击菜单项时回调函数, 参数为菜单项实例',
-    parameter: '(item: MenuItemRegistered) => void'
+    parameter: '`(item: MenuItemRegistered) => void`'
   }
 ]
 

@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '选中项绑定值',
+    type: 'string',
+    value: '-',
+    default: '-'
+  },
+  {
+    name: 'model-value',
     description: '选中项绑定值',
     type: 'string',
     value: '-',
@@ -138,28 +145,28 @@ const events = [
   {
     name: 'change',
     description: '用户确认选定的值时触发',
-    parameter: '(value: string) => void'
+    parameter: '`(value: string) => void`'
   },
   {
     name: 'blur',
     description: '当 input 失去焦点时触发',
-    parameter: '(e: FocusEvent) => void'
+    parameter: '`(e: FocusEvent) => void`'
   },
   {
     name: 'focus',
     description: '当 input 获得焦点时触发',
-    parameter: '(e: FocusEvent) => void'
+    parameter: '`(e: FocusEvent) => void`'
   },
   {
     name: 'clear',
     description: '可清空的模式下用户点击清空按钮时触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 
 const exposes = [
-  { name: 'focus', description: '使组件获取焦点', parameter: '() => void' },
-  { name: 'blur', description: '使组件失去焦点', parameter: '() => void' }
+  { name: 'focus', description: '使组件获取焦点', parameter: '`() => void`' },
+  { name: 'blur', description: '使组件失去焦点', parameter: '`() => void`' }
 ]
 
 const document = { attributes, events, exposes }

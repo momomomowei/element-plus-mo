@@ -90,17 +90,17 @@ const events = [
   {
     name: 'close',
     description: '当点击 X 按钮或者在hide-on-click-modal为 true 时点击遮罩层时触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
-  { name: 'switch', description: '切换图像时触发', parameter: '(index: number) => void' },
-  { name: 'rotate', description: '旋转图像时触发', parameter: '(deg: number) => void' }
+  { name: 'switch', description: '切换图像时触发', parameter: '`(index: number) => void`' },
+  { name: 'rotate', description: '旋转图像时触发', parameter: '`(deg: number) => void`' }
 ]
 
 const exposes = [
   {
     name: 'setActiveItem',
     description: '手动切换图片',
-    parameter: '(index: number) => void'
+    parameter: '`(index: number) => void`'
   }
 ]
 const document = { attributes, events, exposes }

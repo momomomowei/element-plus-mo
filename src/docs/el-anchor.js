@@ -22,7 +22,7 @@ const attributes = [
   },
   {
     name: 'duration',
-    description: '设置容器滚动持续时间，单位为毫秒。',
+    description: '设置容器滚动持续时间，单位毫秒',
     type: 'number',
     value: '—',
     default: '300'
@@ -61,12 +61,12 @@ const events = [
   {
     name: 'change',
     description: 'step 改变时的回调',
-    parameter: '(href: string) => void'
+    parameter: '`(href: string) => void`'
   },
   {
     name: 'click',
     description: '当用户点击链接时触发',
-    parameter: '(e: MouseEvent, href?: string) => void'
+    parameter: '`(e: MouseEvent, href?: string) => void`'
   }
 ]
 
@@ -74,7 +74,7 @@ const exposes = [
   {
     name: 'scrollTo',
     description: '手动滚动到特定位置。',
-    parameter: '(href: string) => void'
+    parameter: '`(href: string) => void`'
   }
 ]
 

@@ -1,13 +1,27 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
     description: '打开引导',
     type: 'boolean',
     value: '—',
     default: '-'
   },
   {
-    name: 'current/v-model:current',
+    name: 'model-value',
+    description: '打开引导',
+    type: 'boolean',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'v-model:current',
+    description: '当前值',
+    type: 'number',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'current',
     description: '当前值',
     type: 'number',
     value: '—',
@@ -54,7 +68,7 @@ const attributes = [
     description: '遮罩和目标之间的透明的间距',
     type: 'Object',
     value: '—',
-    default: '{ offset: 6, radius: 2}'
+    default: '{ offset: 6, radius: 2 }'
   },
   {
     name: 'type',
@@ -116,17 +130,17 @@ const events = [
   {
     name: 'change',
     description: '步骤改变时的回调',
-    parameter: '(current: number) => void'
+    parameter: '`(current: number) => void`'
   },
   {
     name: 'close',
     description: '关闭引导时的回调函数',
-    parameter: '(current: number) => void'
+    parameter: '`(current: number) => void`'
   },
   {
     name: 'finish',
     description: '引导完成时的回调',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 

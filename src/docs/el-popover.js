@@ -174,27 +174,27 @@ const attributes = [
 ]
 
 const events = [
-  { name: 'show', description: '显示时触发', parameter: '() => void' },
+  { name: 'show', description: '显示时触发', parameter: '`() => void`' },
   {
     name: 'before-enter',
     description: '显示动画播放前触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'after-enter',
     description: '显示动画播放完毕后触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
-  { name: 'hide', description: '隐藏时触发', parameter: '() => void' },
+  { name: 'hide', description: '隐藏时触发', parameter: '`() => void`' },
   {
     name: 'before-leave',
     description: '隐藏动画播放前触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'after-leave',
     description: '隐藏动画播放完毕后触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 
@@ -207,7 +207,7 @@ const exposes = [
   {
     name: 'hide',
     description: '隐藏 popover',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 

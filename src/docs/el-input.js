@@ -231,27 +231,27 @@ const events = [
   {
     name: 'blur',
     description: '在 Input 失去焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   },
   {
     name: 'focus',
     description: '在 Input 获得焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   },
   {
     name: 'change',
     description: '仅在输入框失去焦点或用户按下回车时触发',
-    parameter: '(value: string | number) => void'
+    parameter: '`(value: string \\| number) => void`'
   },
   {
     name: 'input',
     description: '在 Input 值改变时触发',
-    parameter: '(value: string | number) => void'
+    parameter: '`(value: string \\| number) => void`'
   },
   {
     name: 'clear',
     description: '在点击由 `clearable` 属性生成的清空按钮时触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 
@@ -263,20 +263,20 @@ const slots = [
 ]
 
 const exposes = [
-  { name: 'blur', description: '使 input 失去焦点', parameter: '() => void' },
-  { name: 'clear', description: '使 input 失去焦点', parameter: '() => void' },
-  { name: 'focus', description: '使 input 获取焦点', parameter: '() => void' },
-  { name: 'input', description: 'Input HTML 元素', parameter: 'Ref<HTMLInputElement>' },
+  { name: 'blur', description: '使 input 失去焦点', parameter: '`() => void`' },
+  { name: 'clear', description: '使 input 失去焦点', parameter: '`() => void`' },
+  { name: 'focus', description: '使 input 获取焦点', parameter: '`() => void`' },
+  { name: 'input', description: 'Input HTML 元素', parameter: '`Ref<HTMLInputElement>`' },
   {
     name: 'ref',
     description: '	HTML元素 input 或 textarea',
-    parameter: 'Ref<HTMLInputElement | HTMLTextAreaElement>'
+    parameter: '`Ref<HTMLInputElement \\| HTMLTextAreaElement>`'
   },
-  { name: 'resizeTextarea', description: '改变 textarea 大小', parameter: '() => void' },
-  { name: 'select', description: '选中 input 中的文字', parameter: '() => void' },
-  { name: 'textarea', description: 'HTML textarea 元素', parameter: 'Ref<HTMLTextAreaElement>' },
-  { name: 'textareaStyle', description: 'textarea 的样式', parameter: 'Ref<StyleValue>' },
-  { name: 'isComposing ', description: '是否是输入 composing 状态', parameter: 'Ref<boolean>' }
+  { name: 'resizeTextarea', description: '改变 textarea 大小', parameter: '`() => void`' },
+  { name: 'select', description: '选中 input 中的文字', parameter: '`() => void`' },
+  { name: 'textarea', description: 'HTML textarea 元素', parameter: '`Ref<HTMLTextAreaElement>`' },
+  { name: 'textareaStyle', description: 'textarea 的样式', parameter: '`Ref<StyleValue>`' },
+  { name: 'isComposing ', description: '是否是输入 composing 状态', parameter: '`Ref<boolean>`' }
 ]
 
 const document = { attributes, exposes, events, slots }

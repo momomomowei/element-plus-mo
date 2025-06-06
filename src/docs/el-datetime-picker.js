@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '绑定值，如果它是数组，长度应该是 2',
+    type: 'number/string/Date/[Date, Date]/[string, string]',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'model-value',
     description: '绑定值，如果它是数组，长度应该是 2',
     type: 'number/string/Date/[Date, Date]/[string, string]',
     value: '—',
@@ -224,33 +231,33 @@ const events = [
   {
     name: 'change',
     description: '用户确认选定的值时触发',
-    parameter: '组件绑定值。格式与绑定值一致，可受 `value-format` 控制'
+    parameter: '`组件绑定值。格式与绑定值一致，可受 `value-format` 控制`'
   },
   {
     name: 'blur',
     description: '当 input 失去焦点时触发',
-    parameter: '(e: FocusEvent)'
+    parameter: '`(e: FocusEvent)`'
   },
   {
     name: 'focus',
     description: '当 input 获得焦点时触发',
-    parameter: '(e: FocusEvent)'
+    parameter: '`(e: FocusEvent)`'
   },
   {
     name: 'clear',
     description: '可清空的模式下用户点击清空按钮时触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'calendar-change',
     description:
       '如果用户没有选择日期，那默认展示当前日的月份。 选中日历日期后会执行的回调，只有当 datetimerange 才生效',
-    parameter: '[Date, Date]'
+    parameter: '`[Date, Date]`'
   },
   {
     name: 'visible-change',
     description: '当 DateTimePicker 的下拉列表出现/消失时触发',
-    parameter: '(visibility: boolean) => void'
+    parameter: '`(visibility: boolean) => void`'
   }
 ]
 
@@ -264,8 +271,8 @@ const slots = [
 ]
 
 const exposes = [
-  { name: 'focus', description: '使组件获取焦点', parameter: '() => void' },
-  { name: 'blur', description: '使组件失去焦点', parameter: '() => void' }
+  { name: 'focus', description: '使组件获取焦点', parameter: '`() => void`' },
+  { name: 'blur', description: '使组件失去焦点', parameter: '`() => void`' }
 ]
 
 const document = {

@@ -9,7 +9,7 @@ const attributes = [
   {
     name: 'label',
     description:
-      '选中状态的值，只有在绑定对象类型为 array 时有效。 如果没有 value， label则作为value使用',
+      '选中状态的值，只有在绑定对象类型为 array 时有效。 如果没有 value，label则作为value使用',
     type: 'string/number/boolean/object',
     value: '—',
     default: '—'

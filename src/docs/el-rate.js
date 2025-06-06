@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '选中项绑定值',
+    type: 'number',
+    value: '—',
+    default: '0'
+  },
+  {
+    name: 'model-value',
     description: '选中项绑定值',
     type: 'number',
     value: '—',
@@ -158,12 +165,12 @@ const attributes = [
 ]
 
 const events = [
-  { name: 'change', description: '分值改变时触发', parameter: '(value: number) => void' }
+  { name: 'change', description: '分值改变时触发', parameter: '`(value: number) => void`' }
 ]
 
 const exposes = [
-  { name: 'setCurrentValue', description: '设置当前值', parameter: '(value: number) => void' },
-  { name: 'resetCurrentValue', description: '重置当前值', parameter: '() => void' }
+  { name: 'setCurrentValue', description: '设置当前值', parameter: '`(value: number) => void`' },
+  { name: 'resetCurrentValue', description: '重置当前值', parameter: '`() => void`' }
 ]
 
 const document = { attributes, events, exposes }

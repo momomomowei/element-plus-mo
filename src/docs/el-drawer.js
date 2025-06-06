@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '是否显示 Drawer',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
+  },
+  {
+    name: 'model-value',
     description: '是否显示 Drawer',
     type: 'boolean',
     value: '—',
@@ -165,27 +172,27 @@ const attributes = [
 ]
 
 const events = [
-  { name: 'open', description: 'Drawer 打开的回调', parameter: '() => void' },
+  { name: 'open', description: 'Drawer 打开的回调', parameter: '`() => void`' },
   {
     name: 'opened',
     description: 'Drawer 打开动画结束时的回调',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
-  { name: 'close', description: 'Drawer 关闭的回调', parameter: '() => void' },
+  { name: 'close', description: 'Drawer 关闭的回调', parameter: '`() => void`' },
   {
     name: 'closed',
     description: 'Drawer 关闭动画结束时的回调',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'open-auto-focus',
     description: '输入焦点聚焦在 Drawer 内容时的回调',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'close-auto-focus',
     description: '输入焦点从 Drawer 内容失焦时的回调',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 

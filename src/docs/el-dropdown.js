@@ -125,17 +125,17 @@ const events = [
   {
     name: 'click',
     description: '`split-button` 为 true 时，点击左侧按钮的回调',
-    parameter: '(e: MouseEvent) => void'
+    parameter: '`(e: MouseEvent) => void`'
   },
   {
     name: 'command',
     description: '点击菜单项触发的事件回调',
-    parameter: '(...args: any[]) => void'
+    parameter: '`(...args: any[]) => void`'
   },
   {
     name: 'visible-change',
     description: '下拉框出现/隐藏时触发',
-    parameter: '(val: boolean) => void'
+    parameter: '`(val: boolean) => void`'
   }
 ]
 
@@ -155,12 +155,12 @@ const exposes = [
   {
     name: 'handleOpen',
     description: '打开下拉菜单',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'handleClose',
     description: '关闭下拉菜单',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 

@@ -23,7 +23,7 @@ const attributes = [
   {
     name: 'wrap-style',
     description: '包裹容器的自定义样式',
-    type: 'string/object(CSSSProperties | CSSSProperties[] | string[])',
+    type: 'string/CSSSProperties/CSSSProperties[]/string[]',
     value: '—',
     default: '-'
   },
@@ -37,7 +37,7 @@ const attributes = [
   {
     name: 'view-style',
     description: '视图的自定义样式',
-    type: 'string/object(CSSSProperties | CSSSProperties[] | string[])',
+    type: 'string/CSSSProperties/CSSSProperties[]/string[]',
     value: '—',
     default: '-'
   },
@@ -113,24 +113,49 @@ const attributes = [
   }
 ]
 
-const methods = [
-  {
-    name: 'scroll',
-    description: '当触发滚动事件时，返回滚动的距离',
-    parameter: '({ scrollLeft: number, scrollTop: number }) => void'
-  }
-]
-
 const events = [
   {
     name: 'scroll',
     description: '滚动时触发的事件',
-    parameter: '滚动距离 { scrollLeft, scrollTop }'
+    parameter: '`({ scrollLeft: number, scrollTop: number }) => void`'
   }
 ]
 
 const slots = [{ name: 'default', description: '自定义默认内容' }]
 
-const document = { attributes, methods, events, slots }
+const exposes = [
+  {
+    name: 'handleScroll',
+    description: '触发滚动事件',
+    parameter: '`() => void`'
+  },
+  {
+    name: 'scrollTo',
+    description: '滚动到一组特定坐标',
+    parameter: '`(options: ScrollToOptions \\| number, yCoord?: number) => void`'
+  },
+  {
+    name: 'setScrollTop',
+    description: '设置滚动条到顶部的距离',
+    parameter: '`(scrollTop: number) => void`'
+  },
+  {
+    name: 'setScrollLeft',
+    description: '设置滚动条到左边的距离',
+    parameter: '`(scrollLeft: number) => void`'
+  },
+  {
+    name: 'update',
+    description: '手动更新滚动条状态',
+    parameter: '`() => void`'
+  },
+  {
+    name: 'wrapRef',
+    description: '滚动条包裹的 ref 对象',
+    parameter: '`Ref<HTMLDivElement>`'
+  },
+]
+
+const document = { attributes, exposes, events, slots }
 
 module.exports = document

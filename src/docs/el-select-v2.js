@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '绑定值',
+    type: 'boolean/string/number/array/object',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'model-value',
     description: '绑定值',
     type: 'boolean/string/number/array/object',
     value: '—',
@@ -353,32 +360,32 @@ const events = [
   {
     name: 'change',
     description: '选中值发生变化时触发',
-    parameter: '(value: any) => void'
+    parameter: '`(value: any) => void`'
   },
   {
     name: 'visible-change',
     description: '下拉框出现/隐藏时触发',
-    parameter: '(visible: boolean) => void'
+    parameter: '`(visible: boolean) => void`'
   },
   {
     name: 'remove-tag',
     description: '多选模式下移除tag时触发',
-    parameter: '(tagValue: any) => void'
+    parameter: '`(tagValue: any) => void`'
   },
   {
     name: 'clear',
     description: '可清空的单选模式下用户点击清空按钮时触发',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'blur',
     description: '当 input 失去焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   },
   {
     name: 'focus',
     description: '当 input 获得焦点时触发',
-    parameter: '(event: FocusEvent) => void'
+    parameter: '`(event: FocusEvent) => void`'
   }
 ]
 
@@ -394,12 +401,12 @@ const slots = [
 ]
 
 const exposes = [
-  { name: 'focus', description: '使选择器的输入框获取焦点', parameter: '() => void' },
-  { name: 'blur', description: '使选择器的输入框失去焦点，并隐藏下拉框', parameter: '() => void' },
+  { name: 'focus', description: '使选择器的输入框获取焦点', parameter: '`() => void`' },
+  { name: 'blur', description: '使选择器的输入框失去焦点，并隐藏下拉框', parameter: '`() => void`' },
   {
     name: 'selectedLabel',
     description: '获取当前选中的标签',
-    parameter: 'ComputedRef<string | string[]>'
+    parameter: '`ComputedRef<string \\| string[]>`'
   }
 ]
 

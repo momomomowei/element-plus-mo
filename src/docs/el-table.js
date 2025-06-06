@@ -301,7 +301,7 @@ const attributes = [
     name: 'tooltip-formatter',
     description: '自定义 show-overflow-tooltip 时的 tooltip 内容',
     type: 'Function',
-    value: '(data: { row: any, column: any, cellValue: any }) => VNode | string',
+    value: '`(data: { row: any, column: any, cellValue: any }) => VNode \\| string`',
     default: '-'
   },
   {
@@ -317,95 +317,95 @@ const events = [
   {
     name: 'select',
     description: '当用户手动勾选数据行的 Checkbox 时触发的事件',
-    parameter: 'selection, row'
+    parameter: '`(selection, row) => void`'
   },
   {
     name: 'select-all',
     description: '当用户手动勾选全选 Checkbox 时触发的事件',
-    parameter: 'selection'
+    parameter: '`(selection) => void`'
   },
   {
     name: 'selection-change',
     description: '当选择项发生变化时会触发该事件',
-    parameter: 'selection'
+    parameter: '`(selection) => void`'
   },
   {
     name: 'cell-mouse-enter',
     description: '当单元格 hover 进入时会触发该事件',
-    parameter: 'row, column, cell, event'
+    parameter: '`(row, column, cell, event) => void`'
   },
   {
     name: 'cell-mouse-leave',
     description: '当单元格 hover 退出时会触发该事件',
-    parameter: 'row, column, cell, event'
+    parameter: '`(row, column, cell, event) => void`'
   },
   {
     name: 'cell-click',
     description: '当某个单元格被点击时会触发该事件',
-    parameter: 'row, column, cell, event'
+    parameter: '`(row, column, cell, event) => void`'
   },
   {
     name: 'cell-dblclick',
     description: '当某个单元格被双击击时会触发该事件',
-    parameter: 'row, column, cell, event'
+    parameter: '`(row, column, cell, event) => void`'
   },
   {
     name: 'row-click',
     description: '当某一行被点击时会触发该事件',
-    parameter: 'row, column, event'
+    parameter: '`(row, column, event) => void`'
   },
   {
     name: 'row-contextmenu',
     description: '当某一行被鼠标右键点击时会触发该事件',
-    parameter: 'row, column, event'
+    parameter: '`(row, column, event) => void`'
   },
   {
     name: 'row-dblclick',
     description: '当某一行被双击时会触发该事件',
-    parameter: 'row, column, event'
+    parameter: '`(row, column, event) => void`'
   },
   {
     name: 'header-click',
     description: '当某一列的表头被点击时会触发该事件',
-    parameter: 'column, event'
+    parameter: '`(column, event) => void`'
   },
   {
     name: 'header-contextmenu',
     description: '当某一列的表头被鼠标右键点击时触发该事件',
-    parameter: 'column, event'
+    parameter: '`(column, event) => void`'
   },
   {
     name: 'sort-change',
     description: '当表格的排序条件发生变化的时候会触发该事件',
-    parameter: '{ column, prop, order }'
+    parameter: '`({ column, prop, order }) => void`'
   },
   {
     name: 'filter-change',
     description:
       '当表格的筛选条件发生变化的时候会触发该事件，参数的值是一个对象，对象的 key 是 column 的 columnKey，对应的 value 为用户选择的筛选条件的数组。',
-    parameter: 'filters'
+    parameter: '`(filters) => void`'
   },
   {
     name: 'current-change',
     description:
       '当表格的当前行发生变化的时候会触发该事件，如果要高亮当前行，请打开表格的 highlight-current-row 属性',
-    parameter: 'currentRow, oldCurrentRow'
+    parameter: '`(currentRow, oldCurrentRow) => void`'
   },
   {
     name: 'header-dragend',
     description: '当拖动表头改变了列的宽度的时候会触发该事件',
-    parameter: 'newWidth, oldWidth, column, event'
+    parameter: '`(newWidth, oldWidth, column, event) => void`'
   },
   {
     name: 'expand-change',
     description:
       '当用户对某一行展开或者关闭的时候会触发该事件（展开行时，回调的第二个参数为 expandedRows；树形表格时第二参数为 expanded）',
-    parameter: '(row: any, expandedRows: any[])'
+    parameter: '`(row: any, expandedRows: any[]) => void`'
   },
   {
     name: 'scroll',
     description: '表格被用户滚动后触发',
-    parameter: '({ scrollLeft: number, scrollTop: number }) => void'
+    parameter: '`({ scrollLeft: number, scrollTop: number }) => void`'
   }
 ]
 
@@ -423,82 +423,82 @@ const exposes = [
   {
     name: 'clearSelection',
     description: '用于多选表格，清空用户的选择',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'getSelectionRows',
     description: '返回当前选中的行',
-    parameter: '() => any[]'
+    parameter: '`() => any[]`'
   },
   {
     name: 'toggleRowSelection',
     description:
       '用于多选表格，切换某一行的选中状态，如果使用了第二个参数，则是设置这一行选中与否（selected 为 true 则选中）',
-    parameter: '(row: any, selected?: boolean, ignoreSelectable = true) => void'
+    parameter: '`(row: any, selected?: boolean, ignoreSelectable = true) => void`'
   },
   {
     name: 'toggleAllSelection',
     description: '用于多选表格，切换所有行的选中状态',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'toggleRowExpansion',
     description:
       '用于可展开表格与树形表格，切换某一行的展开状态，如果使用了第二个参数，则是设置这一行展开与否（expanded 为 true 则展开）',
-    parameter: '(row: any, expanded?: boolean) => void'
+    parameter: '`(row: any, expanded?: boolean) => void`'
   },
   {
     name: 'setCurrentRow',
     description:
       '用于单选表格，设定某一行为选中行，如果调用时不加参数，则会取消目前高亮行的选中状态。',
-    parameter: '(row: any) => void'
+    parameter: '`(row: any) => void`'
   },
   {
     name: 'clearSort',
     description: '用于清空排序条件，数据会恢复成未排序的状态',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'clearFilter',
     description:
       '不传入参数时用于清空所有过滤条件，数据会恢复成未过滤的状态，也可传入由columnKey组成的数组以清除指定列的过滤条件',
-    parameter: '(columnKeys?: string[]) => void'
+    parameter: '`(columnKeys?: string[]) => void`'
   },
   {
     name: 'doLayout',
     description:
       '对 Table 进行重新布局。当 Table 或其祖先元素由隐藏切换为显示时，可能需要调用此方法',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'sort',
     description: '手动对 Table 进行排序。参数`prop`属性指定排序列，`order`指定排序顺序。',
-    parameter: '(prop: string, order: string) => void'
+    parameter: '`(prop: string, order: string) => void`'
   },
   {
     name: 'scrollTo',
     description: '滚动到一组特定坐标',
-    parameter: '(options: number | ScrollToOptions, yCoord?: number) => void'
+    parameter: '`(options: number \\| ScrollToOptions, yCoord?: number) => void`'
   },
   {
     name: 'setScrollTop',
     description: '设置垂直滚动位置',
-    parameter: '(top?: number) => void'
+    parameter: '`(top?: number) => void`'
   },
   {
     name: 'setScrollLeft',
     description: '设置水平滚动位置',
-    parameter: '(left?: number) => void'
+    parameter: '`(left?: number) => void`'
   },
   {
     name: 'columns',
     description: '获取表列的 context',
-    parameter: 'TableColumnCtx<T>[]'
+    parameter: '`TableColumnCtx<T>[]`'
   },
   {
     name: 'updateKeyChildren',
     description: '适用于 lazy Table, 需要设置 rowKey, 更新 key children',
-    parameter: '(key: string, data: T[]) => void'
+    parameter: '`(key: string, data: T[]) => void`'
   },
 ]
 

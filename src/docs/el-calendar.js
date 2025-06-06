@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '绑定值',
+    type: 'Date',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'model-value',
     description: '绑定值',
     type: 'Date',
     value: '—',
@@ -29,13 +36,13 @@ const slots = [
 ]
 
 const exposes = [
-  { name: 'selectedDay', description: '当前已选日期', parameter: 'ComputedRef<Dayjs | undefined>' },
-  { name: 'pickDay', description: '选择一个具体日期', parameter: '(day: dayjs.Dayjs) => void' },
-  { name: 'selectDate', description: '选择日期', parameter: '(type: CalendarDateType) => void' },
+  { name: 'selectedDay', description: '当前已选日期', parameter: '`ComputedRef<Dayjs>`' },
+  { name: 'pickDay', description: '选择一个具体日期', parameter: '`(day: dayjs.Dayjs) => void`' },
+  { name: 'selectDate', description: '选择日期', parameter: '`(type: CalendarDateType) => void`' },
   {
     name: 'calculateValidatedDateRange',
     description: '根据开始与结束日期计算验证日期范围',
-    parameter: '(startDayjs: dayjs.Dayjs, endDayjs: dayjs.Dayjs) => [dayjs.Dayjs, dayjs.Dayjs][]'
+    parameter: '`(startDayjs: dayjs.Dayjs, endDayjs: dayjs.Dayjs) => [dayjs.Dayjs, dayjs.Dayjs][]`'
   }
 ]
 

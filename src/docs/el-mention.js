@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '绑定值',
+    type: 'string',
+    value: '—',
+    default: '-'
+  },
+  {
+    name: 'model-value',
     description: '绑定值',
     type: 'string',
     value: '—',
@@ -66,7 +73,7 @@ const attributes = [
     name: 'check-is-whole',
     description: '当退格键被按下做删除操作时，检查是否将提及部分作为整体删除',
     type: 'Function',
-    value: '(pattern: string, prefix: string) => boolean',
+    value: '`(pattern: string, prefix: string) => boolean`',
     default: '-'
   },
   {
@@ -96,12 +103,12 @@ const events = [
   {
     name: 'search',
     description: '按下触发字段时触发',
-    parameter: '(pattern: string, prefix: string) => void'
+    parameter: '`(pattern: string, prefix: string) => void`'
   },
   {
     name: 'select',
     description: '当用户选择选项时触发',
-    parameter: '(option: MentionOption, prefix: string) => void'
+    parameter: '`(option: MentionOption, prefix: string) => void`'
   }
 ]
 
@@ -113,9 +120,9 @@ const slots = [
 ]
 
 const exposes = [
-  { name: 'input', description: 'el-input 组件实例', parameter: 'Ref<InputInstance | null>' },
-  { name: 'tooltip', description: 'el-tooltip 组件实例', parameter: 'Ref<TooltipInstance | null>' },
-  { name: 'dropdownVisible ', description: 'tooltip 显示状态', parameter: 'ComputedRef<boolean>' }
+  { name: 'input', description: 'el-input 组件实例', parameter: '`Ref<InputInstance>`' },
+  { name: 'tooltip', description: 'el-tooltip 组件实例', parameter: '`Ref<TooltipInstance>`' },
+  { name: 'dropdownVisible ', description: 'tooltip 显示状态', parameter: '`ComputedRef<boolean>`' }
 ]
 
 const document = { attributes, exposes, events, slots }

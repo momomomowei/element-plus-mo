@@ -90,32 +90,33 @@ const exposes = [
   {
     name: 'size',
     description: '表单项大小',
-    parameter: `ComputedRef<'' | 'large' | 'default' | 'small'>`
+    parameter: "`ComputedRef<'' \\| 'large' \\| 'default' \\| 'small'>`"
   },
   {
     name: 'validateMessage',
     description: '校验消息',
-    parameter: `Ref<string>`
+    parameter: '`Ref<string>`'
   },
   {
     name: 'validateState',
     description: '校验状态',
-    parameter: `Ref<'' | 'error' | 'validating' | 'success'>`
+    parameter: "`Ref<'' \\| 'error' \\| 'validating' \\| 'success'>`"
   },
   {
     name: 'validate',
     description: '验证表单项',
-    parameter: `(trigger: string, callback?: FormValidateCallback | undefined) => FormValidationResult`
+    parameter:
+      '`(trigger: string, callback?: FormValidateCallback \\| undefined) => FormValidationResult`'
   },
   {
     name: 'resetField',
     description: '对该表单项进行重置，将其值重置为初始值并移除校验结果',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'clearValidate',
     description: '移除该表单项的校验结果',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 

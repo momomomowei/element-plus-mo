@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '选中项绑定值',
+    type: 'string/number/boolean',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'model-value',
     description: '选中项绑定值',
     type: 'string/number/boolean',
     value: '—',
@@ -54,7 +61,7 @@ const events = [
   {
     name: 'change',
     description: '绑定值变化时触发的事件',
-    parameter: '(value: string | number | boolean) => void'
+    parameter: '`(value: string \\| number \\| boolean) => void`'
   }
 ]
 

@@ -80,66 +80,66 @@ const attributes = [
   {
     name: 'on-preview',
     description: '点击文件列表中已上传的文件时的钩子',
-    type: 'function(file)',
-    value: '(uploadFile: UploadFile) => void',
+    type: 'function',
+    value: '`(uploadFile: UploadFile) => void`',
     default: '—'
   },
   {
     name: 'on-remove',
     description: '文件列表移除文件时的钩子',
-    type: 'function(file, fileList)',
-    value: '(uploadFile: UploadFile, uploadFiles: UploadFiles) => void',
+    type: 'function',
+    value: '`(uploadFile: UploadFile, uploadFiles: UploadFiles) => void`',
     default: '—'
   },
   {
     name: 'on-success',
     description: '文件上传成功时的钩子',
-    type: 'function(response, file, fileList)',
-    value: '(response: any, uploadFile: UploadFile, uploadFiles: UploadFiles) => void',
+    type: 'function',
+    value: '`(response: any, uploadFile: UploadFile, uploadFiles: UploadFiles) => void`',
     default: '—'
   },
   {
     name: 'on-error',
     description: '文件上传失败时的钩子',
-    type: 'function(err, file, fileList)',
-    value: '(error: Error, uploadFile: UploadFile, uploadFiles: UploadFiles) => void',
+    type: 'function',
+    value: '`(error: Error, uploadFile: UploadFile, uploadFiles: UploadFiles) => void`',
     default: '—'
   },
   {
     name: 'on-progress',
     description: '文件上传时的钩子',
-    type: 'function(event, file, fileList)',
-    value: '(evt: UploadProgressEvent, uploadFile: UploadFile, uploadFiles: UploadFiles) => void',
+    type: 'function',
+    value: '`(evt: UploadProgressEvent, uploadFile: UploadFile, uploadFiles: UploadFiles) => void`',
     default: '—'
   },
   {
     name: 'on-change',
     description: '文件状态改变时的钩子，添加文件、上传成功和上传失败时都会被调用',
-    type: 'function(file, fileList)',
-    value: '(uploadFile: UploadFile, uploadFiles: UploadFiles) => void',
+    type: 'function',
+    value: '`(uploadFile: UploadFile, uploadFiles: UploadFiles) => void`',
     default: '—'
   },
   {
     name: 'on-exceed',
     description: '文件超出个数限制时的钩子',
-    type: 'function(files, fileList)',
-    value: '(files: File[], uploadFiles: UploadUserFile[]) => void',
+    type: 'function',
+    value: '`(files: File[], uploadFiles: UploadUserFile[]) => void`',
     default: '-'
   },
   {
     name: 'before-upload',
     description:
       '上传文件之前的钩子，参数为上传的文件，若返回 "false" 或者返回 Promise 且被 reject，则停止上传。',
-    type: 'function(file)',
-    value: '(rawFile: UploadRawFile) => Awaitable<void | undefined | null | boolean | File | Blob>',
+    type: 'function',
+    value: '`(rawFile: UploadRawFile) => Awaitable<void \\| undefined \\| null \\| boolean \\| File \\| Blob>`',
     default: '—'
   },
   {
     name: 'before-remove',
     description:
       '删除文件之前的钩子，参数为上传的文件和文件列表，若返回 "false" 或者返回 Promise 且被 reject，则停止删除。',
-    type: 'function(file, fileList)',
-    value: '(uploadFile: UploadFile, uploadFiles: UploadFiles) => Awaitable<boolean>',
+    type: 'function',
+    value: '`(uploadFile: UploadFile, uploadFiles: UploadFiles) => Awaitable<boolean>`',
     default: '—'
   },
   {
@@ -167,7 +167,7 @@ const attributes = [
     name: 'http-request',
     description: '覆盖默认的上传行为，可以自定义上传的实现',
     type: 'function',
-    value: '(options: UploadRequestOptions) => XMLHttpRequest | Promise<unknown>',
+    value: '`(options: UploadRequestOptions) => XMLHttpRequest \\| Promise<unknown>`',
     default: '—'
   },
   {
@@ -197,23 +197,23 @@ const exposes = [
   {
     name: 'abort',
     description: '取消上传请求',
-    parameter: '(file: UploadFile) => void'
+    parameter: '`(file: UploadFile) => void`'
   },
-  { name: 'submit', description: '手动上传文件列表', parameter: '() => void' },
+  { name: 'submit', description: '手动上传文件列表', parameter: '`() => void`' },
   {
     name: 'clearFiles',
     description: '清空已上传的文件列表（该方法不支持在 before-upload 中调用）',
-    parameter: '(status?: UploadStatus[]) => void'
+    parameter: '`(status?: UploadStatus[]) => void`'
   },
   {
     name: 'handleStart',
     description: '手动选择文件',
-    parameter: '(rawFile: UploadRawFile) => void'
+    parameter: '`(rawFile: UploadRawFile) => void`'
   },
   {
     name: 'handleRemove',
     description: '手动移除文件。 file 和rawFile 已被合并。',
-    parameter: '(file: UploadFile | UploadRawFile, rawFile?: UploadRawFile) => void'
+    parameter: '`(file: UploadFile \\| UploadRawFile, rawFile?: UploadRawFile) => void`'
   }
 ]
 

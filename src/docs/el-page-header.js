@@ -22,7 +22,7 @@ const attributes = [
   }
 ]
 
-const events = [{ name: 'back', description: '点击左侧区域触发', parameter: '() => void' }]
+const events = [{ name: 'back', description: '点击左侧区域触发', parameter: '`() => void`' }]
 
 const slots = [
   { name: 'icon', description: '图标内容' },

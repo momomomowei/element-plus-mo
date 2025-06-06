@@ -30,7 +30,7 @@ const attributes = [
   {
     name: 'style',
     description: '额外样式',
-    type: 'string/object(CSSProperties | CSSProperties[] | string[])',
+    type: 'string/CSSProperties/CSSProperties[]/string[]',
     value: '-',
     default: '—'
   },

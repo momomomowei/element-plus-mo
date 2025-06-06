@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '当前激活的面板(如果是手风琴模式，绑定值类型需要为`string`，否则为`array`)',
+    type: 'string/array',
+    value: '—',
+    default: '—'
+  },
+  {
+    name: 'model-value',
     description: '当前激活的面板(如果是手风琴模式，绑定值类型需要为`string`，否则为`array`)',
     type: 'string/array',
     value: '—',
@@ -24,7 +31,7 @@ const attributes = [
     name: 'before-collapse',
     description: '折叠状态更改之前的折叠钩子。 返回 false 或者返回 Promise 且被 reject 则停止切换',
     type: 'Function',
-    value: '() => Promise<boolean> | boolen',
+    value: '`() => Promise<boolean> \\| boolen`',
     default: '-'
   }
 ]
@@ -35,12 +42,12 @@ const exposes = [
   {
     name: 'activeNames',
     description: '当前活动的面板名称',
-    parameter: 'ComputedRef<(string | number)[]>'
+    parameter: '`ComputedRef<(string \\| number)[]>`'
   },
   {
     name: 'setActiveNames',
     description: '设置活动面板名称',
-    parameter: '(activeNames: (string | number)[]) => void'
+    parameter: '`(activeNames: (string \\| number)[]) => void`'
   }
 ]
 

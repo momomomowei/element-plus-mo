@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'model-value/v-model',
+    name: 'v-model',
+    description: '是否显示 Dialog',
+    type: 'boolean',
+    value: '—',
+    default: 'false'
+  },
+  {
+    name: 'model-value',
     description: '是否显示 Dialog',
     type: 'boolean',
     value: '—',
@@ -191,27 +198,27 @@ const attributes = [
 ]
 
 const events = [
-  { name: 'open', description: 'Dialog 打开的回调', parameter: '() => void' },
+  { name: 'open', description: 'Dialog 打开的回调', parameter: '`() => void`' },
   {
     name: 'opened',
     description: 'Dialog 打开动画结束时的回调',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
-  { name: 'close', description: 'Dialog 关闭的回调', parameter: '() => void' },
+  { name: 'close', description: 'Dialog 关闭的回调', parameter: '`() => void`' },
   {
     name: 'closed',
     description: 'Dialog 关闭动画结束时的回调',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'open-auto-focus',
     description: '输入焦点聚焦在 Dialog 内容时的回调',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'close-auto-focus',
     description: '输入焦点从 Dialog 内容失焦时的回调',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 
@@ -225,12 +232,12 @@ const exposes = [
   {
     name: 'resetPosition',
     description: '重置位置',
-    parameter: '() => void'
+    parameter: '`() => void`'
   },
   {
     name: 'handleClose',
     description: '关闭对话框',
-    parameter: '() => void'
+    parameter: '`() => void`'
   }
 ]
 

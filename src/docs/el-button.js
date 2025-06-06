@@ -133,6 +133,27 @@ const slots = [
   { name: 'icon', description: '自定义图标组件' }
 ]
 
-const document = { attributes, slots }
+const exposes = [
+  { name: 'ref', description: '按钮 html 元素', parameter: '`Ref<HTMLButtonElement>`' },
+  {
+    name: 'size',
+    description: '按钮尺寸',
+    parameter: "`ComputedRef<'small' \\| 'default' \\| 'large'>`"
+  },
+  {
+    name: 'type',
+    description: '按钮类型',
+    parameter:
+      "`ComputedRef<'default' \\| 'primary' \\| 'success' \\| 'warning' \\| 'info' \\| 'danger' \\| 'text'>`"
+  },
+  { name: 'disabled', description: '按钮已禁用', parameter: '`ComputedRef<boolean>`' },
+  {
+    name: 'shouldAddSpace',
+    description: '是否在两个字符之间插入空格',
+    parameter: '`ComputedRef<boolean>`'
+  }
+]
+
+const document = { attributes, slots, exposes }
 
 module.exports = document

@@ -33,7 +33,7 @@ const events = [
   {
     name: 'click',
     description: '点击按钮触发的事件',
-    parameter: '点击事件'
+    parameter: '`(evt: MouseEvent) => void`'
   }
 ]
 

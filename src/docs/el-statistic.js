@@ -17,7 +17,7 @@ const attributes = [
     name: 'formatter',
     description: '自定义数字格式化',
     type: 'function',
-    value: '(value: number) => string | number',
+    value: '`(value: number) => string \\| number`',
     default: '-'
   },
   {
@@ -74,7 +74,7 @@ const exposes = [
   {
     name: 'displayValue',
     description: '当前显示值',
-    parameter: 'Ref<string | number>'
+    parameter: '`Ref<string \\| number>`'
   }
 ]
 

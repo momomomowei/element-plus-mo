@@ -1,6 +1,13 @@
 const attributes = [
   {
-    name: 'visible/v-model:visible',
+    name: 'v-model:visible',
+    description: '状态是否可见',
+    type: 'Boolean',
+    value: '—',
+    default: 'false'
+  },
+  {
+    name: 'visible',
     description: '状态是否可见',
     type: 'Boolean',
     value: '—',
@@ -188,30 +195,30 @@ const exposes = [
   {
     name: 'popperRef',
     description: 'el-popper 组件实例',
-    parameter: 'Ref<PopperInstance | undefined>'
+    parameter: '`Ref<PopperInstance>`'
   },
   {
     name: 'contentRef',
     description: 'el-tooltip-content 组件实例',
-    parameter: 'Ref<TooltipContentInstance | undefined>'
+    parameter: '`Ref<TooltipContentInstance>`'
   },
   {
     name: 'isFocusInsideContent',
     description: '验证当前焦点事件是否在 el-tooltip-content 中触发',
-    parameter: '() => boolean | undefined'
+    parameter: '`() => boolean`'
   },
-  { name: 'updatePopper', description: '更新 el-popper组件实例', parameter: '() => void' },
+  { name: 'updatePopper', description: '更新 el-popper组件实例', parameter: '`() => void`' },
   {
     name: 'onOpen',
     description: 'onOpen 方法控制 el-tooltip 显示状态',
-    parameter: '(event?: Event | undefined) => void'
+    parameter: '`(event?: Event) => void`'
   },
   {
     name: 'onClose',
     description: 'onClose 方法控制 el-tooltip 显示状态',
-    parameter: '(event?: Event | undefined) => void'
+    parameter: '`(event?: Event) => void`'
   },
-  { name: 'hide', description: '提供 hide 方法', parameter: '(event?: Event | undefined) => void' }
+  { name: 'hide', description: '提供 hide 方法', parameter: '`(event?: Event) => void`' }
 ]
 
 const document = { attributes, slots, exposes }

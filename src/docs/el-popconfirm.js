@@ -86,8 +86,8 @@ const attributes = [
 ]
 
 const events = [
-  { name: 'confirm', description: '点击确认按钮时触发', parameter: '(e: MouseEvent) => void' },
-  { name: 'cancel', description: '点击取消按钮时触发', parameter: '(e: MouseEvent) => void' }
+  { name: 'confirm', description: '点击确认按钮时触发', parameter: '`(e: MouseEvent) => void`' },
+  { name: 'cancel', description: '点击取消按钮时触发', parameter: '`(e: MouseEvent) => void`' }
 ]
 
 const slots = [
