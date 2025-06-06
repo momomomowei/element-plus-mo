@@ -9,8 +9,9 @@
   "engines": {
     "vscode": "^1.72.0"
   },
-  "dependencies": {
-    "vscode-html-languageservice": "^5.5.0"
+  "scripts": {
+    "pack": "vsce package",
+    "build": "rollup -c --environment NODE_ENV:production"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,7 @@
     "onLanguage:vue",
     "onLanguage:html"
   ],
-  "main": "./src/extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "snippets": [
       {
@@ -34,7 +35,19 @@
       },
       {
         "path": "./src/snippets/vue.code-snippets"
+      },
+      {
+        "path": "./src/snippets/vue-page.code-snippets"
       }
     ]
+  },
+  "dependencies": {
+    "vscode-html-languageservice": "^5.5.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.41.1"
   }
 }

@@ -1,12 +1,13 @@
 # Element Plus Snippets
 
-本插件只是为了本人开发方便而发存，有些内容并不是原创，只是整合了大佬的，望周知！
+本插件只是为了本人开发方便而发布，有些内容并不是原创，只是整合了大佬的，望周知！
 
-快捷键部分来自大佬：https://github.com/wanganjuan/element-plus-snippets.git
-大佬的插件地址：https://marketplace.visualstudio.com/items?itemName=jingwang37.element-plus-snippets
+- ElementPlus 提示同步官网到2025/06/06
+- 快捷键部分来自大佬：https://github.com/wanganjuan/element-plus-snippets.git
+- 大佬的插件地址：https://marketplace.visualstudio.com/items?itemName=jingwang37.element-plus-snippets
 
-悬停提示部分来自大佬：https://github.com/MikuBlog
-大佬的插件地址：https://marketplace.visualstudio.com/items?itemName=wangluo.vue-element-plus-snippets
+- 悬停提示部分来自大佬：https://github.com/MikuBlog
+- 大佬的插件地址：https://marketplace.visualstudio.com/items?itemName=wangluo.vue-element-plus-snippets
 
 ## 代码片段使用指南
 
@@ -103,7 +104,9 @@
 |:---:|:---:|:---|
 | 1 | `vbase` | Vue3 基础模板 |
 | 2 | `vbasets` | Vue3 TypeScript 模板 |
-| 3 | `epcrud` | Element Plus CRUD 模板 |
+| 3 | `vpagecrud` | Element Plus CRUD 模板 |
+| 3 | `vpageupload` | Element Plus 上传解析 |
+| 3 | `vpageupload` | Element Plus 上传封装示例 |
 
 ## JavaScript 工具函数
 
