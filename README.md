@@ -1,4 +1,4 @@
-# Element Plus Snippets
+# Element Plus Mo
 
 本插件只是为了本人开发方便而发布，有些内容并不是原创，只是整合了大佬的，望周知！
 
