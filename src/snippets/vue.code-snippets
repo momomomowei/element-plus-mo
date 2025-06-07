@@ -19,7 +19,7 @@
     "body": [
       "<template>",
       "\t<div>",
-      "\t${1}",
+      "\t\t${1}",
       "\t</div>",
       "</template>",
       "",
@@ -28,8 +28,9 @@
       "",
       "</script>",
       "",
-      "<style lang='scss' scoped></style>",
-      ""
+      "<style lang=\"scss\" scoped>",
+      "",
+      "</style>"
     ],
     "description": "vue3-ts-setup"
   },
@@ -38,7 +39,7 @@
     "body": [
       "<template>",
       "\t<div>",
-      "\t${1}",
+      "\t\t${1}",
       "\t</div>",
       "</template>",
       "",
@@ -47,8 +48,9 @@
       "",
       "</script>",
       "",
-      "<style lang='scss' scoped></style>",
-      ""
+      "<style lang=\"scss\" scoped>",
+      "",
+      "</style>"
     ],
     "description": "vue3-setup"
   },
@@ -57,7 +59,7 @@
     "body": [
       "<template>",
       "\t<div>",
-      "\t${1}",
+      "\t\t${1}",
       "\t</div>",
       "</template>",
       "",
