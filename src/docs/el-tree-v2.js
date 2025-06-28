@@ -1,5 +1,12 @@
 const attributes = [
   {
+    name: 'height',
+    description: '高度是必须的',
+    type: 'number',
+    value: '0',
+    default: '0'
+  },
+  {
     name: 'data',
     description: '展示数据',
     type: 'array',
