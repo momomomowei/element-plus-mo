@@ -1,25 +1,31 @@
 {
   "import from 导入": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": ["import ${2} from '${1:module}';"],
     "prefix": "im"
   },
   "export default 默认导出": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": ["export default ${1}"],
     "prefix": "exd"
   },
   "export 导出": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": ["export ${1}"],
     "prefix": "ex"
   },
   "default 默认": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": ["default ${1}"],
     "prefix": "de"
   },
   "Math.floor(Math.random()*(max-min+1)+min);": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": ["// Math.floor(Math.random() * (max - min + 1) + min)"],
     "prefix": "random"
   },
   "debounce 防抖函数": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [
       "// 连续点击最后一次生效",
       "// 调用方法debounce(this.handleClick, 2000)()",
@@ -37,6 +43,7 @@
     "prefix": "debounce"
   },
   "throttle 节流函数": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [
       "// 一定时间内执行的次数",
       "// 调用方法throttle(this.handleClick, 2000)()",
@@ -54,6 +61,7 @@
     "prefix": "throttle"
   },
   "validate 自定义校验规则": {
+    "scope": "javascript,typescript",
     "body": [
       "const validatePassword = (rule, value, callback) => {",
       "\tif (value === '') {",
@@ -67,6 +75,7 @@
     "prefix": "validate"
   },
   "rules 校验规则": {
+    "scope": "javascript,typescript",
     "body": [
       "const rules = {",
       "\tname: [",
@@ -78,14 +87,17 @@
     "prefix": "rules"
   },
   "$nextTick 更新": {
+    "scope": "javascript,typescript",
     "body": ["nextTick(() => {", "\t${1}", "})"],
     "prefix": "nextTick"
   },
   "ElMessage.success 弹窗消息": {
+    "scope": "javascript,typescript",
     "body": ["ElMessage.success('${1}')"],
     "prefix": "elme"
   },
   "ElMessageBox.confirm 确认/取消弹窗": {
+    "scope": "javascript,typescript",
     "body": [
       "ElMessageBox.confirm('<p style=\"color:red;\">提示内容</p>', '操作提示', {",
       "\tdangerouslyUseHTMLString: true,",
@@ -102,14 +114,17 @@
     "prefix": "elme"
   },
   "Promise 代码块": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": ["Promise((resolve, reject) => {", "\t$1", "})"],
     "prefix": "pro"
   },
   ".then .catch 代码块": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".then((res) => {", "\t$1", "}).catch((err) => {", "\t", "})"],
     "prefix": ".then"
   },
   "vite 跨域（vite.config.js）": {
+    "scope": "javascript,typescript",
     "body": [
       "// vite.config.js，axios不需要baseURL",
       "export default defineConfig({",
@@ -132,10 +147,12 @@
     "prefix": "kuayu"
   },
   "router 懒加载": {
+    "scope": "javascript,typescript",
     "body": ["component: () => import('@/views/${1:文件名}.vue')"],
     "prefix": "lan"
   },
   "axios 请求拦截": {
+    "scope": "javascript,typescript",
     "body": [
       "http.interceptors.request.use((config) => {",
       "\tconfig.headers.Authorization = sessionStorage.getItem('token')",
@@ -148,6 +165,7 @@
     "prefix": "lanjie1"
   },
   "axios 响应拦截": {
+    "scope": "javascript,typescript",
     "body": [
       "http.interceptors.response.use((response) => {",
       "\treturn response.data",
@@ -163,98 +181,122 @@
   // ===========================Array==============================
   // ==============================================================
   "forEach 循环数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".forEach((item, index) => {", "\t${1}", "})"],
     "prefix": ".forEach"
   },
   "concat 连接数组，返回新数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".concat(${1:arr})"],
     "prefix": ".concat"
   },
   "every 元素都符合条件,返回true/false": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".every(i => ${1})"],
     "prefix": ".every"
   },
   "find 返回符合条件的第一个元素 / undefined": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".find(i => ${1})"],
     "prefix": ".find"
   },
   "fill 替换全部元素": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".fill(${1})"],
     "prefix": ".fill"
   },
   "filter 过滤数组，返回新数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".filter(i => ${1})"],
     "prefix": ".filter"
   },
   "findIndex 返回符合条件的第一个元素的下标 / -1": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".findIndex(i => ${1})"],
     "prefix": ".findIndex"
   },
   "includes 判断是否包含指定的元素，返回true/false": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".includes(${1})"],
     "prefix": ".includes"
   },
   "indexOf 返回数组中指定元素的下标 / -1": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".indexOf(${1})"],
     "prefix": ".indexof"
   },
   "join 将数组所有元素连成字符串": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".join(${1})"],
     "prefix": ".join"
   },
   "map 将数组处理后返回新数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".map((item, index) => {", "\treturn ${1}", "})"],
     "prefix": ".map"
   },
   "pop 删除最后一个元素并返回删除的元素": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".pop()"],
     "prefix": ".pop"
   },
   "push 往最后添加一个元素并返回 length": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".push(${1})"],
     "prefix": ".push"
   },
   "shift 删除并返回数组的第一个元素": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".shift(${1})"],
     "prefix": ".shift"
   },
   "unshift 往最前添加一个元素并返回 length": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".unshift(${1})"],
     "prefix": ".unshift"
   },
   "reduce 接收一个函数作为累加器，返回结果": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".reduce((prev, next) => {", "\treturn ${1}", "}, initValue)"],
     "prefix": ".reduce"
   },
   "reverse 反转数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".reverse()"],
     "prefix": ".reverse"
   },
   "slice 截取数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".slice(${1:startIndex}, ${2:endIndex})"],
     "prefix": ".slice"
   },
   "substring 截取字符": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".substring(${1:startIndex}, ${2:endIndex})"],
     "prefix": ".substring"
   },
   "substr 截取字符": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".substr(${1:startIndex}, ${2:length)"],
     "prefix": ".substr"
   },
   "some 检测数组中是否有元素满足指定条件，返回true/false": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".some(i => ${1})"],
     "prefix": ".some"
   },
   "sort 纯数字排序": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".sort((a,b) => a - b)"],
     "prefix": ".sortnumber"
   },
   "split 把一个字符串分割成字符串数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".split(${2:分隔符});"],
     "prefix": ".split"
   },
   "splice 数组增，删，改": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".splice(${1:startIndex},${2:count});"],
     "prefix": ".splice"
   }

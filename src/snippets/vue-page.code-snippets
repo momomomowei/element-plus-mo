@@ -1,5 +1,6 @@
 {
   "Vue Element-Plus CRUD": {
+    "scope": "vue",
     "prefix": "vpagecrud",
     "body": [
       "<template>",
@@ -185,6 +186,7 @@
     "description": "Vue Element-Plus CRUD示例"
   },
   "Vue Element-Plus Upload": {
+    "scope": "vue",
     "prefix": "vpageupload",
     "body": [
       "<template>",
@@ -380,6 +382,7 @@
     "description": "Vue Element-Plus 上传详细解析"
   },
   "Vue Element-Plus UploadComponent": {
+    "scope": "vue",
     "prefix": "vpageupload",
     "body": [
       "<template>",

@@ -1,5 +1,6 @@
 {
   "Layout el-row": {
+    "scope": "html",
     "prefix": "eprow",
     "body": [
       "<el-row :gutter=\"20\">",
@@ -15,6 +16,7 @@
   },
 
   "Container el-container": {
+    "scope": "html",
     "prefix": "epcon",
     "body": [
       "<el-container direction=\"vertical\">",
@@ -39,25 +41,28 @@
     "description": "<el-container>"
   },
   "Border Basic Shadow": {
+    "scope": "html",
     "prefix": "epbs",
     "body": ["box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);"],
     "description": "Border Basic Shadow"
   },
   "Border Light Shadow": {
+    "scope": "html",
     "prefix": "epbs",
     "body": ["box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);"],
     "description": "Border Light Shadow"
   },
   "Button": {
+    "scope": "html",
     "prefix": "epb",
     "body": [
-      "<el-button type=\"${1|primary,info,success,warning,danger,text|}\" size=\"${2|default,large,small|}\" @click=\"${3:handleClick}\">${4:确认}</el-button>",
-      "${5}"
+      "<el-button type=\"${1|primary,info,success,warning,danger,text|}\" size=\"${2|default,large,small|}\" @click=\"${3:handleClick}\">${4:确认}</el-button>"
     ],
     "description": "<el-button>"
   },
 
   "Button Group": {
+    "scope": "html",
     "prefix": "epbg",
     "body": [
       "<el-button-group>",
@@ -69,6 +74,7 @@
   },
 
   "Link": {
+    "scope": "html",
     "prefix": "epl",
     "body": [
       "<el-link type=\"${1|primary,success,warning,danger,info|}\" :underline=\"${2:false}\" href=\"${3}\" target=\"${4:_blank}\">${5:Content}</el-link>",
@@ -78,17 +84,20 @@
   },
 
   "Radio": {
+    "scope": "html",
     "prefix": "epr",
     "body": ["<el-radio v-model=\"${1:}\" label=\"${2}\" value=\"${3}\" />"],
     "description": "<el-radio>"
   },
 
   "Radio Button": {
+    "scope": "html",
     "prefix": "eprb",
     "body": ["<el-radio-button v-model=\"${1:}\" label=\"${2}\" value=\"${3}\" />"],
     "description": "<el-radio-button>"
   },
   "Radio Group": {
+    "scope": "html",
     "prefix": "eprg",
     "body": [
       "<el-radio-group v-model=\"value\" @change=\"change\">",
@@ -117,16 +126,19 @@
   },
 
   "Checkbox": {
+    "scope": "html",
     "prefix": "epc",
     "body": ["<el-checkbox v-model=\"${1}\" label=\"${2}\" value=\"${3}\" />"],
     "description": "<el-checkbox>"
   },
   "Checkbox Button": {
+    "scope": "html",
     "prefix": "epcb",
     "body": ["<el-checkbox-button v-model=\"${1}\" label=\"${2}\" value=\"${3}\" />"],
     "description": "<el-checkbox-button>"
   },
   "Checkbox Group": {
+    "scope": "html",
     "prefix": "epcg",
     "body": [
       "<el-checkbox-group v-model=\"selectCheck\" @change=\"checkChange\">",
@@ -155,11 +167,13 @@
   },
 
   "Input": {
+    "scope": "html",
     "prefix": "epi",
     "body": ["<el-input v-model=\"$1\" placeholder=\"请输入\" clearable />"],
     "description": "<el-input>"
   },
   "Textarea": {
+    "scope": "html",
     "prefix": "epit",
     "body": [
       "<el-input type=\"textarea\" v-model=\"$1\" placeholder=\"请输入\" ",
@@ -168,12 +182,14 @@
     "description": "<el-input type=\"text,textarea\">"
   },
   "Input Slot": {
+    "scope": "html",
     "prefix": "epis",
     "body": ["<template #${1|prefix,suffix,prepend,append|}>$2</template>", "${3}"],
     "description": "<template slot=''>"
   },
 
   "Autocomplete": {
+    "scope": "html",
     "prefix": "epa",
     "body": [
       "<el-autocomplete",
@@ -209,6 +225,7 @@
   },
 
   "InputNumber": {
+    "scope": "html",
     "prefix": "epin",
     "body": [
       "<el-input-number v-model=\"$1\" size=\"${2|default,large,small|}\"",
@@ -220,6 +237,7 @@
   },
 
   "Select": {
+    "scope": "html",
     "prefix": "epsel",
     "body": [
       "<el-select",
@@ -255,12 +273,14 @@
   },
 
   "Select Option": {
+    "scope": "html",
     "prefix": "epop",
     "body": ["<el-option :key=\"$1\" :label=\"$2\" :value=\"$3\" />"],
     "description": "<el-option>"
   },
 
   "Select Option Group": {
+    "scope": "html",
     "prefix": "epopg",
     "body": [
       "<el-option-group v-for=\"${1:group} in ${2:options}\"",
@@ -278,6 +298,7 @@
   },
 
   "Cascader": {
+    "scope": "html",
     "prefix": "epca",
     "body": [
       "<el-cascader",
@@ -318,6 +339,7 @@
   },
 
   "Switch": {
+    "scope": "html",
     "prefix": "epsw",
     "body": [
       "<el-switch",
@@ -338,6 +360,7 @@
   },
 
   "Slider": {
+    "scope": "html",
     "prefix": "epsl",
     "body": [
       "<el-slider",
@@ -359,6 +382,7 @@
   },
 
   "Time Select": {
+    "scope": "html",
     "prefix": "epts",
     "body": [
       "<el-time-select",
@@ -381,6 +405,7 @@
   },
 
   "Time Select Range": {
+    "scope": "html",
     "prefix": "eptsr",
     "body": [
       "<el-space>",
@@ -415,6 +440,7 @@
   },
 
   "TimePicker": {
+    "scope": "html",
     "prefix": "eptp",
     "body": [
       "<el-time-picker",
@@ -427,6 +453,7 @@
   },
 
   "TimePicker Range": {
+    "scope": "html",
     "prefix": "eptpr",
     "body": [
       "<el-time-picker v-model=\"$1\" size=\"${2|default,large,small|}\"",
@@ -436,6 +463,7 @@
   },
 
   "DatePicker": {
+    "scope": "html",
     "prefix": "epdp",
     "body": [
       "<el-date-picker",
@@ -449,6 +477,7 @@
   },
 
   "DatePicker Range": {
+    "scope": "html",
     "prefix": "epdpr",
     "body": [
       "<el-date-picker",
@@ -463,6 +492,7 @@
   },
 
   "DateTimePicker": {
+    "scope": "html",
     "prefix": "epdtp",
     "body": [
       "<el-date-picker",
@@ -476,6 +506,7 @@
   },
 
   "Upload": {
+    "scope": "html",
     "prefix": "epu",
     "body": [
       "<el-upload",
@@ -521,6 +552,7 @@
   },
 
   "Rate": {
+    "scope": "html",
     "prefix": "epra",
     "body": [
       "<el-rate",
@@ -534,6 +566,7 @@
   },
 
   "ColorPicker": {
+    "scope": "html",
     "prefix": "epcp",
     "body": [
       "<el-color-picker v-model=\"$1\" size=\"${2|default,large,small|}\" :show-alpha=\"${3|true,false|}\" />"
@@ -542,6 +575,7 @@
   },
 
   "Form": {
+    "scope": "html",
     "prefix": "epf",
     "body": [
       "<el-form ref=\"formRef\" :model=\"form\" :rules=\"rules\" label-width=\"80px\">",
@@ -586,12 +620,14 @@
   },
 
   "FormItem": {
+    "scope": "html",
     "prefix": "epfi",
     "body": ["<el-form-item label=\"$1\" prop=\"$2\" >", "\t$3", "</el-form-item>"],
     "description": "<el-form-item>"
   },
 
   "Table": {
+    "scope": "html",
     "prefix": "ept",
     "body": [
       "<el-table style=\"width: 100%\" :data=\"tableData\" border stripe>",
@@ -615,6 +651,7 @@
     "description": "<el-table>"
   },
   "Table Column": {
+    "scope": "html",
     "prefix": "eptc",
     "body": [
       "<el-table-column label=\"${1:标题}\" prop=\"${2:prop}\">",
@@ -625,6 +662,7 @@
   },
 
   "Tag": {
+    "scope": "html",
     "prefix": "epta",
     "body": [
       "<el-tag type=\"${1|info,success,warning,danger|}\" size=\"${2|default,large,small|}\" effect=\"${3|dark,plain|}\">内容</el-tag>"
@@ -633,6 +671,7 @@
   },
 
   "Progress": {
+    "scope": "html",
     "prefix": "eppr",
     "body": [
       "<el-progress type=\"${1|line,circle,dashboard|}\" :percentage=\"50\" status=\"${3|success,exception,warning|}\" :stroke-width=\"${4:6}\"></el-progress>",
@@ -642,6 +681,7 @@
   },
 
   "Tree": {
+    "scope": "html",
     "prefix": "eptree",
     "body": [
       "<el-tree",
@@ -665,6 +705,7 @@
   },
 
   "Pagination": {
+    "scope": "html",
     "prefix": "epp",
     "body": [
       "<div style=\"margin-top: 20px; display: flex; justify-content: center\"> ",
@@ -700,6 +741,7 @@
   },
 
   "Badge": {
+    "scope": "html",
     "prefix": "epba",
     "body": [
       "<el-badge :value=\"10\" :max=\"99\" :is-dot=\"${1|false,true|}\" :hidden=\"${2|false,true|}\" type=\"${3|primary,success,warning,danger,info|}\">",
@@ -711,6 +753,7 @@
   },
 
   "Avatar": {
+    "scope": "html",
     "prefix": "epav",
     "body": [
       "<el-avatar icon=\"el-icon-user-solid\" size=\"${1|large,medium,small|}\" shape=\"${2|circle,square|}\" src=\"https://api.dicebear.com/7.x/miniavs/svg?seed=1\" fit=\"${4|fill,contain,cover,none,scale-down|}\"></el-avatar>"
@@ -719,6 +762,7 @@
   },
 
   "Alert": {
+    "scope": "html",
     "prefix": "epal",
     "body": [
       "<el-alert :title=\"$1\" type=\"${2|info,success,warning,error|}\" effect=\"${3|light,dark|}\" show-icon closable></el-alert>",
@@ -728,6 +772,7 @@
   },
 
   "Loading": {
+    "scope": "html",
     "prefix": "eploads",
     "body": [
       "element-loading-text=\"${1:拼命加载中}\"",
@@ -738,6 +783,7 @@
     "description": "loading options"
   },
   "NavMenu Menu": {
+    "scope": "html",
     "prefix": "epmen",
     "body": [
       "<el-menu mode=\"${1|horizontal,vertical|}\" default-active=\"$2\" @select=\"$3\">",
@@ -758,6 +804,7 @@
   },
 
   "NavMenu subMenu": {
+    "scope": "html",
     "prefix": "epsubmen",
     "body": [
       "<el-sub-menu :index=\"$1\">",
@@ -774,12 +821,14 @@
   },
 
   "NavMenu Menu Item": {
+    "scope": "html",
     "prefix": "epmeni",
     "body": ["<el-menu-item index=\"$1\" key=\"$2\">$3</el-menu-item>", "${4}"],
     "description": "<el-menu-item>"
   },
 
   "Tabs": {
+    "scope": "html",
     "prefix": "eptabs",
     "body": [
       "<el-tabs v-model=\"$1\" type=\"${2|card,border-card,normal|}\" tab-position=\"${3|top,left,right,bottom|}\" @tab-click=\"$4\">",
@@ -796,6 +845,7 @@
   },
 
   "Breadcrumb": {
+    "scope": "html",
     "prefix": "epbr",
     "body": [
       "<el-breadcrumb separator-class=\"${1:el-icon-arrow-right}\">",
@@ -807,12 +857,14 @@
     "description": "<el-breadcrumb>"
   },
   "PageHeader": {
+    "scope": "html",
     "prefix": "eppa",
     "body": ["<el-page-header @back=\"$1\" content=\"$2\"></el-page-header>", "${3}"],
     "description": "<el-page-header>"
   },
 
   "Dropdown": {
+    "scope": "html",
     "prefix": "epdr",
     "body": [
       "<el-dropdown ",
@@ -850,6 +902,7 @@
   },
 
   "Steps": {
+    "scope": "html",
     "prefix": "epsts",
     "body": [
       "<el-steps :active=\"$1\" direction=\"${2|horizontal,vertical|}\" process-status=\"${3|wait,process,finish,error,success|}\" finish-status=\"${4|wait,process,finish,error,success|}\">",
@@ -866,6 +919,7 @@
   },
 
   "Drawer": {
+    "scope": "html",
     "prefix": "epdra",
     "body": [
       "<el-button @click=\"handleClick\">打开弹窗</el-button> ",
@@ -903,6 +957,7 @@
   },
 
   "Dialog": {
+    "scope": "html",
     "prefix": "epdi",
     "body": [
       "<el-button @click=\"handleOpen\">打开弹窗</el-button>",
@@ -940,11 +995,13 @@
     "description": "<el-dialog>"
   },
   "ElMessage": {
+    "scope": "html",
     "prefix": "epme",
     "body": ["ElMessage.success('${1}')"],
     "description": "ElMessage"
   },
   "ElMessageBox": {
+    "scope": "html",
     "prefix": "epme",
     "body": [
       "ElMessageBox.confirm('<p style=\"color:red;\">提示内容</p>', '操作提示', {",
@@ -962,6 +1019,7 @@
     "description": "ElMessageBox"
   },
   "ElNotification": {
+    "scope": "html",
     "prefix": "epno",
     "body": [
       "ElNotification({",
@@ -973,6 +1031,7 @@
     "description": "ElNotification"
   },
   "Popconfirm": {
+    "scope": "html",
     "prefix": "eppoco",
     "body": [
       "<el-popconfirm",
@@ -993,6 +1052,7 @@
     "description": "<el-popconfirm>"
   },
   "Popover": {
+    "scope": "html",
     "prefix": "eppo",
     "body": [
       "<el-popover",
@@ -1008,6 +1068,7 @@
     "description": "<el-popover>"
   },
   "Tooltip": {
+    "scope": "html",
     "prefix": "epto",
     "body": [
       "<el-tooltip content=\"${1:提示内容}\" placement=\"${2|top,top-start,top-end,bottom,bottom-start,bottom-end,left,left-start,left-end,right,right-start,right-end|}\" effect=\"${3|dark,light|}\">",
@@ -1018,6 +1079,7 @@
     "description": "<el-tooltip>"
   },
   "Card": {
+    "scope": "html",
     "prefix": "epcard",
     "body": [
       "<el-card shadow=\"${1|always,hover,never|}\" :body-style=\"${2:{ padding: '20px' }}\">",
@@ -1034,6 +1096,7 @@
   },
 
   "Carousel": {
+    "scope": "html",
     "prefix": "epcaro",
     "body": [
       "<el-carousel height=\"${1:150px}\" type=\"${2|default,card|}\" direction=\"${3|horizontal,vertical|}\"",
@@ -1048,6 +1111,7 @@
     "description": "<el-carousel> with <el-carousel-item>"
   },
   "Collapse": {
+    "scope": "html",
     "prefix": "epcolla",
     "body": [
       "<el-collapse v-model=\"${1:activeNames}\" :accordion=\"${2:false}\" @change=\"$3\">",
@@ -1064,6 +1128,7 @@
   },
 
   "Collapse Timeline": {
+    "scope": "html",
     "prefix": "epti",
     "body": [
       "<el-timeline :reverse=\"$1\">",
@@ -1082,6 +1147,7 @@
   },
 
   "Divider": {
+    "scope": "html",
     "prefix": "epd",
     "body": [
       "<el-divider direction=\"${1|horizontal,vertical|}\" content-position=\"${2|center,left,right|}\">$3</el-divider>",
@@ -1091,12 +1157,14 @@
   },
 
   "Calendar": {
+    "scope": "html",
     "prefix": "epcal",
     "body": ["<el-calendar v-model=\"${1}\" :first-day-of-week=\"${2:1}\"></el-calendar>", "${3}"],
     "description": "<el-calendar>"
   },
 
   "Image": {
+    "scope": "html",
     "prefix": "epim",
     "body": [
       "<el-image :src=\"${1}\" fit=\"${2|fill,contain,cover,none,scale-down|}\" :lazy=\"${3|true,false|}\"></el-image>",
@@ -1106,6 +1174,7 @@
   },
 
   "Backtop": {
+    "scope": "html",
     "prefix": "epback",
     "body": [
       "<el-backtop :target=\"${1}\" :right=\"${2:40}\" :bottom=\"${3:40}\">$4</el-backtop>",
@@ -1115,6 +1184,7 @@
   },
 
   "InfiniteScroll": {
+    "scope": "html",
     "prefix": "epinfi",
     "body": [
       "v-infinite-scroll=\"${1}\"",

@@ -1,5 +1,6 @@
 {
   "404 路由页面": {
+    "scope": "javascript,typescript",
     "body": [
       "{",
       "\tpath: '/:pathMatch(.*)*',",
@@ -10,11 +11,13 @@
     "prefix": "notfound"
   },
   "template": {
+    "scope": "vue",
     "prefix": "temp",
     "body": ["<template>", "\t${1}", "</template>"],
     "description": "template"
   },
   "vue3-ts-setup": {
+    "scope": "vue",
     "prefix": "vbasets",
     "body": [
       "<template>",
@@ -35,6 +38,7 @@
     "description": "vue3-ts-setup"
   },
   "vue3-setup": {
+    "scope": "vue",
     "prefix": "vbase",
     "body": [
       "<template>",
@@ -55,6 +59,7 @@
     "description": "vue3-setup"
   },
   "vue-template": {
+    "scope": "vue",
     "prefix": "vbaseop",
     "body": [
       "<template>",
