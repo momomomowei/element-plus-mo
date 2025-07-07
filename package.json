@@ -2,7 +2,7 @@
   "name": "element-plus-mo",
   "displayName": "Element Plus Mo",
   "description": "Code snippets for Element-Plus",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "publisher": "momomomowei",
   "icon": "img/icon.png",
   "license": "MIT",
@@ -35,6 +35,9 @@
       },
       {
         "path": "./src/snippets/vue.code-snippets"
+      },
+      {
+        "path": "./src/snippets/array.code-snippets"
       },
       {
         "path": "./src/snippets/vue-page.code-snippets"

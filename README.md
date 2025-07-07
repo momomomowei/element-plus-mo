@@ -117,3 +117,5 @@
 | 3 | `validate` | 自定义校验规则 |
 | 4 | `rules` | 表单校验规则 |
 | 5 | `random` | 随机数生成 |
+| 6 | `randomimage` | 随机图片 |
+| 7 | `randomheader` | 随机头像 |
