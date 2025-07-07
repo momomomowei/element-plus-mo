@@ -180,95 +180,165 @@
   // ==============================================================
   // ===========================Array==============================
   // ==============================================================
-  "forEach 循环数组": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".forEach((item, index) => {", "\t${1}", "})"],
-    "prefix": ".forEach"
-  },
-  "concat 连接数组，返回新数组": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".concat(${1:arr})"],
-    "prefix": ".concat"
-  },
-  "every 元素都符合条件,返回true/false": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".every(i => ${1})"],
-    "prefix": ".every"
-  },
-  "find 返回符合条件的第一个元素 / undefined": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".find(i => ${1})"],
-    "prefix": ".find"
-  },
-  "fill 替换全部元素": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".fill(${1})"],
-    "prefix": ".fill"
-  },
-  "filter 过滤数组，返回新数组": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".filter(i => ${1})"],
-    "prefix": ".filter"
-  },
-  "findIndex 返回符合条件的第一个元素的下标 / -1": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".findIndex(i => ${1})"],
-    "prefix": ".findIndex"
-  },
-  "includes 判断是否包含指定的元素，返回true/false": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".includes(${1})"],
-    "prefix": ".includes"
-  },
-  "indexOf 返回数组中指定元素的下标 / -1": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".indexOf(${1})"],
-    "prefix": ".indexof"
-  },
-  "join 将数组所有元素连成字符串": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".join(${1})"],
-    "prefix": ".join"
-  },
-  "map 将数组处理后返回新数组": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".map((item, index) => {", "\treturn ${1}", "})"],
-    "prefix": ".map"
-  },
-  "pop 删除最后一个元素并返回删除的元素": {
+  // ============== 会改变原数组的方法 ==============
+  "pop 删除最后有元素并返回，会改变原数组": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".pop()"],
     "prefix": ".pop"
   },
-  "push 往最后添加一个元素并返回 length": {
+  "push 往最后添加元素并返回 length，会改变原数组": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".push(${1})"],
+    "body": [".push(${1:element})"],
     "prefix": ".push"
   },
-  "shift 删除并返回数组的第一个元素": {
+  "shift 删除并返回第一个元素，会改变原数组": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".shift(${1})"],
+    "body": [".shift()"],
     "prefix": ".shift"
   },
-  "unshift 往最前添加一个元素并返回 length": {
+  "unshift 往前面添加并返回 length，会改变原数组": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".unshift(${1})"],
+    "body": [".unshift(${1:element})"],
     "prefix": ".unshift"
   },
-  "reduce 接收一个函数作为累加器，返回结果": {
+  "splice 数组增，删，改，会改变原数组": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".reduce((prev, next) => {", "\treturn ${1}", "}, initValue)"],
-    "prefix": ".reduce"
+    "body": [".splice(${1:startIndex}, ${2:deleteCount}, ${3:newItem1}, ${4:newItem2})"],
+    "prefix": ".splice"
   },
-  "reverse 反转数组": {
+  "reverse 反转数组，会改变原数组": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".reverse()"],
     "prefix": ".reverse"
+  },
+  "fill 替换全部元素，会改变原数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".fill(${1:value})"],
+    "prefix": ".fill"
+  },
+  "sort 纯数字排序，会改变原数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".sort((a, b) => a - b)"],
+    "prefix": ".sortnumber"
+  },
+  "copyWithin 复制数组的一部分到其他位置，会改变原数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".copyWithin(${1:targetIndex}, ${2:startIndex}, ${3:endIndex})"],
+    "prefix": ".copyWithin"
+  },
+
+  // ============== 不会改变原数组的方法 ==============
+  "map 将数组处理后返回新数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".map((item, index) => {", "\treturn ${1:newItem}", "})"],
+    "prefix": ".map"
+  },
+  "filter 过滤数组，返回新数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".filter(item => ${1:condition})"],
+    "prefix": ".filter"
+  },
+  "concat 连接数组，返回新数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".concat(${1:array})"],
+    "prefix": ".concat"
   },
   "slice 截取数组": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "body": [".slice(${1:startIndex}, ${2:endIndex})"],
     "prefix": ".slice"
+  },
+  "flatMap 映射并展平结果": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".flatMap(item => ${1:newArray})"],
+    "prefix": ".flatMap"
+  },
+  "flat 展平嵌套数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".flat(${1:depth})"],
+    "prefix": ".flat"
+  },
+  "reduce 接收一个函数作为累加器，返回结果": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [
+      ".reduce((accumulator, currentValue) => {",
+      "\treturn ${1:result}",
+      "}, ${2:initialValue})"
+    ],
+    "prefix": ".reduce"
+  },
+
+  // ============== 数组查找方法 ==============
+  "indexOf 返回数组中指定元素的索引 / -1": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".indexOf(${1:searchElement}, ${2:fromIndex})"],
+    "prefix": ".indexof"
+  },
+  "lastIndexOf 从后向前查找索引 / -1": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".lastIndexOf(${1:searchElement}, ${2:fromIndex})"],
+    "prefix": ".lastIndexOf"
+  },
+  "includes 判断是否包含指定的元素，返回true/false": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".includes(${1:searchElement}, ${2:fromIndex})"],
+    "prefix": ".includes"
+  },
+  "find 返回符合条件的第一个元素 / undefined": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".find(item => ${1:condition})"],
+    "prefix": ".find"
+  },
+  "findIndex 返回符合条件的第一个元素的下标 / -1": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".findIndex(item => ${1:condition})"],
+    "prefix": ".findIndex"
+  },
+
+  // ============== 数组判断方法 ==============
+  "every 元素都符合条件,返回true/false": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".every(item => ${1:condition})"],
+    "prefix": ".every"
+  },
+  "some 检测数组中是否有元素满足指定条件，返回true/false": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".some(item => ${1:condition})"],
+    "prefix": ".some"
+  },
+
+  // ============== 数组遍历方法 ==============
+  "forEach 循环数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".forEach((item, index) => {", "\t${1}", "})"],
+    "prefix": ".forEach"
+  },
+  "entries 获取数组的键值对迭代器": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".entries()"],
+    "prefix": ".entries"
+  },
+  "keys 获取数组的键迭代器": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".keys()"],
+    "prefix": ".keys"
+  },
+  "values 获取数组的值迭代器": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".values()"],
+    "prefix": ".values"
+  },
+
+  // ============== 字符串方法 ==============
+  "join 将数组所有元素连成字符串": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".join(${1:separator})"],
+    "prefix": ".join"
+  },
+  "split 把一个字符串分割成字符串数组": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "body": [".split(${1:separator});"],
+    "prefix": ".split"
   },
   "substring 截取字符": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -277,28 +347,8 @@
   },
   "substr 截取字符": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".substr(${1:startIndex}, ${2:length)"],
+    "body": [".substr(${1:startIndex}, ${2:length})"],
     "prefix": ".substr"
-  },
-  "some 检测数组中是否有元素满足指定条件，返回true/false": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".some(i => ${1})"],
-    "prefix": ".some"
-  },
-  "sort 纯数字排序": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".sort((a,b) => a - b)"],
-    "prefix": ".sortnumber"
-  },
-  "split 把一个字符串分割成字符串数组": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".split(${2:分隔符});"],
-    "prefix": ".split"
-  },
-  "splice 数组增，删，改": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "body": [".splice(${1:startIndex},${2:count});"],
-    "prefix": ".splice"
   }
   // ===========================Array ENd===================================
 }
